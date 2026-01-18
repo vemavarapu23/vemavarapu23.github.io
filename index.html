@@ -6,7 +6,6 @@
     <title>Sruthi Vemavarapu | Data Analyst</title>
     
     <link rel="icon" type="image/x-icon" href="image/IMG_0114.jpeg">
-    
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -31,7 +30,6 @@
         /* --- MAIN CONTENT --- */
         #main-content { margin-left: var(--sidebar-w); width: calc(100% - var(--sidebar-w)); }
 
-        /* HERO SECTION */
         .hero { 
             height: 100vh; 
             background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.2)), url('image/IMG_2427.jpeg'); 
@@ -40,7 +38,6 @@
         }
         .hero h1 { font-family: 'Montserrat', sans-serif; font-size: clamp(3rem, 10vw, 6rem); font-weight: 900; color: #fff; line-height: 0.85; }
 
-        /* SECTIONS */
         .section { padding: 100px 10%; border-bottom: 1px solid var(--border); }
         .label { font-size: 0.65rem; color: #aaa; text-transform: uppercase; letter-spacing: 5px; font-weight: 700; margin-bottom: 15px; display: block; }
         .heading { font-family: 'Montserrat', sans-serif; font-size: 2.2rem; font-weight: 900; margin-bottom: 40px; text-transform: uppercase; }
@@ -56,26 +53,26 @@
         .item::before { content: ''; position: absolute; left: -49px; top: 5px; width: 16px; height: 16px; background: #000; border-radius: 50%; }
         .item h4 { font-family: 'Montserrat', sans-serif; font-size: 1.3rem; font-weight: 800; }
         .item .sub { color: #3498db; font-weight: 700; font-size: 0.85rem; display: block; margin: 5px 0 15px 0; }
-        .item li::before { content: "•"; font-weight: bold; color: #000; display: inline-block; width: 1em; margin-left: -1em; }
-
+        
         .ach-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
         .ach-grid img { width: 100%; border: 1px solid var(--border); }
 
-        /* CERTIFICATION CARDS - UPDATED */
+        /* --- CERTIFICATION STYLING --- */
         .cert-card { padding: 25px; border: 1px solid var(--border); margin-bottom: 20px; background: #fafafa; display: block; text-decoration: none; color: inherit; transition: 0.3s; }
-        .cert-card:hover { border-color: #000; background: #fff; }
-        .cert-card h5 { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1rem; margin-bottom: 5px; }
+        .cert-card:hover { border-color: #000; background: #fff; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .cert-card h5 { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1.05rem; margin-bottom: 5px; }
         .cert-card p { font-size: 0.85rem; color: #666; }
 
-        .contact-box { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+        /* --- CONTACT STYLING --- */
+        .contact-box { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 20px; }
         .contact-card { background: #fafafa; border: 1px solid var(--border); padding: 35px 15px; text-align: center; text-decoration: none; color: #000; border-radius: 4px; transition: 0.3s; }
+        .contact-card i { font-size: 1.5rem; margin-bottom: 10px; display: block; }
         .contact-card:hover { background: #000; color: #fff; }
 
         @media (max-width: 1024px) {
             body { flex-direction: column; }
             #sidebar { width: 100%; height: auto; position: relative; border-right: none; }
             #main-content { margin-left: 0; width: 100%; }
-            .hero h1 { font-size: 4rem; }
             .grid, .contact-box, .ach-grid { grid-template-columns: 1fr; }
         }
     </style>
@@ -89,7 +86,7 @@
             <p class="sidebar-tag">Data Analyst</p>
         </div>
         <nav class="nav-menu">
-            <a href="#about" class="nav-link">The Narrative</a>
+            <a href="#about" class="nav-link">Narrative</a>
             <a href="#projects" class="nav-link">Work</a>
             <a href="#experience" class="nav-link">Impact</a>
             <a href="#education" class="nav-link">Education</a>
@@ -107,8 +104,8 @@
         <section id="about" class="section">
             <span class="label">My Narrative</span>
             <h2 class="heading">Recruiter Transformed into Data Analyst</h2>
-            <p style="font-size: 1.15rem; line-height: 1.9; color: #333;">
-                I am currently a Data Science student at the <b>University of St. Thomas</b>. My foundation was built in recruitment, where I grew into a <b>Team Lead</b> over 3.5 years. I realized that data—not just intuition—drives the best business outcomes. I specialize in cleaning messy datasets into clear visual stories using <b>SQL, Tableau, and Excel</b>.
+            <p style="font-size: 1.1rem; line-height: 1.8; color: #333;">
+                I am a Data Science student at the <b>University of St. Thomas</b>. My foundation was built in recruitment, where I grew into a <b>Team Lead</b>. This experience taught me that data is the pulse of business strategy. I specialize in cleaning messy datasets into clear visual stories using <b>SQL, Tableau, and Excel</b>.
             </p>
         </section>
 
@@ -142,16 +139,11 @@
                 <div class="item">
                     <h4>Tech Desk Assistant</h4>
                     <span class="sub">University of St. Thomas | 2024 - Present</span>
-                    <ul><li>Managing technical troubleshooting and data infrastructure.</li></ul>
                 </div>
                 <div class="item">
                     <h4>Team Lead (Recruitment Operations)</h4>
                     <span class="sub">Avance Consulting | Feb 2021 - Aug 2024</span>
-                    <ul>
-                        <li>Led a team of 8 recruiters, analyzing data for 500+ candidates monthly.</li>
-                        <li>Designed Excel dashboards to track performance and pipelines.</li>
-                        <li>Reduced placement time by 30% through process improvement.</li>
-                    </ul>
+                    <p style="font-size: 0.95rem; color: #444;">Led a team of 8 recruiters, analyzing performance metrics to reduce candidate placement time by 30%.</p>
                 </div>
             </div>
         </section>
@@ -160,7 +152,7 @@
             <span class="label">Academic Core</span>
             <h2 class="heading">Education</h2>
             <div class="timeline">
-                <div class="item"><h4>MS in Data Science</h4><span class="sub">University of St. Thomas, MN | 2024 - 2026</span></div>
+                <div class="item"><h4>MS in Data Science</h4><span class="sub">University of St. Thomas, MN</span></div>
                 <div class="item"><h4>Bachelor of Technology</h4><span class="sub">JNTU, Hyderabad</span></div>
             </div>
         </section>
@@ -169,18 +161,49 @@
             <span class="label">Recognition</span>
             <h2 class="heading">Achievements</h2>
             <div class="ach-grid">
-                <img src="image/IMG_4080.jpeg">
-                <img src="image/IMG_4082.jpeg">
+                <img src="image/IMG_4080.jpeg" alt="Achievement 1">
+                <img src="image/IMG_4082.jpeg" alt="Achievement 2">
             </div>
         </section>
 
         <section id="certifications" class="section">
             <span class="label">Verification</span>
-            <h2 class="heading">Technical Credentials</h2>
+            <h2 class="heading">Certifications</h2>
             
             <a href="https://www.linkedin.com/learning/certificates/2f76e2d9c8820f9ad965de474451b8eff0a479d3b12a6453a635ad330c4aa0d1" target="_blank" class="cert-card">
                 <h5>Excel Statistics Essential Training: 1</h5>
                 <p>LinkedIn Learning • Click to verify</p>
             </a>
 
-            <a href="https://www
+            <a href="https://www.coursera.org/account/accomplishments/records/BL8AN6O668AR" target="_blank" class="cert-card">
+                <h5>Data Visualization with Tableau Specialization</h5>
+                <p>Coursera | UC Davis • Click to verify</p>
+            </a>
+
+            <a href="https://www.coursera.org/account/accomplishments/records/22QEABQ72P8Z" target="_blank" class="cert-card">
+                <h5>SQL for Data Science</h5>
+                <p>Coursera | UC Davis • Click to verify</p>
+            </a>
+        </section>
+
+        <section id="contact" class="section" style="border:none; padding-bottom: 150px;">
+            <span class="label">Connect</span>
+            <h2 class="heading">Get In Touch</h2>
+            <div class="contact-box">
+                <a href="mailto:sruthivemavarapus@outlook.com" class="contact-card">
+                    <i class="fas fa-envelope"></i>
+                    <p>Email</p>
+                </a>
+                <a href="https://linkedin.com/in/sruthi-vemavarapu-0b614b198/" target="_blank" class="contact-card">
+                    <i class="fab fa-linkedin"></i>
+                    <p>LinkedIn</p>
+                </a>
+                <a href="https://github.com/vemavarapu23" target="_blank" class="contact-card">
+                    <i class="fab fa-github"></i>
+                    <p>GitHub</p>
+                </a>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
