@@ -3,261 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sruthi Vemavarapu | Data Science & Analytics</title>
+    <title>Sruthi Vemavarapu | Data Science Portfolio</title>
     
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
         :root {
             --sidebar-width: 280px;
-            --primary-blue: #007bff;
+            --accent-color: #007bff;
+            --dark-bg: #0f172a;
+            --glass-white: rgba(255, 255, 255, 0.95);
+            --gradient: linear-gradient(135deg, #0061ff 0%, #60efff 100%);
         }
 
-        body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #333; margin: 0; }
+        body { font-family: 'Poppins', sans-serif; background-color: #f4f7f6; color: #334155; margin: 0; }
 
-        /* FIXED SIDEBAR - RICHA STYLE */
+        /* VIBRANT SIDEBAR */
         #sidebar {
             width: var(--sidebar-width);
             height: 100vh;
             position: fixed;
             left: 0;
             top: 0;
-            background: #ffffff;
-            border-right: 1px solid #f0f0f0;
-            padding: 50px 35px;
+            background: var(--dark-bg);
+            color: white;
+            padding: 40px 30px;
             z-index: 1000;
-            display: flex;
-            flex-direction: column;
+            box-shadow: 4px 0 15px rgba(0,0,0,0.1);
         }
 
-        /* PROFILE PIC IN SIDEBAR */
         .sidebar-pic {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            border-radius: 20px; /* Modern rounded corners */
             object-fit: cover;
-            margin-bottom: 20px;
-            border: 1px solid #eee;
+            margin-bottom: 25px;
+            border: 3px solid var(--accent-color);
+            padding: 3px;
         }
 
-        .sidebar-name { font-weight: 800; font-size: 1.5rem; color: #000; line-height: 1.1; text-transform: uppercase; margin-bottom: 5px; }
-        .sidebar-tagline { font-size: 0.7rem; letter-spacing: 2px; color: #999; text-transform: uppercase; margin-bottom: 40px; }
+        .sidebar-name { font-weight: 800; font-size: 1.6rem; line-height: 1.1; color: white; margin-bottom: 5px; }
+        .sidebar-tagline { font-size: 0.75rem; color: #94a3b8; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 30px; }
 
         .nav-menu a {
-            color: #666;
+            color: #cbd5e1;
             text-decoration: none;
             display: block;
-            padding: 10px 0;
-            font-size: 0.9rem;
-            font-weight: 500;
+            padding: 12px 15px;
+            font-size: 0.95rem;
+            border-radius: 8px;
+            margin-bottom: 5px;
             transition: 0.3s;
         }
-        .nav-menu a:hover { color: #000; transform: translateX(5px); }
+        .nav-menu a:hover { background: rgba(255,255,255,0.1); color: #60efff; padding-left: 25px; }
 
-        /* MAIN CONTENT AREA */
+        /* MAIN CONTENT */
         #main { margin-left: var(--sidebar-width); }
 
-        /* HERO SECTION WITH BACKGROUND IMAGE */
+        /* HERO WITH VIBRANT GRADIENT OVERLAY */
         .hero-section { 
             height: 100vh; 
             display: flex; 
             align-items: center; 
             padding: 0 80px; 
-            background: linear-gradient(rgba(255,255,255,0.4), rgba(255,255,255,0.4)), url('image/IMG_2427.jpeg');
+            background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)), url('image/IMG_2427.jpeg');
             background-size: cover;
             background-position: center;
+            color: white;
         }
-        .hero-name { font-size: 5rem; font-weight: 900; color: #000; margin: 10px 0; letter-spacing: -2px; }
+        .hero-name { font-size: 5.5rem; font-weight: 800; margin: 0; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
-        /* SECTION STYLING */
-        .section-padding { padding: 100px 80px; border-bottom: 1px solid #f8f8f8; }
-        .section-header { font-size: 2.5rem; font-weight: 900; color: #000; margin-bottom: 10px; }
-        .section-subheader { font-size: 1.1rem; color: #888; font-weight: 400; margin-bottom: 50px; }
+        /* SECTION TITLES */
+        .section-padding { padding: 100px 80px; }
+        .section-header { font-size: 2.5rem; font-weight: 800; color: #1e293b; margin-bottom: 10px; }
+        .section-header::after { content: ''; display: block; width: 60px; height: 5px; background: var(--gradient); border-radius: 10px; margin-top: 10px; }
 
-        /* PORTFOLIO TILES */
-        .project-tile { margin-bottom: 60px; text-decoration: none; color: inherit; display: block; transition: 0.3s; }
-        .project-tile img { width: 100%; height: 400px; object-fit: cover; border-radius: 4px; margin-bottom: 20px; transition: 0.4s; }
-        .project-tile:hover { transform: translateY(-5px); }
-        .project-tile:hover img { opacity: 0.85; }
-        .project-title { font-size: 1.4rem; font-weight: 700; color: #000; margin-bottom: 5px; }
-        .project-category { font-size: 0.8rem; color: #999; text-transform: uppercase; letter-spacing: 1px; }
+        /* COLORFUL PROJECT TILES */
+        .project-tile { 
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
+            transition: all 0.4s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        .project-tile:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .project-tile img { width: 100%; height: 280px; object-fit: cover; }
+        .project-content { padding: 25px; border-top: 5px solid #60efff; }
+        .project-title { font-weight: 700; font-size: 1.3rem; color: #1e293b; }
+        .project-category { font-size: 0.8rem; color: var(--accent-color); font-weight: 600; text-transform: uppercase; }
 
-        /* EXPERIENCE & EDUCATION */
-        .item-block { margin-bottom: 50px; }
-        .item-title { font-size: 1.6rem; font-weight: 800; color: #000; }
-        .item-subtitle { font-size: 1.1rem; font-weight: 600; color: #444; margin-top: 5px; }
-        .item-date { font-size: 0.9rem; color: #aaa; margin-bottom: 20px; }
-        .item-desc { padding-left: 20px; color: #555; line-height: 1.8; }
+        /* EXPERIENCE BLOCKS */
+        .item-block { background: white; padding: 30px; border-radius: 15px; margin-bottom: 30px; border-left: 5px solid var(--accent-color); }
+        
+        /* ACHIEVEMENTS CARDS */
+        .achievement-card { 
+            background: white; 
+            padding: 20px; 
+            border-radius: 15px; 
+            text-align: center; 
+            border: 1px solid #e2e8f0;
+            transition: 0.3s;
+        }
+        .achievement-card:hover { border-color: #60efff; }
+        .achievement-card img { height: 300px; object-fit: contain; border-radius: 10px; }
 
-        /* ACHIEVEMENT CARDS WITH YOUR IMAGES */
-        .achievement-card { border: none; margin-bottom: 40px; }
-        .achievement-card img { height: 400px; object-fit: contain; width: 100%; background: #f9f9f9; padding: 20px; border-radius: 8px; border: 1px solid #eee; }
-        .achievement-text { font-weight: 700; margin-top: 15px; color: #000; }
-
-        /* CONTACT */
-        .contact-email { font-size: 2rem; font-weight: 800; color: #000; text-decoration: none; border-bottom: 3px solid #000; }
+        /* FOOTER / CONTACT */
+        #contact { background: var(--dark-bg); color: white; }
+        .contact-email { font-size: 2.2rem; font-weight: 800; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-decoration: none; }
 
         @media (max-width: 992px) {
-            #sidebar { width: 100%; height: auto; position: relative; border-right: none; padding: 30px; }
+            #sidebar { width: 100%; height: auto; position: relative; padding: 30px; }
             #main { margin-left: 0; }
             .section-padding { padding: 60px 30px; }
-            .hero-name { font-size: 3.5rem; }
-            .hero-section { padding: 0 30px; }
         }
     </style>
 </head>
 <body>
 
     <div id="sidebar">
-        <img src="image/IMG_0114.jpeg" alt="Sruthi Vemavarapu" class="sidebar-pic">
-        <div class="sidebar-name">Sruthi<br>Vemavarapu</div>
-        <div class="sidebar-tagline">Data Scientist Student</div>
+        <img src="image/IMG_0114.jpeg" alt="Sruthi profile" class="sidebar-pic">
+        <div class="sidebar-name">SRUTHI<br>VEMAVARAPU</div>
+        <div class="sidebar-tagline">Data Science Graduate</div>
         
-        <nav class="nav-menu">
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#portfolio">Portfolio</a>
-            <a href="#experience">Experience</a>
-            <a href="#education">Education</a>
-            <a href="#achievements">Achievements</a>
-            <a href="#contact">Contact</a>
-        </nav>
-
-        <div class="mt-auto">
-            <a href="https://linkedin.com/in/sruthi-vemavarapu-0b614b198/" target="_blank" class="text-dark me-3"><i class="fab fa-linkedin-in"></i></a>
-            <a href="https://github.com/vemavarapu23" target="_blank" class="text-dark"><i class="fab fa-github"></i></a>
-        </div>
-    </div>
-
-    <div id="main">
-
-        <section id="home" class="hero-section">
-            <div>
-                <p class="mb-0">Hi,</p>
-                <h1 class="hero-name">I'm Sruthi</h1>
-            </div>
-        </section>
-
-        <section id="about" class="section-padding">
-            <h2 class="section-header">About Me</h2>
-            <h3 class="section-subheader">Who Am I?</h3>
-            <div class="col-lg-10">
-                <p>I am a <strong>Data Science Student at the University of St. Thomas</strong> with a strong foundation in business and data analytics. I am focused on asking the right questions behind the data and turning information into clear, decision-ready insights.</p>
-                <p>I bring 4 years of professional experience in data-driven environments. At Avance Consulting, I was promoted to <strong>Team Lead</strong> for my ability to analyze operational pipelines and performance trends. I specialize in identifying patterns that drive efficiency and translating complex metrics into actionable leadership reports.</p>
-                <p>I am actively seeking entry-level Data Analyst or Business Analyst opportunities where I can apply my Python, SQL, and Excel skills alongside my professional leadership background.</p>
-            </div>
-        </section>
-
-        <section id="portfolio" class="section-padding">
-            <h2 class="section-header">My Work</h2>
-            <h3 class="section-subheader">How do I turn ideas into results?</h3>
-            <div class="row">
-                <div class="col-md-6">
-                    <a href="https://github.com/vemavarapu23" target="_blank" class="project-tile">
-                        <img src="image/snowflake-dashboard.jpg" alt="Snowflake">
-                        <div class="project-title">Financial Calendar Analytics</div>
-                        <div class="project-category">Snowflake | SQL | Automation</div>
-                    </a>
-                </div>
-                <div class="col-md-6">
-                    <a href="https://github.com/vemavarapu23/AI_Impact_on_job_market" target="_blank" class="project-tile">
-                        <img src="image/ai-job-market.jpg" alt="AI Project">
-                        <div class="project-title">AI Impact on Job Market</div>
-                        <div class="project-category">Python | Tableau | Data Viz</div>
-                    </a>
-                </div>
-                <div class="col-md-6">
-                    <a href="https://github.com/vemavarapu23/MachineLearning_Loan_Approval_Prediction" target="_blank" class="project-tile">
-                        <img src="image/ml-confusion-matrix.jpg" alt="ML Project">
-                        <div class="project-title">Loan Approval Prediction</div>
-                        <div class="project-category">Machine Learning | Scikit-Learn</div>
-                    </a>
-                </div>
-                <div class="col-md-6">
-                    <a href="https://github.com/vemavarapu23/Walmart-Sales--Analysis" target="_blank" class="project-tile">
-                        <img src="image/walmart-dashboard.jpg" alt="Walmart Project">
-                        <div class="project-title">Walmart Sales Analytics</div>
-                        <div class="project-category">Excel | Pivot Tables | Dashboarding</div>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <section id="experience" class="section-padding">
-            <h2 class="section-header">Work Experience</h2>
-            <h3 class="section-subheader">How have I made an impact?</h3>
-
-            <div class="item-block">
-                <div class="item-title">University of St. Thomas</div>
-                <div class="item-subtitle">Tech Desk Assistant</div>
-                <div class="item-date">2024 - Present</div>
-                <ul class="item-desc">
-                    <li>Provide technical support and troubleshooting for university software, hardware, and network connectivity.</li>
-                    <li>Manage and document support tickets efficiently, ensuring timely resolution of technical issues.</li>
-                </ul>
-            </div>
-
-            <div class="item-block">
-                <div class="item-title">Avance Consulting</div>
-                <div class="item-subtitle">Team Lead (Promoted from Recruiter)</div>
-                <div class="item-date">2020 - 2024</div>
-                <ul class="item-desc">
-                    <li>Led a team of 8, analyzing hiring data for 500+ candidates monthly to optimize workflows.</li>
-                    <li>Designed Excel dashboards to track performance metrics and recruitment timelines for management.</li>
-                </ul>
-            </div>
-        </section>
-
-        <section id="education" class="section-padding">
-            <h2 class="section-header">Education</h2>
-            <h3 class="section-subheader">Where did I build my foundation?</h3>
-            
-            <div class="item-block">
-                <div class="item-title">Master of Science in Data Science</div>
-                <div class="item-subtitle">University of St. Thomas, Saint Paul, MN</div>
-                <div class="item-date">2024 - 2026</div>
-            </div>
-
-            <div class="item-block">
-                <div class="item-title">Bachelor of Technology (B.Tech)</div>
-                <div class="item-subtitle">JNTU Hyderabad</div>
-            </div>
-        </section>
-
-        <section id="achievements" class="section-padding">
-            <h2 class="section-header">Achievements</h2>
-            <h3 class="section-subheader">Recognition of Excellence</h3>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="achievement-card">
-                        <img src="image/IMG_4080.jpeg" alt="Wisestep Certification">
-                        <div class="achievement-text">Intermediate Wisestep Certification</div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="achievement-card">
-                        <img src="image/IMG_4082.jpeg" alt="Client Award">
-                        <div class="achievement-text">Enlarging New Clients Award</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="section-padding">
-            <h2 class="section-header">Get in Touch</h2>
-            <h3 class="section-subheader">Let’s start a conversation!</h3>
-            <a href="mailto:sruthivemavarapus@outlook.com" class="contact-email">sruthivemavarapus@outlook.com</a>
-            <div class="mt-5">
-                <p>Saint Paul, MN</p>
-                <div class="mt-3">
-                    <a href="https://linkedin.com/in/sruthi-vemavarapu-0b614b198/" target="_blank" class="btn btn-dark me-2">LinkedIn</a>
-                    <a href="https://github.com/vemavarapu23" target="_blank" class="btn btn-outline-dark">GitHub</a>
-                </div>
-            </div>
-        </section>
-
-    </div>
-
-</body>
-</html>
+        <nav class="nav-menu mt-4">
+            <a href="#home"><i class="fas fa-home me-2"></i> Home</a>
+            <a href="#about"><i class="fas fa-user me-2"></i> About</a>
+            <a href="#portfolio"><i class="fas fa-code me-2"></i> Projects</a>
+            <a href="#experience"><i class="fas fa-briefcase me-2"></i> Experience</a>
+            <a href="#education"><i class="fas fa-graduation-cap me-2"></i> Education</a>
+            <a href="#achievements"><i class="
