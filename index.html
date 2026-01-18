@@ -51,37 +51,8 @@
 
         /* TIMELINE (Experience & Education) */
         .timeline { border-left: 2px solid #f5f5f5; padding-left: 40px; position: relative; }
-        .item { position: relative; margin-bottom: 50px; }
+        .item { position: relative; margin-bottom: 60px; }
         .item::before { content: ''; position: absolute; left: -49px; top: 5px; width: 16px; height: 16px; background: #000; border-radius: 50%; }
         .item h4 { font-family: 'Montserrat', sans-serif; font-size: 1.2rem; font-weight: 800; }
-        .item .sub { color: #555; font-weight: 700; font-size: 0.85rem; display: block; margin-bottom: 10px; }
-
-        /* ACHIEVEMENTS GRID */
-        .ach-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        .ach-grid img { width: 100%; border: 1px solid var(--border); border-radius: 4px; transition: 0.3s; }
-        .ach-grid img:hover { transform: scale(1.02); }
-
-        /* CERTIFICATIONS LIST */
-        .cert-list { list-style: none; }
-        .cert-item { display: flex; align-items: center; padding: 20px; border: 1px solid var(--border); margin-bottom: 15px; transition: 0.3s; }
-        .cert-item:hover { background: #f9f9f9; }
-        .cert-item i { font-size: 1.5rem; margin-right: 20px; color: #3498db; }
-        .cert-item div h5 { font-size: 0.95rem; font-weight: 700; }
-        .cert-item div p { font-size: 0.75rem; color: #888; }
-
-        /* CONTACT CARDS */
-        .contact-box { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
-        .contact-card { background: #fcfcfc; border: 1px solid var(--border); padding: 30px 15px; text-align: center; text-decoration: none; color: #000; border-radius: 5px; transition: 0.3s; }
-        .contact-card:hover { background: #000; color: #fff; }
-        .contact-card i { font-size: 1.5rem; margin-bottom: 10px; display: block; }
-        .contact-card p { font-weight: 700; font-size: 0.8rem; }
-
-        @media (max-width: 1024px) {
-            body { flex-direction: column; }
-            .sidebar { width: 100%; height: auto; position: relative; border-right: none; }
-            .main { margin-left: 0; width: 100%; }
-            .grid, .contact-box, .ach-grid { grid-template-columns: 1fr; }
-        }
-    </style>
-</head>
-<body>
+        .item .sub { color: #3498db; font-weight: 700; font-size: 0.85rem; display: block; margin-bottom: 10px; }
+        .item ul { list-style: none; margin-top: 10
