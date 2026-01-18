@@ -12,16 +12,18 @@
     
     <style>
         :root {
-            --sidebar-width: 300px;
-            --accent: #6366f1;
-            --glass: rgba(255, 255, 255, 0.85);
+            --sidebar-width: 320px;
+            --accent: #6366f1; /* Rich Indigo */
+            --glass-bg: rgba(255, 255, 255, 0.85);
+            --dark-text: #0f172a;
         }
 
         body { 
             font-family: 'Plus Jakarta Sans', sans-serif; 
-            background-color: #f8fafc; 
-            color: #0f172a; 
+            background-color: #f0f2f5; 
+            color: var(--dark-text); 
             margin: 0;
+            overflow-x: hidden;
         }
 
         /* --- STICKY SIDEBAR --- */
@@ -32,35 +34,253 @@
             left: 0; top: 0;
             background: #ffffff;
             border-right: 1px solid #e2e8f0;
-            padding: 50px 40px;
+            padding: 50px 45px;
             z-index: 1000;
             display: flex;
             flex-direction: column;
+            box-shadow: 10px 0 30px rgba(0,0,0,0.02);
         }
 
         .profile-img {
-            width: 100px; height: 100px;
-            border-radius: 28px;
+            width: 110px; height: 110px;
+            border-radius: 30px;
             object-fit: cover;
             margin-bottom: 25px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.15);
+            border: 3px solid #fff;
         }
+
+        .sidebar-name { font-weight: 800; font-size: 1.8rem; line-height: 1.1; color: var(--dark-text); }
+        .sidebar-tag { font-size: 0.75rem; font-weight: 700; color: #94a3b8; letter-spacing: 2px; text-transform: uppercase; margin-top: 10px; }
 
         .nav-menu a {
             color: #64748b;
             text-decoration: none;
             display: block;
-            padding: 12px 0;
+            padding: 15px 0;
             font-weight: 600;
+            font-size: 1.1rem;
             transition: 0.3s;
         }
-        .nav-menu a:hover { color: var(--accent); transform: translateX(8px); }
+        .nav-menu a:hover { color: var(--accent); transform: translateX(10px); }
 
         /* --- MAIN CONTENT --- */
         #main { margin-left: var(--sidebar-width); }
 
-        /* --- HERO SECTION (Background Image is Fixed & Visible) --- */
+        /* --- HERO SECTION (High Visual Impact) --- */
         .hero-section {
             height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('image/IMG_2427.jpeg');
+            position: relative;
+            background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('image/IMG_2427.jpeg'), linear-gradient(135deg, #6366f1, #a855f7);
             background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            padding: 0 10%;
+        }
+
+        .hero-content {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 60px;
+            border-radius: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        .hero-name { font-size: 6rem; font-weight: 900; letter-spacing: -4px; line-height: 0.9; margin: 0; }
+
+        /* --- GLASS SECTIONS --- */
+        .section-padding { padding: 120px 10%; }
+        
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            border-radius: 40px;
+            padding: 60px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.05);
+            margin-bottom: 50px;
+        }
+
+        .section-title { font-size: 3.5rem; font-weight: 800; margin-bottom: 20px; color: var(--dark-text); }
+        .section-sub { font-size: 1.2rem; color: var(--accent); font-weight: 700; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 50px; }
+
+        /* --- SKILLS --- */
+        .skill-pill {
+            display: inline-block;
+            padding: 12px 30px;
+            background: white;
+            color: var(--accent);
+            border-radius: 20px;
+            font-weight: 800;
+            margin: 0 10px 10px 0;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.03);
+            border: 1px solid #f1f5f9;
+        }
+
+        /* --- PROJECT GRID --- */
+        .project-box {
+            background: #fff;
+            border-radius: 35px;
+            overflow: hidden;
+            transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            margin-bottom: 30px;
+            border: 1px solid #f1f5f9;
+        }
+        .project-box:hover { transform: translateY(-15px); box-shadow: 0 40px 80px rgba(99, 102, 241, 0.15); }
+        .project-box img { width: 100%; height: 320px; object-fit: cover; background: #eee; }
+        .project-details { padding: 35px; }
+
+        /* --- CONTACT PILL --- */
+        .contact-pill {
+            background: var(--dark-text);
+            border-radius: 50px;
+            padding: 80px;
+            color: white;
+            text-align: center;
+        }
+        .contact-email { 
+            font-size: 2.5rem; font-weight: 800; color: white; 
+            text-decoration: none; border-bottom: 5px solid var(--accent);
+            display: inline-block; margin-bottom: 40px;
+        }
+        .social-link {
+            padding: 15px 35px;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border-radius: 15px;
+            text-decoration: none;
+            font-weight: 700;
+            margin: 0 10px;
+            transition: 0.3s;
+        }
+        .social-link:hover { background: var(--accent); transform: scale(1.1); }
+
+        @media (max-width: 992px) {
+            #sidebar { width: 100%; height: auto; position: relative; padding: 30px; }
+            #main { margin-left: 0; }
+            .hero-name { font-size: 4rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav id="sidebar">
+        <img src="image/IMG_0114.jpeg" alt="Sruthi" class="profile-img">
+        <div class="sidebar-name">SRUTHI<br>VEMAVARAPU</div>
+        <div class="sidebar-tag">Data Scientist</div>
+        
+        <div class="nav-menu mt-5">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#portfolio">Projects</a>
+            <a href="#education">Education</a>
+            <a href="#achievements">Achievements</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <div id="main">
+
+        <section id="home" class="hero-section">
+            <div class="hero-content" data-aos="zoom-out">
+                <p class="h4 fw-bold">Hello World, I'm</p>
+                <h1 class="hero-name">SRUTHI.</h1>
+            </div>
+        </section>
+
+        <section id="about" class="section-padding">
+            <div class="glass-card" data-aos="fade-up">
+                <h2 class="section-title">About Me</h2>
+                <p class="fs-4 lh-base text-dark">
+                    I am a <strong>Data Science Student at the University of St. Thomas</strong> with 4 years of experience as a Team Lead, managing complex data pipelines and high-performing analytical teams.
+                </p>
+                <p class="text-muted fs-5 mb-5">
+                    I specialize in identifying patterns and translating them into clear, actionable business insights.
+                </p>
+                
+                <h5 class="fw-bold mb-4">PRIMARY TOOLS:</h5>
+                <div class="d-flex flex-wrap">
+                    <div class="skill-pill">SQL</div>
+                    <div class="skill-pill">TABLEAU</div>
+                    <div class="skill-pill">EXCEL</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="portfolio" class="section-padding">
+            <h2 class="section-title">My Projects</h2>
+            <h3 class="section-sub">Turning Data into Stories</h3>
+            <div class="row">
+                <div class="col-md-6" data-aos="fade-up">
+                    <a href="https://github.com/vemavarapu23" class="project-box">
+                        <img src="image/snowflake-dashboard.jpg" alt="Snowflake">
+                        <div class="project-details">
+                            <h4 class="fw-bold">Snowflake Analytics</h4>
+                            <p class="text-muted">Financial Calendar Data Pipeline</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <a href="https://github.com/vemavarapu23/Walmart-Sales--Analysis" class="project-box">
+                        <img src="image/walmart-dashboard.jpg" alt="Walmart">
+                        <div class="project-details">
+                            <h4 class="fw-bold">Walmart Analysis</h4>
+                            <p class="text-muted">Business Intelligence Dashboard</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="education" class="section-padding">
+            <div class="glass-card" data-aos="fade-right">
+                <h2 class="section-title">Education</h2>
+                <div class="mb-5">
+                    <h3 class="fw-bold">Master of Science in Data Science</h3>
+                    <p class="fs-5 text-muted">University of St. Thomas, MN | 2024 - 2026</p>
+                </div>
+                <div>
+                    <h3 class="fw-bold">Bachelor of Technology</h3>
+                    <p class="fs-5 text-muted">JNTU Hyderabad</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="achievements" class="section-padding">
+            <h2 class="section-title">Recognition</h2>
+            <div class="row g-5">
+                <div class="col-md-6" data-aos="zoom-in">
+                    <img src="image/IMG_4080.jpeg" alt="Award 1" style="width:100%; border-radius:35px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
+                    <p class="text-center mt-4 fw-bold fs-5">Wisestep Certification</p>
+                </div>
+                <div class="col-md-6" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="image/IMG_4082.jpeg" alt="Award 2" style="width:100%; border-radius:35px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
+                    <p class="text-center mt-4 fw-bold fs-5">Client Acquisition Award</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section-padding">
+            <div class="contact-pill" data-aos="flip-up">
+                <h2 class="display-4 fw-bold mb-4">Open to relocate anywhere in USA</h2>
+                <p class="fs-5 text-muted mb-5">Current Location: Minnesota</p>
+                <a href="mailto:sruthivemavarapus@outlook.com" class="contact-email">sruthivemavarapus@outlook.com</a>
+                <div class="mt-4">
+                    <a href="https://linkedin.com/in/sruthi-vemavarapu-0b614b198/" target="_blank" class="social-link">LinkedIn</a>
+                    <a href="https://github.com/vemavarapu23" target="_blank" class="social-link">GitHub</a>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>AOS.init({ duration: 1000, once: true });</script>
+</body>
+</html>
