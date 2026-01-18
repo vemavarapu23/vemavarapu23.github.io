@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        :root { --sidebar-width: 280px; --accent: #000000; --text-gray: #666; --border: #eeeeee; }
+        :root { --sidebar-width: 280px; --accent: #000; --text-gray: #666; --border: #eeeeee; }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; }
         body { font-family: 'Poppins', sans-serif; background: #fff; color: #1a1a1a; display: flex; }
@@ -25,7 +25,7 @@
         .sidebar-top h2 { font-family: 'Montserrat', sans-serif; font-size: 1.1rem; font-weight: 900; }
         .nav-menu { flex-grow: 1; margin-top: 20px; }
         .nav-menu a { display: block; text-decoration: none; color: var(--text-gray); font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; padding: 12px 0; transition: 0.3s; }
-        .nav-menu a:hover { color: #000; padding-left: 10px; }
+        .nav-menu a:hover { color: #000; padding-left: 10px; border-left: 2px solid #000; }
 
         /* --- MAIN --- */
         .main { margin-left: var(--sidebar-width); width: calc(100% - var(--sidebar-width)); }
@@ -49,16 +49,25 @@
         .card-info { padding: 20px; }
         .card-info h3 { font-size: 1rem; font-weight: 700; margin-bottom: 5px; }
 
-        /* TIMELINE */
+        /* TIMELINE (Experience & Education) */
         .timeline { border-left: 2px solid #f5f5f5; padding-left: 40px; position: relative; }
         .item { position: relative; margin-bottom: 50px; }
         .item::before { content: ''; position: absolute; left: -49px; top: 5px; width: 16px; height: 16px; background: #000; border-radius: 50%; }
         .item h4 { font-family: 'Montserrat', sans-serif; font-size: 1.2rem; font-weight: 800; }
         .item .sub { color: #555; font-weight: 700; font-size: 0.85rem; display: block; margin-bottom: 10px; }
 
-        /* CERT/ACHIEVEMENT GRID */
-        .img-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        .img-grid img { width: 100%; border: 1px solid var(--border); border-radius: 4px; }
+        /* ACHIEVEMENTS GRID */
+        .ach-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .ach-grid img { width: 100%; border: 1px solid var(--border); border-radius: 4px; transition: 0.3s; }
+        .ach-grid img:hover { transform: scale(1.02); }
+
+        /* CERTIFICATIONS LIST */
+        .cert-list { list-style: none; }
+        .cert-item { display: flex; align-items: center; padding: 20px; border: 1px solid var(--border); margin-bottom: 15px; transition: 0.3s; }
+        .cert-item:hover { background: #f9f9f9; }
+        .cert-item i { font-size: 1.5rem; margin-right: 20px; color: #3498db; }
+        .cert-item div h5 { font-size: 0.95rem; font-weight: 700; }
+        .cert-item div p { font-size: 0.75rem; color: #888; }
 
         /* CONTACT CARDS */
         .contact-box { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
@@ -71,138 +80,8 @@
             body { flex-direction: column; }
             .sidebar { width: 100%; height: auto; position: relative; border-right: none; }
             .main { margin-left: 0; width: 100%; }
-            .grid, .contact-box, .img-grid { grid-template-columns: 1fr; }
+            .grid, .contact-box, .ach-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-
-    <aside class="sidebar">
-        <div class="sidebar-top">
-            <img src="image/IMG_0114.jpeg" alt="Sruthi">
-            <h2>SRUTHI V.</h2>
-            <p style="font-size: 0.55rem; color: #999; letter-spacing: 1px;">Aspiring Data Analyst</p>
-        </div>
-        <nav class="nav-menu">
-            <a href="#about">The Transition</a>
-            <a href="#projects">Portfolio</a>
-            <a href="#experience">Professional Impact</a>
-            <a href="#education">Education</a>
-            <a href="#achievements">Achievements</a>
-            <a href="#certifications">Certifications</a>
-            <a href="#contact">Connect</a>
-        </nav>
-    </aside>
-
-    <main class="main">
-        <section class="hero">
-            <h1>Hi,<br>I'm Sruthi.</h1>
-        </section>
-
-        <section id="about" class="section">
-            <span class="label">My Journey</span>
-            <h2 class="heading">From Team Lead to Data Analyst</h2>
-            <p style="font-size: 1.1rem; line-height: 1.8; color: #444; margin-bottom: 25px;">
-                I am a Data Science student at the <b>University of St. Thomas</b>, but my story started in the world of recruitment. Over 4 years, I rose to become a <b>Team Lead</b>, where I discovered my passion for people-driven data. I realized that behind every successful hire was a pattern waiting to be analyzed.
-            </p>
-            <p style="font-size: 1.1rem; line-height: 1.8; color: #444; margin-bottom: 25px;">
-                This sparked a transition into <b>Data Analytics</b>. I am deeply passionate about translating raw numbers into stories that help businesses grow. Currently, I am actively seeking <b>Entry-Level / New Grad Data Analyst roles</b> where I can apply my expertise in <b>SQL, Tableau, and Excel</b> to drive impactful decisions.
-            </p>
-        </section>
-
-        <section id="projects" class="section">
-            <span class="label">Work</span>
-            <h2 class="heading">Technical Projects</h2>
-            <div class="grid">
-                <a href="https://github.com/vemavarapu23" class="card">
-                    <img src="image/snowflake-dashboard.jpg">
-                    <div class="card-info"><h3>Snowflake Data Engineering</h3><p>SQL Optimization</p></div>
-                </a>
-                <a href="https://github.com/vemavarapu23/AI_Impact_on_job_market" class="card">
-                    <img src="image/ai-job-market.jpg">
-                    <div class="card-info"><h3>AI Job Market Analytics</h3><p>Python / Seaborn</p></div>
-                </a>
-                <a href="https://github.com/vemavarapu23/MachineLearning_Loan_Approval_Prediction" class="card">
-                    <img src="image/ml-confusion-matrix.jpg">
-                    <div class="card-info"><h3>ML Loan Forecasting</h3><p>Predictive Modeling</p></div>
-                </a>
-                <a href="https://github.com/vemavarapu23/Walmart-Sales--Analysis" class="card">
-                    <img src="image/walmart-dashboard.jpg">
-                    <div class="card-info"><h3>Walmart Business Intelligence</h3><p>Tableau Visualization</p></div>
-                </a>
-            </div>
-        </section>
-
-        <section id="experience" class="section">
-            <span class="label">Career</span>
-            <h2 class="heading">Professional Impact</h2>
-            <div class="timeline">
-                <div class="item">
-                    <h4>Tech Desk Assistant</h4>
-                    <span class="sub">University of St. Thomas | 2024 - Present</span>
-                    <p>Facilitating technical solutions and managing student data systems within a campus environment.</p>
-                </div>
-                <div class="item">
-                    <h4>Team Lead (Operations)</h4>
-                    <span class="sub">Avance Consulting | 2020 - 2024</span>
-                    <p>Transitioned from a Recruiter to a leadership role, managing end-to-end operational pipelines through performance analytics.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="education" class="section">
-            <span class="label">Foundation</span>
-            <h2 class="heading">Academic Core</h2>
-            <div class="timeline">
-                <div class="item">
-                    <h4>MS in Data Science</h4>
-                    <span class="sub">University of St. Thomas, MN</span>
-                </div>
-                <div class="item">
-                    <h4>Bachelor of Technology</h4>
-                    <span class="sub">JNTU Hyderabad</span>
-                </div>
-            </div>
-        </section>
-
-        <section id="achievements" class="section">
-            <span class="label">Recognition</span>
-            <h2 class="heading">Milestones</h2>
-            <div class="img-grid">
-                <img src="image/IMG_4080.jpeg" alt="Achievement 1">
-                <p style="color: #666; font-size: 0.9rem; align-self: center;">Consistently recognized for leadership excellence and operational efficiency during my 4-year tenure as a Team Lead.</p>
-            </div>
-        </section>
-
-        <section id="certifications" class="section">
-            <span class="label">Verification</span>
-            <h2 class="heading">Certifications</h2>
-            <div class="img-grid">
-                <img src="image/IMG_4082.jpeg" alt="Certification">
-                <p style="color: #666; font-size: 0.9rem; align-self: center;">Advanced technical validation in SQL, Data Visualization, and Analytics principles.</p>
-            </div>
-        </section>
-
-        <section id="contact" class="section" style="border:none; padding-bottom: 150px;">
-            <span class="label">Get In Touch</span>
-            <h2 class="heading">Let's Connect for Open Roles</h2>
-            <p style="margin-bottom: 30px; font-weight: 700;">Actively seeking New Grad/Entry-Level roles and open to relocation.</p>
-            <div class="contact-box">
-                <a href="mailto:sruthivemavarapus@outlook.com" class="contact-card">
-                    <i class="fas fa-envelope"></i>
-                    <p>Email Me</p>
-                </a>
-                <a href="https://linkedin.com/in/sruthi-vemavarapu-0b614b198/" target="_blank" class="contact-card">
-                    <i class="fab fa-linkedin"></i>
-                    <p>LinkedIn</p>
-                </a>
-                <a href="https://github.com/vemavarapu23" target="_blank" class="contact-card">
-                    <i class="fab fa-github"></i>
-                    <p>GitHub</p>
-                </a>
-            </div>
-        </section>
-    </main>
-
-</body>
-</html>
