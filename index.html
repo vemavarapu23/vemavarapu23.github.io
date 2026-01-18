@@ -7,24 +7,26 @@
     
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     
     <style>
         :root {
-            --sidebar-width: 280px;
-            --primary-grad: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
-            --accent-pink: #f472b6;
-            --bg-glass: rgba(255, 255, 255, 0.9);
+            --sidebar-width: 300px;
+            --accent: #6366f1;
+            --text-dark: #0f172a;
+            --text-muted: #64748b;
         }
 
         body { 
             font-family: 'Plus Jakarta Sans', sans-serif; 
-            background: #fdfdff; 
-            color: #1e293b; 
+            background-color: #ffffff; 
+            color: var(--text-dark); 
             margin: 0;
+            overflow-x: hidden;
         }
 
-        /* --- STICKY SIDEBAR --- */
+        /* --- FIXED SIDEBAR --- */
         #sidebar {
             width: var(--sidebar-width);
             height: 100vh;
@@ -32,212 +34,25 @@
             left: 0; top: 0;
             background: #ffffff;
             border-right: 1px solid #f1f5f9;
-            padding: 40px 30px;
+            padding: 50px 40px;
             z-index: 1000;
             display: flex;
             flex-direction: column;
-            box-shadow: 10px 0 30px rgba(0,0,0,0.02);
         }
 
         .profile-img {
-            width: 80px; height: 80px;
-            border-radius: 20px;
-            background: var(--primary-grad); /* Colorful backup if image fails */
+            width: 90px; height: 90px;
+            border-radius: 24px;
             object-fit: cover;
-            margin-bottom: 20px;
-            box-shadow: 0 10px 20px rgba(79, 70, 229, 0.2);
+            margin-bottom: 25px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
         }
 
+        .sidebar-name { font-weight: 800; font-size: 1.7rem; line-height: 1.1; margin-bottom: 5px; }
+        .sidebar-tagline { font-size: 0.7rem; font-weight: 700; color: var(--text-muted); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 40px; }
+
         .nav-menu a {
-            color: #64748b;
+            color: var(--text-muted);
             text-decoration: none;
             display: block;
             padding: 12px 0;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: 0.3s;
-        }
-        .nav-menu a:hover { color: #4f46e5; transform: translateX(5px); }
-
-        /* --- MAIN CONTENT --- */
-        #main { margin-left: var(--sidebar-width); }
-
-        /* --- HERO SECTION (The "Impressive" Part) --- */
-        .hero-section {
-            height: 100vh;
-            background: linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.6)), url('image/IMG_2427.jpeg');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            padding: 0 10%;
-        }
-
-        .hero-name {
-            font-size: 6rem;
-            font-weight: 800;
-            letter-spacing: -4px;
-            background: var(--primary-grad);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            line-height: 1;
-        }
-
-        /* --- CARDS (Richa Style Portfolio) --- */
-        .section-padding { padding: 100px 10%; }
-        .section-header { font-size: 2.5rem; font-weight: 800; margin-bottom: 40px; }
-
-        .project-card {
-            background: white;
-            border-radius: 24px;
-            overflow: hidden;
-            border: 1px solid #f1f5f9;
-            transition: 0.4s;
-            margin-bottom: 30px;
-            display: block;
-            text-decoration: none;
-            color: inherit;
-        }
-        .project-card:hover { transform: translateY(-10px); box-shadow: 0 30px 60px rgba(0,0,0,0.08); }
-        .project-card img { width: 100%; height: 300px; object-fit: cover; background: #eee; }
-        .project-info { padding: 25px; }
-        .project-tag { font-size: 0.7rem; font-weight: 800; color: #7c3aed; text-transform: uppercase; letter-spacing: 1px; }
-        .project-title { font-size: 1.4rem; font-weight: 700; margin-top: 5px; }
-
-        /* --- AWARDS & PHOTO GALLERY --- */
-        .award-img {
-            width: 100%;
-            height: 450px;
-            object-fit: contain;
-            border-radius: 20px;
-            background: #fff;
-            padding: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-        }
-
-        .contact-pill {
-            background: var(--primary-grad);
-            color: white;
-            padding: 50px;
-            border-radius: 40px;
-            text-align: center;
-        }
-
-        @media (max-width: 992px) {
-            #sidebar { width: 100%; height: auto; position: relative; }
-            #main { margin-left: 0; }
-        }
-    </style>
-</head>
-<body>
-
-    <div id="sidebar">
-        <img src="image/IMG_0114.jpeg" alt="S" class="profile-img">
-        <h2 style="font-weight:800; font-size: 1.4rem;">SRUTHI<br>VEMAVARAPU</h2>
-        <p style="font-size: 0.7rem; color:#94a3b8; letter-spacing: 1px;">DATA SCIENTIST</p>
-        
-        <nav class="nav-menu mt-4">
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#portfolio">Portfolio</a>
-            <a href="#experience">Experience</a>
-            <a href="#education">Education</a>
-            <a href="#achievements">Achievements</a>
-            <a href="#contact">Contact</a>
-        </nav>
-        
-        <div class="mt-auto">
-            <a href="https://linkedin.com/in/sruthi-vemavarapu-0b614b198/" target="_blank" class="text-dark me-2"><i class="fab fa-linkedin"></i></a>
-            <a href="https://github.com/vemavarapu23" target="_blank" class="text-dark"><i class="fab fa-github"></i></a>
-        </div>
-    </div>
-
-    <div id="main">
-
-        <section id="home" class="hero-section">
-            <div>
-                <p style="font-weight: 600; color: #4f46e5; margin-bottom: 0;">Hi, I'm</p>
-                <h1 class="hero-name">SRUTHI.</h1>
-            </div>
-        </section>
-
-        <section id="portfolio" class="section-padding">
-            <h2 class="section-header">My Work</h2>
-            <div class="row">
-                <div class="col-md-6">
-                    <a href="https://github.com/vemavarapu23" target="_blank" class="project-card">
-                        <img src="image/snowflake-dashboard.jpg" alt="Snowflake">
-                        <div class="project-info">
-                            <span class="project-tag">Snowflake | SQL</span>
-                            <div class="project-title">Financial Calendar Analytics</div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-6">
-                    <a href="https://github.com/vemavarapu23/Walmart-Sales--Analysis" target="_blank" class="project-card">
-                        <img src="image/walmart-dashboard.jpg" alt="Walmart">
-                        <div class="project-info">
-                            <span class="project-tag">Excel | BI</span>
-                            <div class="project-title">Walmart Sales Analytics</div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <section id="experience" class="section-padding" style="background: #f8fafc;">
-            <h2 class="section-header">Experience</h2>
-            <div class="mb-5">
-                <h3 style="font-weight:800;">Avance Consulting</h3>
-                <p class="text-primary fw-bold">Team Lead (Promoted)</p>
-                <p class="text-muted">2020 - 2024</p>
-                <ul>
-                    <li>Analyzed hiring data for 500+ candidates monthly to optimize workflows.</li>
-                    <li>Designed Excel dashboards to track performance metrics for leadership.</li>
-                </ul>
-            </div>
-            <div>
-                <h3 style="font-weight:800;">University of St. Thomas</h3>
-                <p class="text-primary fw-bold">Tech Desk Assistant</p>
-                <p class="text-muted">2024 - Present</p>
-            </div>
-        </section>
-
-        <section id="education" class="section-padding">
-            <h2 class="section-header">Education</h2>
-            <div class="mb-4">
-                <h4 class="fw-bold">Master of Science in Data Science</h4>
-                <p>University of St. Thomas | 2024 - 2026</p>
-            </div>
-            <div>
-                <h4 class="fw-bold">Bachelor of Technology</h4>
-                <p>JNTU Hyderabad</p>
-            </div>
-        </section>
-
-        <section id="achievements" class="section-padding" style="background: #f8fafc;">
-            <h2 class="section-header">Achievements</h2>
-            <div class="row">
-                <div class="col-md-6 mb-4">
-                    <img src="image/IMG_4080.jpeg" alt="Award 1" class="award-img">
-                    <p class="text-center mt-3 fw-bold">Wisestep Certification</p>
-                </div>
-                <div class="col-md-6 mb-4">
-                    <img src="image/IMG_4082.jpeg" alt="Award 2" class="award-img">
-                    <p class="text-center mt-3 fw-bold">Client Acquisition Award</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="section-padding">
-            <div class="contact-pill">
-                <h2 style="font-weight: 800;">Get In Touch</h2>
-                <p>Let's discuss how data can solve your business problems.</p>
-                <a href="mailto:sruthivemavarapus@outlook.com" style="color:white; font-size: 1.5rem; font-weight: 700;">sruthivemavarapus@outlook.com</a>
-            </div>
-        </section>
-
-    </div>
-
-</body>
-</html>
