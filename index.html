@@ -7,163 +7,75 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root { --accent: #000; --text-muted: #777; }
+        :root { --accent: #000; --text-muted: #888; --sidebar-width: 320px; }
         * { box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; margin: 0; background: #fff; color: #000; line-height: 1.5; }
-        
-        /* Layout Structure */
-        .wrapper { display: flex; flex-direction: column; }
-        .section { padding: 80px 5%; border-bottom: 1px solid #eee; display: flex; }
-        .side-label { width: 30%; font-weight: 900; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; }
-        .main-content { width: 70%; }
+        body { font-family: 'Inter', sans-serif; margin: 0; background: #fff; color: #000; }
 
-        /* Hero */
-        .hero { height: 90vh; background: url('image/IMG_2427.jpeg') no-repeat center center; background-size: cover; display: flex; align-items: flex-end; padding: 60px 5%; }
-        .hero h1 { font-size: 12vw; font-weight: 900; color: #fff; margin: 0; line-height: 0.8; letter-spacing: -5px; }
-
-        /* Logos */
-        .brand-logo { width: 50px; height: 50px; object-fit: contain; margin-right: 20px; filter: grayscale(1); }
-        .exp-item { display: flex; align-items: flex-start; margin-bottom: 40px; }
-
-        /* Projects Grid - 100% Richa Look */
-        .project-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-        .project-item { text-decoration: none; color: inherit; }
-        .project-img { width: 100%; height: 400px; object-fit: cover; background: #f9f9f9; margin-bottom: 15px; transition: 0.3s; }
-        .project-item:hover .project-img { opacity: 0.8; }
-        .project-title { font-weight: 700; font-size: 1.2rem; margin-bottom: 5px; }
-        .project-cat { color: var(--text-muted); font-size: 0.9rem; text-transform: uppercase; }
-
-        /* Achievement/Cert Images */
-        .cert-gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        .cert-img { width: 100%; border-radius: 4px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-
-        /* Skill Tags */
-        .skill-tag { display: inline-block; border: 1px solid #000; padding: 5px 15px; border-radius: 30px; margin-right: 10px; font-weight: 700; font-size: 0.8rem; }
-
-        /* Contact Section */
-        .contact-links a { font-size: 3rem; font-weight: 900; color: #000; text-decoration: none; display: block; line-height: 1.1; }
-        .contact-links a:hover { color: var(--text-muted); }
-        .social-pill { display: inline-block; margin-top: 20px; margin-right: 20px; font-weight: 700; color: #000; text-decoration: none; border-bottom: 2px solid #000; }
-
-        @media (max-width: 768px) {
-            .section { flex-direction: column; }
-            .side-label { width: 100%; margin-bottom: 20px; }
-            .main-content { width: 100%; }
-            .project-grid { grid-template-columns: 1fr; }
+        /* --- FIXED SIDEBAR (Richa Signature) --- */
+        .sidebar {
+            width: var(--sidebar-width);
+            height: 100vh;
+            position: fixed;
+            left: 0; top: 0;
+            padding: 60px 40px;
+            border-right: 1px solid #eee;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background: #fff;
+            z-index: 100;
         }
-    </style>
-</head>
-<body>
+        .sidebar-top img { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin-bottom: 20px; border: 1px solid #eee; }
+        .sidebar-top h2 { font-size: 1.2rem; font-weight: 900; margin: 0; line-height: 1; letter-spacing: -1px; }
+        .nav-links { margin-top: 50px; }
+        .nav-links a { display: block; text-decoration: none; color: #888; font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; transition: 0.3s; }
+        .nav-links a:hover { color: #000; }
+        
+        /* --- MAIN CONTENT AREA --- */
+        .main-content { margin-left: var(--sidebar-width); }
 
-    <section class="hero">
-        <h1>SRUTHI.</h1>
-    </section>
+        /* HERO - Full Image Background */
+        .hero { 
+            height: 100vh; 
+            background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.2)), url('image/IMG_2427.jpeg') no-repeat center center; 
+            background-size: cover; 
+            display: flex; 
+            align-items: flex-end; 
+            padding: 60px;
+        }
+        .hero h1 { font-size: 12vw; font-weight: 900; color: #fff; margin: 0; line-height: 0.8; letter-spacing: -8px; }
 
-    <section class="section" id="about">
-        <div class="side-label">Profile</div>
-        <div class="main-content">
-            <img src="image/IMG_0114.jpeg" style="width: 120px; border-radius: 10px; margin-bottom: 30px;">
-            <p style="font-size: 2rem; font-weight: 400; max-width: 90%;">
-                I am a <b>Data Science Student at the University of St. Thomas</b> with 4 years of experience as a Team Lead. I specialize in identifying patterns and translating them into clear, actionable business insights.
-            </p>
-            <div style="margin-top: 30px;">
-                <span class="skill-tag">SQL</span>
-                <span class="skill-tag">TABLEAU</span>
-                <span class="skill-tag">EXCEL</span>
-            </div>
-        </div>
-    </section>
+        /* SECTIONS */
+        .section { padding: 100px 8%; border-bottom: 1px solid #eee; }
+        .section-header { font-size: 0.75rem; font-weight: 900; text-transform: uppercase; letter-spacing: 4px; color: #888; margin-bottom: 40px; display: block; }
+        
+        .about-text { font-size: 2.5rem; font-weight: 400; line-height: 1.2; margin-bottom: 40px; }
+        .skill-pill { display: inline-block; border: 1px solid #000; padding: 6px 18px; border-radius: 30px; margin-right: 10px; font-weight: 700; font-size: 0.8rem; }
 
-    <section class="section" id="projects">
-        <div class="side-label">Selected Work</div>
-        <div class="main-content">
-            <div class="project-grid">
-                <a href="https://github.com/vemavarapu23" class="project-item">
-                    <img src="image/snowflake-dashboard.jpg" class="project-img">
-                    <div class="project-title">Snowflake Data Pipeline</div>
-                    <div class="project-cat">SQL / Data Warehouse</div>
-                </a>
-                <a href="https://github.com/vemavarapu23/AI_Impact_on_job_market" class="project-item">
-                    <img src="image/ai-job-market.jpg" class="project-img">
-                    <div class="project-title">AI Impact Analytics</div>
-                    <div class="project-cat">Python / Visualization</div>
-                </a>
-                <a href="https://github.com/vemavarapu23/MachineLearning_Loan_Approval_Prediction" class="project-item">
-                    <img src="image/ml-confusion-matrix.jpg" class="project-img">
-                    <div class="project-title">Loan Prediction ML</div>
-                    <div class="project-cat">Machine Learning</div>
-                </a>
-                <a href="https://github.com/vemavarapu23/Walmart-Sales--Analysis" class="project-item">
-                    <img src="image/walmart-dashboard.jpg" class="project-img">
-                    <div class="project-title">Walmart Sales Analysis</div>
-                    <div class="project-cat">Excel / Tableau</div>
-                </a>
-            </div>
-        </div>
-    </section>
+        /* PROJECTS GRID */
+        .project-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        .project-card { text-decoration: none; color: inherit; }
+        .project-card img { width: 100%; height: 400px; object-fit: cover; background: #f9f9f9; transition: 0.4s; }
+        .project-card:hover img { opacity: 0.7; }
+        .project-info { margin-top: 20px; }
+        .project-info h3 { font-size: 1.3rem; margin: 0; font-weight: 800; }
+        .project-info p { color: #888; text-transform: uppercase; font-size: 0.75rem; font-weight: 700; margin-top: 5px; }
 
-    <section class="section">
-        <div class="side-label">Experience</div>
-        <div class="main-content">
-            <div class="exp-item">
-                <img src="https://logo.clearbit.com/stthomas.edu" class="brand-logo">
-                <div>
-                    <div class="project-title">University of St. Thomas</div>
-                    <div class="project-cat">Tech Desk Assistant • 2024 - Present</div>
-                </div>
-            </div>
-            <div class="exp-item">
-                <img src="https://logo.clearbit.com/avanceconsulting.com" class="brand-logo">
-                <div>
-                    <div class="project-title">Avance Consulting</div>
-                    <div class="project-cat">Team Lead (Promoted) • 2020 - 2024</div>
-                </div>
-            </div>
-        </div>
-    </section>
+        /* EXPERIENCE & EDUCATION */
+        .list-item { display: flex; align-items: center; margin-bottom: 40px; }
+        .list-logo { width: 60px; height: 60px; object-fit: contain; margin-right: 25px; }
+        .list-content h4 { font-size: 1.4rem; margin: 0; font-weight: 800; }
+        .list-content p { color: #888; margin: 5px 0 0 0; font-weight: 500; }
 
-    <section class="section">
-        <div class="side-label">Education</div>
-        <div class="main-content">
-            <div class="exp-item">
-                <img src="https://logo.clearbit.com/stthomas.edu" class="brand-logo">
-                <div>
-                    <div class="project-title">MS in Data Science</div>
-                    <div class="project-cat">University of St. Thomas, MN</div>
-                </div>
-            </div>
-            <div class="exp-item">
-                <img src="https://logo.clearbit.com/jntuh.ac.in" class="brand-logo">
-                <div>
-                    <div class="project-title">Bachelor of Technology</div>
-                    <div class="project-cat">JNTU Hyderabad</div>
-                </div>
-            </div>
-        </div>
-    </section>
+        /* CERTIFICATIONS (Images) */
+        .cert-row { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        .cert-img { width: 100%; border: 1px solid #eee; box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
 
-    <section class="section">
-        <div class="side-label">Achievements</div>
-        <div class="main-content">
-            <div class="cert-gallery">
-                <img src="image/IMG_4080.jpeg" class="cert-img">
-                <img src="image/IMG_4082.jpeg" class="cert-img">
-            </div>
-        </div>
-    </section>
+        /* CONTACT */
+        .big-contact a { display: block; font-size: 5.5vw; font-weight: 900; color: #000; text-decoration: none; line-height: 1; transition: 0.2s; }
+        .big-contact a:hover { color: #888; padding-left: 20px; }
 
-    <section class="section" style="border-bottom: none; padding-bottom: 150px;">
-        <div class="side-label">Contact</div>
-        <div class="main-content">
-            <div class="contact-links">
-                <p style="font-weight: 700;">Open to relocate anywhere in USA.</p>
-                <a href="mailto:sruthivemavarapus@outlook.com">Email.</a>
-                <a href="https://linkedin.com/in/sruthi-vemavarapu-0b614b198/" target="_blank">LinkedIn.</a>
-                <a href="https://github.com/vemavarapu23" target="_blank">GitHub.</a>
-            </div>
-            <p style="margin-top: 50px; color: var(--text-muted);">Current Location: Saint Paul, MN</p>
-        </div>
-    </section>
-
-</body>
-</html>
+        @media (max-width: 1024px) {
+            .sidebar { width: 100%; height: auto; position: relative; padding: 30px; border-right: none; border-bottom: 1px solid #eee; }
+            .main-content { margin-left: 0; }
+            .project-grid,
