@@ -2,78 +2,40 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Sruthi Vemavarapu | Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sruthi Vemavarapu | Data Analyst Portfolio</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        /* This ensures the page is NEVER blank */
-        body { 
-            margin: 0; padding: 0; 
-            background-color: #f0f0f0; /* Gray background to prove it's loading */
-            font-family: sans-serif; 
-            color: #333;
+        :root { --sidebar-width: 280px; --accent: #000; --text-gray: #666; --border: #eeeeee; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Poppins', sans-serif; background: #fff; color: #1a1a1a; display: flex; }
+
+        /* --- SIDEBAR (FIXED LEFT) --- */
+        .sidebar {
+            width: var(--sidebar-width); height: 100vh; position: fixed;
+            left: 0; top: 0; background: #fff; border-right: 1px solid var(--border);
+            padding: 50px 30px; display: flex; flex-direction: column; z-index: 1000;
         }
-        .container { 
-            max-width: 900px; margin: 0 auto; 
-            background: white; padding: 40px; 
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
-        }
+        .sidebar-top { text-align: center; margin-bottom: 40px; }
+        .sidebar-top img { width: 110px; height: 110px; border-radius: 50%; object-fit: cover; margin-bottom: 15px; border: 2px solid #eee; }
+        .sidebar-top h2 { font-family: 'Montserrat', sans-serif; font-size: 1.1rem; font-weight: 900; }
+        .nav-menu { flex-grow: 1; margin-top: 20px; }
+        .nav-menu a { display: block; text-decoration: none; color: var(--text-gray); font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; padding: 12px 0; transition: 0.3s; }
+        .nav-menu a:hover { color: #000; padding-left: 10px; border-left: 2px solid #000; }
+
+        /* --- MAIN CONTENT (SCROLLING RIGHT) --- */
+        .main { margin-left: var(--sidebar-width); width: calc(100% - var(--sidebar-width)); }
+
         .hero { 
-            background: #222; color: white; padding: 60px 20px; text-align: center;
-            background-image: url('image/IMG_2427.jpeg'); background-size: cover;
+            height: 100vh; 
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.2)), url('image/IMG_2427.jpeg') center/cover no-repeat;
+            display: flex; align-items: center; padding-left: 10%; background-color: #333;
         }
-        .section { margin-bottom: 40px; border-bottom: 1px solid #eee; padding-bottom: 20px; }
-        h1 { font-size: 3rem; margin: 0; }
-        .project-grid, .ach-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        img { max-width: 100%; height: auto; border: 1px solid #ddd; }
-        .contact-card { background: #f9f9f9; padding: 20px; border: 1px solid #ddd; text-align: center; }
-    </style>
-</head>
-<body>
+        .hero h1 { font-family: 'Montserrat', sans-serif; font-size: 5.5rem; font-weight: 900; color: #fff; line-height: 0.9; }
 
-    <div class="hero">
-        <h1>Hi, I'm Sruthi.</h1>
-        <p>Data Science Student | University of St. Thomas</p>
-    </div>
-
-    <div class="container">
-        <section class="section">
-            <h2>The Narrative</h2>
-            <p>Transitioned from a <b>Recruitment Team Lead</b> (4 years) to a <b>Data Analyst</b>. I am passionate about using SQL, Tableau, and Excel to solve complex business problems. Currently seeking Entry-Level/New Grad roles.</p>
-        </section>
-
-        <section class="section">
-            <h2>Experience: Avance Consulting</h2>
-            <ul>
-                <li>Managed a team of 8 recruiters.</li>
-                <li>Analyzed hiring data for 500+ candidates monthly.</li>
-                <li>Built Excel dashboards to track performance.</li>
-                <li>Reduced placement time by 30%.</li>
-            </ul>
-        </section>
-
-        <section class="section">
-            <h2>Technical Projects</h2>
-            <div class="project-grid">
-                <div><img src="image/snowflake-dashboard.jpg"><p>Snowflake Architecture</p></div>
-                <div><img src="image/walmart-dashboard.jpg"><p>Walmart Sales BI</p></div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>Achievements</h2>
-            <div class="ach-grid">
-                <img src="image/IMG_4080.jpeg">
-                <img src="image/IMG_4082.jpeg">
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>Connect</h2>
-            <div class="contact-card">
-                <p>Email: sruthivemavarapus@outlook.com</p>
-                <p>LinkedIn: sruthi-vemavarapu-0b614b198</p>
-            </div>
-        </section>
-    </div>
-
-</body>
-</html>
+        .section { padding: 100px 10%; border-bottom: 1px solid var(--border); }
+        .label { font-size: 0.65rem; color: #aaa; text-transform: uppercase; letter-spacing:
