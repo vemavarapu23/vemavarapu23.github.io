@@ -31,6 +31,16 @@
             flex-direction: column;
         }
 
+        /* PROFILE PIC IN SIDEBAR */
+        .sidebar-pic {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 1px solid #eee;
+        }
+
         .sidebar-name { font-weight: 800; font-size: 1.5rem; color: #000; line-height: 1.1; text-transform: uppercase; margin-bottom: 5px; }
         .sidebar-tagline { font-size: 0.7rem; letter-spacing: 2px; color: #999; text-transform: uppercase; margin-bottom: 40px; }
 
@@ -48,47 +58,59 @@
         /* MAIN CONTENT AREA */
         #main { margin-left: var(--sidebar-width); }
 
+        /* HERO SECTION WITH BACKGROUND IMAGE */
+        .hero-section { 
+            height: 100vh; 
+            display: flex; 
+            align-items: center; 
+            padding: 0 80px; 
+            background: linear-gradient(rgba(255,255,255,0.4), rgba(255,255,255,0.4)), url('image/IMG_2427.jpeg');
+            background-size: cover;
+            background-position: center;
+        }
+        .hero-name { font-size: 5rem; font-weight: 900; color: #000; margin: 10px 0; letter-spacing: -2px; }
+
         /* SECTION STYLING */
         .section-padding { padding: 100px 80px; border-bottom: 1px solid #f8f8f8; }
         .section-header { font-size: 2.5rem; font-weight: 900; color: #000; margin-bottom: 10px; }
         .section-subheader { font-size: 1.1rem; color: #888; font-weight: 400; margin-bottom: 50px; }
 
-        /* HERO SECTION */
-        .hero-section { height: 100vh; display: flex; align-items: center; padding: 0 80px; }
-        .hero-name { font-size: 5rem; font-weight: 900; color: #000; margin: 10px 0; letter-spacing: -2px; }
-
-        /* WORK/PORTFOLIO TILES */
-        .project-tile { margin-bottom: 60px; text-decoration: none; color: inherit; display: block; }
+        /* PORTFOLIO TILES */
+        .project-tile { margin-bottom: 60px; text-decoration: none; color: inherit; display: block; transition: 0.3s; }
         .project-tile img { width: 100%; height: 400px; object-fit: cover; border-radius: 4px; margin-bottom: 20px; transition: 0.4s; }
+        .project-tile:hover { transform: translateY(-5px); }
         .project-tile:hover img { opacity: 0.85; }
-        .project-title { font-size: 1.4rem; font-weight: 700; color: #000; }
+        .project-title { font-size: 1.4rem; font-weight: 700; color: #000; margin-bottom: 5px; }
         .project-category { font-size: 0.8rem; color: #999; text-transform: uppercase; letter-spacing: 1px; }
 
-        /* EXPERIENCE & EDUCATION ITEMS */
+        /* EXPERIENCE & EDUCATION */
         .item-block { margin-bottom: 50px; }
         .item-title { font-size: 1.6rem; font-weight: 800; color: #000; }
         .item-subtitle { font-size: 1.1rem; font-weight: 600; color: #444; margin-top: 5px; }
         .item-date { font-size: 0.9rem; color: #aaa; margin-bottom: 20px; }
         .item-desc { padding-left: 20px; color: #555; line-height: 1.8; }
 
-        /* ACHIEVEMENT CARDS */
-        .achievement-card { border: none; margin-bottom: 30px; text-align: center; }
-        .achievement-card img { height: 350px; object-fit: contain; width: 100%; background: #f9f9f9; padding: 20px; border-radius: 8px; }
+        /* ACHIEVEMENT CARDS WITH YOUR IMAGES */
+        .achievement-card { border: none; margin-bottom: 40px; }
+        .achievement-card img { height: 400px; object-fit: contain; width: 100%; background: #f9f9f9; padding: 20px; border-radius: 8px; border: 1px solid #eee; }
+        .achievement-text { font-weight: 700; margin-top: 15px; color: #000; }
 
-        /* FOOTER / CONTACT */
+        /* CONTACT */
         .contact-email { font-size: 2rem; font-weight: 800; color: #000; text-decoration: none; border-bottom: 3px solid #000; }
 
         @media (max-width: 992px) {
-            #sidebar { width: 100%; height: auto; position: relative; border-right: none; }
+            #sidebar { width: 100%; height: auto; position: relative; border-right: none; padding: 30px; }
             #main { margin-left: 0; }
             .section-padding { padding: 60px 30px; }
             .hero-name { font-size: 3.5rem; }
+            .hero-section { padding: 0 30px; }
         }
     </style>
 </head>
 <body>
 
     <div id="sidebar">
+        <img src="image/IMG_0114.jpeg" alt="Sruthi Vemavarapu" class="sidebar-pic">
         <div class="sidebar-name">Sruthi<br>Vemavarapu</div>
         <div class="sidebar-tagline">Data Scientist Student</div>
         
@@ -121,9 +143,9 @@
             <h2 class="section-header">About Me</h2>
             <h3 class="section-subheader">Who Am I?</h3>
             <div class="col-lg-10">
-                <p>I am a <strong>Data Science Student at the University of St. Thomas</strong> with a strong foundation in business and data analytics, focused on asking the right questions behind the data and turning information into clear, decision-ready insights.</p>
-                <p>I bring 4 years of professional experience in data-driven business environments, where I worked extensively with structured data, reporting, and performance metrics to support decision-making. In my previous role at Avance Consulting, I regularly analyzed operational data such as pipelines and performance trends to improve visibility and support outcomes across teams and stakeholders.</p>
-                <p>My goal is to apply my analytical thinking, reporting skills, and business context to deliver meaningful insights that drive business success. I don’t just analyze data — I focus on the questions behind it.</p>
+                <p>I am a <strong>Data Science Student at the University of St. Thomas</strong> with a strong foundation in business and data analytics. I am focused on asking the right questions behind the data and turning information into clear, decision-ready insights.</p>
+                <p>I bring 4 years of professional experience in data-driven environments. At Avance Consulting, I was promoted to <strong>Team Lead</strong> for my ability to analyze operational pipelines and performance trends. I specialize in identifying patterns that drive efficiency and translating complex metrics into actionable leadership reports.</p>
+                <p>I am actively seeking entry-level Data Analyst or Business Analyst opportunities where I can apply my Python, SQL, and Excel skills alongside my professional leadership background.</p>
             </div>
         </section>
 
@@ -132,31 +154,31 @@
             <h3 class="section-subheader">How do I turn ideas into results?</h3>
             <div class="row">
                 <div class="col-md-6">
-                    <a href="https://github.com/vemavarapu23" class="project-tile">
+                    <a href="https://github.com/vemavarapu23" target="_blank" class="project-tile">
                         <img src="image/snowflake-dashboard.jpg" alt="Snowflake">
                         <div class="project-title">Financial Calendar Analytics</div>
-                        <div class="project-category">Snowflake | SQL | Data Engineering</div>
+                        <div class="project-category">Snowflake | SQL | Automation</div>
                     </a>
                 </div>
                 <div class="col-md-6">
-                    <a href="https://github.com/vemavarapu23/AI_Impact_on_job_market" class="project-tile">
+                    <a href="https://github.com/vemavarapu23/AI_Impact_on_job_market" target="_blank" class="project-tile">
                         <img src="image/ai-job-market.jpg" alt="AI Project">
                         <div class="project-title">AI Impact on Job Market</div>
-                        <div class="project-category">Python | Tableau | Statistics</div>
+                        <div class="project-category">Python | Tableau | Data Viz</div>
                     </a>
                 </div>
                 <div class="col-md-6">
-                    <a href="https://github.com/vemavarapu23/MachineLearning_Loan_Approval_Prediction" class="project-tile">
+                    <a href="https://github.com/vemavarapu23/MachineLearning_Loan_Approval_Prediction" target="_blank" class="project-tile">
                         <img src="image/ml-confusion-matrix.jpg" alt="ML Project">
                         <div class="project-title">Loan Approval Prediction</div>
-                        <div class="project-category">Machine Learning | Python</div>
+                        <div class="project-category">Machine Learning | Scikit-Learn</div>
                     </a>
                 </div>
                 <div class="col-md-6">
-                    <a href="https://github.com/vemavarapu23/Walmart-Sales--Analysis" class="project-tile">
+                    <a href="https://github.com/vemavarapu23/Walmart-Sales--Analysis" target="_blank" class="project-tile">
                         <img src="image/walmart-dashboard.jpg" alt="Walmart Project">
                         <div class="project-title">Walmart Sales Analytics</div>
-                        <div class="project-category">Excel | Business Intelligence</div>
+                        <div class="project-category">Excel | Pivot Tables | Dashboarding</div>
                     </a>
                 </div>
             </div>
@@ -171,7 +193,7 @@
                 <div class="item-subtitle">Tech Desk Assistant</div>
                 <div class="item-date">2024 - Present</div>
                 <ul class="item-desc">
-                    <li>Provide technical support and troubleshooting for university software, hardware, and network connectivity for students and faculty.</li>
+                    <li>Provide technical support and troubleshooting for university software, hardware, and network connectivity.</li>
                     <li>Manage and document support tickets efficiently, ensuring timely resolution of technical issues.</li>
                 </ul>
             </div>
@@ -181,8 +203,8 @@
                 <div class="item-subtitle">Team Lead (Promoted from Recruiter)</div>
                 <div class="item-date">2020 - 2024</div>
                 <ul class="item-desc">
-                    <li>Led a team of 8 recruiters, overseeing recruitment operations and analyzing hiring data for 500+ candidates monthly to identify trends and optimize workflows.</li>
-                    <li>Designed and maintained Excel dashboards to track candidate pipelines, source performance, and recruitment timelines.</li>
+                    <li>Led a team of 8, analyzing hiring data for 500+ candidates monthly to optimize workflows.</li>
+                    <li>Designed Excel dashboards to track performance metrics and recruitment timelines for management.</li>
                 </ul>
             </div>
         </section>
@@ -205,18 +227,18 @@
 
         <section id="achievements" class="section-padding">
             <h2 class="section-header">Achievements</h2>
-            <h3 class="section-subheader">How has my work been recognized?</h3>
+            <h3 class="section-subheader">Recognition of Excellence</h3>
             <div class="row">
                 <div class="col-md-6">
                     <div class="achievement-card">
                         <img src="image/IMG_4080.jpeg" alt="Wisestep Certification">
-                        <p class="mt-3 fw-bold">Intermediate Wisestep Certification</p>
+                        <div class="achievement-text">Intermediate Wisestep Certification</div>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="achievement-card">
                         <img src="image/IMG_4082.jpeg" alt="Client Award">
-                        <p class="mt-3 fw-bold">Enlarging New Clients Award</p>
+                        <div class="achievement-text">Enlarging New Clients Award</div>
                     </div>
                 </div>
             </div>
@@ -228,8 +250,10 @@
             <a href="mailto:sruthivemavarapus@outlook.com" class="contact-email">sruthivemavarapus@outlook.com</a>
             <div class="mt-5">
                 <p>Saint Paul, MN</p>
-                <a href="https://linkedin.com/in/sruthi-vemavarapu-0b614b198/" target="_blank" class="btn btn-dark btn-sm">LinkedIn</a>
-                <a href="https://github.com/vemavarapu23" target="_blank" class="btn btn-outline-dark btn-sm">GitHub</a>
+                <div class="mt-3">
+                    <a href="https://linkedin.com/in/sruthi-vemavarapu-0b614b198/" target="_blank" class="btn btn-dark me-2">LinkedIn</a>
+                    <a href="https://github.com/vemavarapu23" target="_blank" class="btn btn-outline-dark">GitHub</a>
+                </div>
             </div>
         </section>
 
