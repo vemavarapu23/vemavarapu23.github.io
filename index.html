@@ -6,17 +6,16 @@
     <title>Sruthi Vemavarapu | Data Analyst Portfolio</title>
     
     <link rel="icon" type="image/x-icon" href="image/IMG_0114.jpeg">
-    
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root { --sidebar-w: 280px; --accent: #000; --border: #eeeeee; }
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Poppins', sans-serif; background: #fff; color: #1a1a1a; display: flex; overflow-x: hidden; }
+        html { scroll-behavior: smooth; height: 100%; }
+        body { font-family: 'Poppins', sans-serif; background: #fff; color: #1a1a1a; display: flex; min-height: 100vh; }
 
-        /* --- FIXED SIDEBAR --- */
+        /* --- SIDEBAR --- */
         #sidebar {
             width: var(--sidebar-w); height: 100vh; position: fixed;
             left: 0; top: 0; background: #fff; border-right: 1px solid var(--border);
@@ -28,10 +27,14 @@
         .nav-link { display: block; text-decoration: none; color: #666; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; padding: 12px 0; transition: 0.3s; }
         .nav-link:hover { color: #000; padding-left: 10px; border-left: 2px solid #000; }
 
-        /* --- MAIN CONTENT --- */
-        #main-content { margin-left: var(--sidebar-w); width: calc(100% - var(--sidebar-w)); }
+        /* --- MAIN CONTENT (Ensured Scrollability) --- */
+        #main-content { 
+            margin-left: var(--sidebar-w); 
+            width: calc(100% - var(--sidebar-w)); 
+            min-height: 100vh;
+            display: block;
+        }
 
-        /* HERO SECTION */
         .hero { 
             height: 100vh; 
             background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.2)), url('image/IMG_2427.jpeg'); 
@@ -40,8 +43,7 @@
         }
         .hero h1 { font-family: 'Montserrat', sans-serif; font-size: clamp(3rem, 10vw, 6rem); font-weight: 900; color: #fff; line-height: 0.85; }
 
-        /* SECTIONS */
-        .section { padding: 100px 10%; border-bottom: 1px solid var(--border); }
+        .section { padding: 100px 10%; border-bottom: 1px solid var(--border); clear: both; }
         .label { font-size: 0.65rem; color: #aaa; text-transform: uppercase; letter-spacing: 5px; font-weight: 700; margin-bottom: 15px; display: block; }
         .heading { font-family: 'Montserrat', sans-serif; font-size: 2.2rem; font-weight: 900; margin-bottom: 40px; text-transform: uppercase; }
 
@@ -56,25 +58,23 @@
         .item::before { content: ''; position: absolute; left: -49px; top: 5px; width: 16px; height: 16px; background: #000; border-radius: 50%; }
         .item h4 { font-family: 'Montserrat', sans-serif; font-size: 1.3rem; font-weight: 800; }
         .item .sub { color: #3498db; font-weight: 700; font-size: 0.85rem; display: block; margin: 5px 0 15px 0; }
-        .item li::before { content: "•"; font-weight: bold; color: #000; display: inline-block; width: 1em; margin-left: -1em; }
+        .item ul { list-style: none; }
+        .item li { font-size: 0.95rem; color: #444; margin-bottom: 10px; line-height: 1.6; }
 
         .ach-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
         .ach-grid img { width: 100%; border: 1px solid var(--border); }
 
         .cert-card { padding: 25px; border: 1px solid var(--border); margin-bottom: 20px; background: #fafafa; display: block; text-decoration: none; color: inherit; transition: 0.3s; }
         .cert-card:hover { border-color: #000; background: #fff; }
-        .cert-card h5 { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1rem; margin-bottom: 5px; }
-        .cert-card p { font-size: 0.85rem; color: #666; }
 
         .contact-box { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
-        .contact-card { background: #fafafa; border: 1px solid var(--border); padding: 35px 15px; text-align: center; text-decoration: none; color: #000; border-radius: 4px; transition: 0.3s; }
-        .contact-card:hover { background: #000; color: #fff; }
+        .contact-card { background: #fafafa; border: 1px solid var(--border); padding: 35px 15px; text-align: center; text-decoration: none; color: #000; border-radius: 4px; }
+        .contact-card:hover { background: #000; color: #fff; transition: 0.3s; }
 
         @media (max-width: 1024px) {
             body { flex-direction: column; }
             #sidebar { width: 100%; height: auto; position: relative; border-right: none; }
             #main-content { margin-left: 0; width: 100%; }
-            .hero h1 { font-size: 4rem; }
             .grid, .contact-box, .ach-grid { grid-template-columns: 1fr; }
         }
     </style>
@@ -85,55 +85,4 @@
         <div class="sidebar-profile">
             <img src="image/IMG_0114.jpeg" alt="Sruthi">
             <h2 class="sidebar-name">SRUTHI V.</h2>
-            <p class="sidebar-tag">Aspiring Data Analyst</p>
-        </div>
-        <nav class="nav-menu">
-            <a href="#about" class="nav-link">The Narrative</a>
-            <a href="#projects" class="nav-link">Work</a>
-            <a href="#experience" class="nav-link">Impact</a>
-            <a href="#education" class="nav-link">Education</a>
-            <a href="#achievements" class="nav-link">Achievements</a>
-            <a href="#certifications" class="nav-link">Certifications</a>
-            <a href="#contact" class="nav-link">Connect</a>
-        </nav>
-    </aside>
-
-    <main id="main-content">
-        <section class="hero">
-            <h1>Hi,<br>I'm Sruthi.</h1>
-        </section>
-
-        <section id="about" class="section">
-            <span class="label">My Narrative</span>
-            <h2 class="heading">Recruiter Transformed into Data Analyst</h2>
-            <p style="font-size: 1.15rem; line-height: 1.9; color: #333;">
-                I am currently a Data Science student at the <b>University of St. Thomas</b>, but my foundation was built in the recruitment industry. Over 3.5 years, I grew from a recruiter to a <b>Team Lead</b>, realizing that data—not just intuition—drives the best business outcomes.
-            </p>
-            <br>
-            <p style="font-size: 1.15rem; line-height: 1.9; color: #333;">
-                I am passionate about taking messy datasets and cleaning them into clear, visual stories using <b>SQL, Tableau, and Excel</b>. I am currently seeking <b>Entry-Level / New Grad Data Analyst</b> roles to drive business efficiency through analytics.
-            </p>
-        </section>
-
-        <section id="projects" class="section">
-            <span class="label">Portfolio</span>
-            <h2 class="heading">Technical Work</h2>
-            <div class="grid">
-                <a href="https://github.com/vemavarapu23" class="card">
-                    <img src="image/snowflake-dashboard.jpg">
-                    <div class="card-body"><h3>Snowflake Architecture</h3><p>SQL Optimization</p></div>
-                </a>
-                <a href="https://github.com/vemavarapu23/AI_Impact_on_job_market" class="card">
-                    <img src="image/ai-job-market.jpg">
-                    <div class="card-body"><h3>AI Market Analytics</h3><p>Python / Seaborn</p></div>
-                </a>
-                <a href="https://github.com/vemavarapu23/MachineLearning_Loan_Approval_Prediction" class="card">
-                    <img src="image/ml-confusion-matrix.jpg">
-                    <div class="card-body"><h3>ML Loan Forecasting</h3><p>Predictive Modeling</p></div>
-                </a>
-                <a href="https://github.com/vemavarapu23/Walmart-Sales--Analysis" class="card">
-                    <img src="image/walmart-dashboard.jpg">
-                    <div class="card-body"><h3>Walmart Sales BI</h3><p>Tableau Visualization</p></div>
-                </a>
-            </div>
-        </section>
+            <p class="sidebar-tag">Aspiring
