@@ -31,7 +31,6 @@
         /* --- MAIN CONTENT --- */
         #main-content { margin-left: var(--sidebar-w); width: calc(100% - var(--sidebar-w)); }
 
-        /* HERO SECTION */
         .hero { 
             height: 100vh; 
             background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.2)), url('image/IMG_2427.jpeg'); 
@@ -40,7 +39,6 @@
         }
         .hero h1 { font-family: 'Montserrat', sans-serif; font-size: clamp(3rem, 10vw, 6rem); font-weight: 900; color: #fff; line-height: 0.85; }
 
-        /* SECTIONS */
         .section { padding: 100px 10%; border-bottom: 1px solid var(--border); }
         .label { font-size: 0.65rem; color: #aaa; text-transform: uppercase; letter-spacing: 5px; font-weight: 700; margin-bottom: 15px; display: block; }
         .heading { font-family: 'Montserrat', sans-serif; font-size: 2.2rem; font-weight: 900; margin-bottom: 40px; text-transform: uppercase; }
@@ -59,13 +57,10 @@
         .ach-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
         .ach-grid img { width: 100%; border: 1px solid var(--border); }
 
-        /* CERTIFICATION CARDS - UPDATED SECTION */
         .cert-card { padding: 25px; border: 1px solid var(--border); margin-bottom: 20px; background: #fafafa; display: block; text-decoration: none; color: inherit; transition: 0.3s; }
-        .cert-card:hover { border-color: #000; background: #fff; }
         .cert-card h5 { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1.1rem; margin-bottom: 5px; }
         .cert-card p { font-size: 0.85rem; color: #666; font-weight: 600; }
 
-        /* CONTACT SECTION */
         .contact-box { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
         .contact-card { background: #fafafa; border: 1px solid var(--border); padding: 35px 15px; text-align: center; text-decoration: none; color: #000; border-radius: 4px; transition: 0.3s; }
         .contact-card:hover { background: #000; color: #fff; }
@@ -106,7 +101,7 @@
             <span class="label">My Narrative</span>
             <h2 class="heading">Recruiter Transformed into Data Analyst</h2>
             <p style="font-size: 1.1rem; line-height: 1.8; color: #333;">
-                I am a Data Science student at the <b>University of St. Thomas</b>. My foundation was built in recruitment, where I grew into a <b>Team Lead</b>. This taught me that data is the pulse of business strategy. I specialize in cleaning messy datasets into clear visual stories using <b>SQL, Tableau, and Excel</b>.
+                I am a Data Science student at the <b>University of St. Thomas</b>. My foundation was built in recruitment, where I grew into a <b>Team Lead</b>. This experience taught me that data is the pulse of business strategy. I specialize in cleaning messy datasets into clear visual stories using <b>SQL, Tableau, and Excel</b>.
             </p>
         </section>
 
@@ -144,7 +139,6 @@
                 <div class="item">
                     <h4>Team Lead (Recruitment Operations)</h4>
                     <span class="sub">Avance Consulting | Feb 2021 - Aug 2024</span>
-                    <p style="font-size: 0.95rem; color: #444;">Led a team of 8 recruiters, analyzing performance metrics to reduce candidate placement time by 30%.</p>
                 </div>
             </div>
         </section>
@@ -158,4 +152,53 @@
             </div>
         </section>
 
-        <section id="achievements"
+        <section id="achievements" class="section">
+            <span class="label">Recognition</span>
+            <h2 class="heading">Achievements</h2>
+            <div class="ach-grid">
+                <img src="image/IMG_4080.jpeg">
+                <img src="image/IMG_4082.jpeg">
+            </div>
+        </section>
+
+        <section id="certifications" class="section">
+            <span class="label">Verification</span>
+            <h2 class="heading">Certifications</h2>
+            
+            <div class="cert-card">
+                <h5>SQL Learning</h5>
+                <p>LinkedIn Learning</p>
+            </div>
+
+            <div class="cert-card">
+                <h5>Ask Questions to Make Data-Driven Decisions</h5>
+                <p>Google | Coursera</p>
+            </div>
+
+            <div class="cert-card">
+                <h5>Foundations: Data, Data, Everywhere</h5>
+                <p>Google | Coursera</p>
+            </div>
+        </section>
+
+        <section id="contact" class="section" style="border:none; padding-bottom: 150px;">
+            <span class="label">Connect</span>
+            <h2 class="heading">Get In Touch</h2>
+            <div class="contact-box">
+                <a href="mailto:sruthivemavarapus@outlook.com" class="contact-card">
+                    <i class="fas fa-envelope"></i>
+                    <p>Email</p>
+                </a>
+                <a href="https://linkedin.com/in/sruthi-vemavarapu-0b614b198/" target="_blank" class="contact-card">
+                    <i class="fab fa-linkedin"></i>
+                    <p>LinkedIn</p>
+                </a>
+                <a href="https://github.com/vemavarapu23" target="_blank" class="contact-card">
+                    <i class="fab fa-github"></i>
+                    <p>GitHub</p>
+                </a>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
