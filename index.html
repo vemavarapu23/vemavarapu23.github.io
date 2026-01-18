@@ -3,45 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sruthi Vemavarapu | Analytics Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <title>Sruthi Vemavarapu | Data Science Portfolio</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        :root { --sidebar-w: 300px; --accent: #000; --muted: #757575; --border: #ececec; }
+        :root { --sidebar-w: 280px; --accent-blue: #3498db; --bg-light: #fcfcfc; --border: #ececec; }
+        
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Montserrat', sans-serif; background: #fff; color: #111; scroll-behavior: smooth; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Open Sans', sans-serif; background: #fff; color: #333; overflow-x: hidden; }
 
-        /* --- FIXED LEFT SIDEBAR (RICHA STYLE) --- */
+        /* --- FIXED LEFT SIDEBAR --- */
         .sidebar {
             width: var(--sidebar-w); height: 100vh; position: fixed;
             left: 0; top: 0; background: #fff; border-right: 1px solid var(--border);
-            padding: 60px 40px; display: flex; flex-direction: column; z-index: 1000;
+            padding: 50px 25px; display: flex; flex-direction: column; z-index: 1000;
         }
-        .sidebar .profile-img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin: 0 auto 20px; display: block; filter: grayscale(100%); transition: 0.5s; }
-        .sidebar .profile-img:hover { filter: grayscale(0%); }
-        .sidebar h2 { font-size: 1.2rem; font-weight: 900; text-align: center; letter-spacing: -0.5px; line-height: 1.2; }
-        .sidebar .tagline { font-size: 0.6rem; color: var(--muted); text-transform: uppercase; letter-spacing: 2.5px; text-align: center; margin: 12px 0 50px; font-weight: 700; }
+        .sidebar-profile { text-align: center; margin-bottom: 40px; }
+        .sidebar-profile img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 5px solid #f8f8f8; margin-bottom: 15px; }
+        .sidebar-profile h2 { font-family: 'Montserrat', sans-serif; font-size: 1.1rem; font-weight: 900; letter-spacing: -0.5px; }
+        .sidebar-profile p { font-size: 0.65rem; color: #999; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; margin-top: 5px; }
         
-        .nav { flex-grow: 1; display: flex; flex-direction: column; }
-        .nav a { text-decoration: none; color: var(--muted); font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 15px 0; transition: 0.3s; border-bottom: 1px solid transparent; text-align: center;}
-        .nav a:hover { color: #000; border-bottom: 1px solid #000; }
-
-        /* --- MAIN CONTENT --- */
-        .main { margin-left: var(--sidebar-w); }
-
-        /* HERO */
-        .hero { 
-            height: 100vh; 
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.1)), url('image/IMG_2427.jpeg') no-repeat center center; 
-            background-size: cover; display: flex; align-items: center; padding-left: 10%;
+        .nav-links { flex-grow: 1; }
+        .nav-links a { 
+            display: block; text-decoration: none; color: #777; font-size: 0.75rem; 
+            font-weight: 700; text-transform: uppercase; letter-spacing: 2px; 
+            padding: 15px 10px; transition: 0.3s; border-radius: 4px;
         }
-        .hero h1 { font-size: 6rem; font-weight: 900; color: #fff; line-height: 0.85; letter-spacing: -4px; }
+        .nav-links a:hover { color: #000; background: #f9f9f9; padding-left: 20px; }
 
-        /* SECTION HEADERS */
-        .section { padding: 120px 10%; border-bottom: 1px solid var(--border); }
-        .label { font-size: 0.65rem; color: var(--muted); text-transform: uppercase; letter-spacing: 5px; margin-bottom: 15px; display: block; font-weight: 900; }
-        .heading { font-size: 2.5rem; font-weight: 900; margin-bottom: 60px; text-transform: uppercase; }
+        /* --- MAIN CONTENT SCROLL --- */
+        .main-content { margin-left: var(--sidebar-w); }
 
-        /* ABOUT TEXT */
-        .about-text { font-size: 1.3rem; line-height: 1.8; color: #333; max-width: 900px; margin-bottom: 40px; }
-        .skill-grid { display: flex; gap
+        /* HERO SECTION */
+        .hero { 
+            height: 100vh; position: relative;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.1)), url('image/IMG_2427.jpeg') no-repeat center center; 
+            background-size: cover; display: flex; align-items: center; padding: 0 8%;
+        }
+        .hero-title h1 { font-family: 'Montserrat', sans-serif; font-size: 5.5rem; font-weight: 900; color: #fff; line-height: 0.9; }
+        .scroll-indicator { position: absolute; bottom: 30px; color: #fff; font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase; animation: bounce 2s infinite; }
+
+        /* SECTION HEADERS (Richa Style) */
+        .section { padding: 100px 10%; border-bottom: 1px solid var(--border); }
+        .tag-label { font-size: 0.65rem; color: var(--accent-blue); text-transform: uppercase; letter-spacing: 4px; font-weight: 700; margin-bottom: 10px; display: block; }
+        .section-h { font-family: 'Montserrat', sans-serif; font-size: 2.2rem; font-weight: 900; color: #1a1a1a; margin-bottom: 50px; text-transform: uppercase; }
+
+        /* ABOUT / SKILLS */
+        .bio-text { font-size: 1.15rem; line-height: 1.8; color: #555; margin-bottom: 40px; }
+        .skill-bar { display: flex; gap: 30px; margin-top: 20px; }
+        .skill-bar img { height: 35px; filter: grayscale(1); transition: 0.3s; }
+        .skill-bar img:hover { filter: grayscale(0); transform: scale(1.1); }
+
+        /* ALL 4 PROJECTS GRID */
+        .projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        .project-card { border: 1px solid var(--border); text-decoration: none; color: inherit; transition: 0.4s; background: #fff; }
+        .project-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
+        .project-card img { width: 100%; height: 280px; object-fit: cover; }
+        .project-info { padding: 25px; }
+        .project-info h3 { font-family: 'Montserrat', sans-serif; font-size: 1rem; margin-bottom: 8px; }
+        .project-info p { font-size: 0.75rem; color: #999; text-transform: uppercase; font-weight: 700; }
+
+        /* TIMELINE (Experience & Education) */
+        .timeline { position: relative; padding-left: 40px; border-left: 2px solid #f0f0f0; }
+        .time-node { position: relative; margin-bottom: 60px; }
+        .time-node::before { content: ''; position: absolute; left: -49px; top: 5px; width: 16px; height: 16px; background: #fff; border: 3px solid var(--accent-blue); border-radius: 50%; }
+        .time-node h4 { font-family: 'Montserrat', sans-serif; font-size: 1.2rem; margin-bottom: 5px; }
+        .time-node .meta { font-size: 0.85rem; color: var(--accent-blue); font-weight: 700; display: block; margin-bottom: 15px; }
+        .time-node ul { list-style: none; color: #666; font-size: 0.95rem; line-height: 1.6; }
+        .time-node ul li { margin-bottom: 10px; }
+
+        /* ACHIEVEMENTS / CERTIFICATIONS */
+        .certs-display { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .certs-display img {
