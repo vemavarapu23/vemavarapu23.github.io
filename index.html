@@ -65,4 +65,135 @@
         .ach-grid img { width: 100%; border: 1px solid var(--border); }
 
         /* CONTACT CARDS */
-        .contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15
+        .contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+        .contact-card { background: #fafafa; border: 1px solid var(--border); padding: 25px; text-align: center; text-decoration: none; color: #000; border-radius: 4px; }
+        .contact-card:hover { background: #000; color: #fff; }
+        .contact-card i { font-size: 1.4rem; margin-bottom: 10px; display: block; }
+
+        @media (max-width: 1024px) {
+            body { flex-direction: column; }
+            .sidebar { width: 100%; height: auto; position: relative; border-right: none; }
+            .main { margin-left: 0; width: 100%; }
+            .grid, .contact-grid, .ach-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <aside class="sidebar">
+        <div class="sidebar-profile">
+            <img src="image/IMG_0114.jpeg" alt="Sruthi">
+            <h2>SRUTHI V.</h2>
+        </div>
+        <nav class="nav">
+            <a href="#about">The Narrative</a>
+            <a href="#projects">Work</a>
+            <a href="#experience">Impact</a>
+            <a href="#education">Education</a>
+            <a href="#achievements">Achievements</a>
+            <a href="#contact">Connect</a>
+        </nav>
+    </aside>
+
+    <main class="main">
+        <section class="hero">
+            <h1>Hi,<br>I'm Sruthi.</h1>
+        </section>
+
+        <section id="about" class="section">
+            <span class="tag">About Me</span>
+            <h2 class="heading">Recruiter turned Team Lead & Data Analyst</h2>
+            <div class="text-content">
+                <p>I am a Data Science student at the <b>University of St. Thomas</b>. My professional journey began in recruitment, where I spent 4 years growing into a <b>Team Lead</b> at Avance Consulting. This experience taught me that data is the heartbeat of every business decision.</p>
+                <br>
+                <p>I am passionate about using <b>SQL, Tableau, and Excel</b> to bridge the gap between messy datasets and strategic growth. I am currently seeking <b>Entry-Level / New Grad Data Analyst</b> roles where I can drive efficiency through analytics.</p>
+            </div>
+        </section>
+
+        <section id="projects" class="section">
+            <span class="tag">Portfolio</span>
+            <h2 class="heading">Featured Projects</h2>
+            <div class="grid">
+                <a href="https://github.com/vemavarapu23" class="card">
+                    <img src="image/snowflake-dashboard.jpg">
+                    <div class="card-body"><h3>Snowflake Architecture</h3><p>SQL & Cloud Data</p></div>
+                </a>
+                <a href="https://github.com/vemavarapu23/AI_Impact_on_job_market" class="card">
+                    <img src="image/ai-job-market.jpg">
+                    <div class="card-body"><h3>AI Market Trends</h3><p>Python Analytics</p></div>
+                </a>
+                <a href="https://github.com/vemavarapu23/MachineLearning_Loan_Approval_Prediction" class="card">
+                    <img src="image/ml-confusion-matrix.jpg">
+                    <div class="card-body"><h3>Loan Prediction ML</h3><p>Predictive Modeling</p></div>
+                </a>
+                <a href="https://github.com/vemavarapu23/Walmart-Sales--Analysis" class="card">
+                    <img src="image/walmart-dashboard.jpg">
+                    <div class="card-body"><h3>Walmart Sales BI</h3><p>Tableau Visualization</p></div>
+                </a>
+            </div>
+        </section>
+
+        <section id="experience" class="section">
+            <span class="tag">Impact</span>
+            <h2 class="heading">Professional History</h2>
+            <div class="timeline">
+                <div class="time-item">
+                    <h4>Team Lead (Recruitment Operations)</h4>
+                    <span class="sub">Avance Consulting | 2020 - 2024</span>
+                    <ul>
+                        <li>Led 8 recruiters, analyzing hiring data for 500+ candidates monthly to optimize workflows.</li>
+                        <li>Designed Excel dashboards to track source performance and candidate pipelines.</li>
+                        <li>Transformed raw recruitment data into structured reports for data-driven hiring decisions.</li>
+                        <li>Improved team efficiency by 30% through bottleneck identification and process cleaning.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="education" class="section">
+            <span class="tag">Foundation</span>
+            <h2 class="heading">Education</h2>
+            <div class="timeline">
+                <div class="time-item">
+                    <h4>MS in Data Science</h4>
+                    <span class="sub">University of St. Thomas, MN | 2024 - 2026</span>
+                </div>
+                <div class="time-item">
+                    <h4>Bachelor of Technology</h4>
+                    <span class="sub">JNTU Hyderabad, India</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="achievements" class="section">
+            <span class="tag">Recognition</span>
+            <h2 class="heading">Achievements</h2>
+            <div class="ach-grid">
+                <img src="image/IMG_4080.jpeg" alt="Award 1">
+                <img src="image/IMG_4082.jpeg" alt="Award 2">
+            </div>
+        </section>
+
+        <section id="certifications" class="section">
+            <span class="tag">Verification</span>
+            <h2 class="heading">Certifications</h2>
+            <ul style="list-style: none;">
+                <li style="padding: 15px; border: 1px solid #eee; margin-bottom: 10px;"><b>SQL for Data Science</b> - Advanced Queries</li>
+                <li style="padding: 15px; border: 1px solid #eee; margin-bottom: 10px;"><b>Tableau Desktop Specialist</b> - Data Visualization</li>
+                <li style="padding: 15px; border: 1px solid #eee;"><b>Python for Data Analysis</b> - Pandas & NumPy</li>
+            </ul>
+        </section>
+
+        <section id="contact" class="section" style="border:none; padding-bottom: 150px;">
+            <span class="tag">Contact</span>
+            <h2 class="heading">Let's Connect for Open Roles</h2>
+            <div class="contact-grid">
+                <a href="mailto:sruthivemavarapus@outlook.com" class="contact-card"><i class="fas fa-envelope"></i><p>Email</p></a>
+                <a href="https://linkedin.com/in/sruthi-vemavarapu-0b614b198/" class="contact-card"><i class="fab fa-linkedin"></i><p>LinkedIn</p></a>
+                <a href="https://github.com/vemavarapu23" class="contact-card"><i class="fab fa-github"></i><p>GitHub</p></a>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>
