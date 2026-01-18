@@ -3,80 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sruthi Vemavarapu | Data Analyst</title>
+    <title>Sruthi Vemavarapu | Data Analyst Portfolio</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* CSS Variables */
         :root { --sidebar-w: 280px; --accent: #3498db; --border: #eeeeee; }
-
-        /* Universal Reset */
         * { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; }
         body { font-family: 'Poppins', sans-serif; background: #ffffff; color: #1a1a1a; }
 
         /* --- SIDEBAR --- */
         #sidebar {
-            width: var(--sidebar-w);
-            height: 100vh;
-            position: fixed;
-            background: #fff;
-            border-right: 1px solid var(--border);
-            padding: 40px 30px;
-            overflow-y: auto;
+            width: var(--sidebar-w); height: 100vh; position: fixed;
+            background: #fff; border-right: 1px solid var(--border);
+            padding: 40px 30px; z-index: 1000;
         }
-        .profile-img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin-bottom: 20px; border: 2px solid #f5f5f5; }
-        .sidebar-name { font-family: 'Montserrat', sans-serif; font-size: 1.1rem; font-weight: 900; margin-bottom: 5px; }
-        .sidebar-tag { font-size: 0.6rem; color: #999; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; margin-bottom: 30px; }
-        
-        .nav-link { display: block; text-decoration: none; color: #666; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; padding: 12px 0; transition: 0.3s; }
-        .nav-link:hover { color: #000; padding-left: 10px; }
+        .profile-img { width: 110px; height: 110px; border-radius: 50%; object-fit: cover; margin-bottom: 15px; border: 1px solid #eee; }
+        .sidebar-name { font-family: 'Montserrat', sans-serif; font-size: 1rem; font-weight: 900; }
+        .nav-link { display: block; text-decoration: none; color: #666; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 12px 0; }
+        .nav-link:hover { color: #000; padding-left: 8px; transition: 0.3s; }
 
         /* --- MAIN CONTENT --- */
-        #main-content { margin-left: var(--sidebar-w); width: auto; }
+        #main-content { margin-left: var(--sidebar-w); }
 
-        /* HERO */
+        /* HERO WITH BACKGROUND IMAGE */
         .hero { 
             height: 100vh; 
-            background: #333 linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.2)), url('image/IMG_2427.jpeg') center/cover no-repeat;
+            background: #222 linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.3)), url('image/IMG_2427.jpeg'); 
+            background-size: cover; background-position: center;
             display: flex; align-items: center; padding-left: 10%;
         }
-        .hero h1 { font-family: 'Montserrat', sans-serif; font-size: 5rem; font-weight: 900; color: #fff; line-height: 0.9; }
+        .hero h1 { font-family: 'Montserrat', sans-serif; font-size: clamp(3rem, 8vw, 5.5rem); font-weight: 900; color: #fff; line-height: 0.9; }
 
         /* SECTIONS */
-        .section { padding: 100px 10%; border-bottom: 1px solid var(--border); }
+        .section { padding: 80px 10%; border-bottom: 1px solid var(--border); }
         .label { font-size: 0.65rem; color: #aaa; text-transform: uppercase; letter-spacing: 5px; font-weight: 700; margin-bottom: 15px; display: block; }
-        .heading { font-family: 'Montserrat', sans-serif; font-size: 2rem; font-weight: 900; margin-bottom: 40px; text-transform: uppercase; }
+        .heading { font-family: 'Montserrat', sans-serif; font-size: 1.8rem; font-weight: 900; margin-bottom: 35px; text-transform: uppercase; }
 
-        /* GRID FOR PROJECTS & ACHIEVEMENTS */
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
-        .card { border: 1px solid var(--border); text-decoration: none; color: inherit; transition: 0.3s; }
-        .card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
-        .card img { width: 100%; height: 250px; object-fit: cover; }
+        /* GRIDS */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .card { border: 1px solid var(--border); text-decoration: none; color: inherit; transition: 0.3s; background: #fff; }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .card img { width: 100%; height: 200px; object-fit: cover; }
         .card-body { padding: 20px; }
 
-        /* EXPERIENCE & EDUCATION ITEMS */
+        /* TIMELINE */
         .timeline { border-left: 2px solid #f5f5f5; padding-left: 30px; }
-        .item { position: relative; margin-bottom: 50px; }
-        .item::before { content: ''; position: absolute; left: -39px; top: 6px; width: 16px; height: 16px; background: #000; border-radius: 50%; }
-        .item h4 { font-family: 'Montserrat', sans-serif; font-size: 1.2rem; font-weight: 800; }
-        .item .sub { color: var(--accent); font-weight: 700; font-size: 0.85rem; display: block; margin-bottom: 10px; }
-        .item ul { list-style: disc; margin-left: 20px; color: #555; font-size: 0.95rem; line-height: 1.6; }
+        .item { position: relative; margin-bottom: 40px; }
+        .item::before { content: ''; position: absolute; left: -39px; top: 5px; width: 16px; height: 16px; background: #000; border-radius: 50%; }
+        .item h4 { font-family: 'Montserrat', sans-serif; font-size: 1.1rem; font-weight: 800; }
+        .item .sub { color: #3498db; font-weight: 700; font-size: 0.8rem; display: block; margin-bottom: 8px; }
+        .item ul { list-style: none; color: #555; font-size: 0.9rem; line-height: 1.6; }
+        .item li::before { content: "• "; color: #000; font-weight: bold; }
 
         /* CONTACT */
-        .contact-box { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
-        .contact-card { background: #fafafa; border: 1px solid var(--border); padding: 30px 10px; text-align: center; text-decoration: none; color: #000; transition: 0.3s; }
-        .contact-card:hover { background: #000; color: #fff; }
-        .contact-card i { font-size: 1.5rem; margin-bottom: 10px; display: block; }
+        .contact-box { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; }
+        .contact-card { background: #fafafa; border: 1px solid var(--border); padding: 20px; text-align: center; text-decoration: none; color: #000; }
+        .contact-card:hover { background: #000; color: #fff; transition: 0.3s; }
 
-        /* RESPONSIVE */
         @media (max-width: 1024px) {
-            #sidebar { width: 100%; height: auto; position: relative; }
+            #sidebar { width: 100%; height: auto; position: relative; border-bottom: 1px solid var(--border); }
             #main-content { margin-left: 0; }
-            .grid, .contact-box { grid-template-columns: 1fr; }
-            .hero h1 { font-size: 3rem; }
         }
     </style>
 </head>
@@ -85,13 +74,13 @@
     <div id="sidebar">
         <img src="image/IMG_0114.jpeg" class="profile-img" alt="Sruthi">
         <h2 class="sidebar-name">SRUTHI V.</h2>
-        <p class="sidebar-tag">Data Analyst</p>
-        <nav>
+        <nav style="margin-top: 20px;">
             <a href="#about" class="nav-link">The Narrative</a>
-            <a href="#projects" class="nav-link">Work</a>
-            <a href="#experience" class="nav-link">Impact</a>
+            <a href="#projects" class="nav-link">Work Portfolio</a>
+            <a href="#experience" class="nav-link">Professional Impact</a>
             <a href="#education" class="nav-link">Education</a>
             <a href="#achievements" class="nav-link">Achievements</a>
+            <a href="#certifications" class="nav-link">Certifications</a>
             <a href="#contact" class="nav-link">Connect</a>
         </nav>
     </div>
@@ -102,53 +91,61 @@
         </section>
 
         <section id="about" class="section">
-            <span class="label">Introduction</span>
-            <h2 class="heading">Recruiter turned Team Lead & Data Analyst</h2>
+            <span class="label">My Narrative</span>
+            <h2 class="heading">Recruiter Transformed into Data Analyst</h2>
             <p style="font-size: 1.1rem; line-height: 1.8; color: #444;">
-                I am a Data Science student at the <b>University of St. Thomas</b>. My professional journey began in recruitment, where I spent over 3.5 years growing into a <b>Team Lead</b>. This experience taught me that data is the pulse of every business decision. I am currently seeking <b>Entry-Level / New Grad Data Analyst</b> roles where I can apply my expertise in <b>SQL, Tableau, and Excel</b>.
+                I am a Data Science student at <b>St. Thomas University</b>. My journey is unique: I started as a recruiter and rose to become a <b>Team Lead</b>, where I realized that data—not just intuition—drives the best decisions. I am deeply passionate about bridging the gap between raw numbers and business strategy using <b>SQL, Tableau, and Excel</b>. I am currently seeking <b>Entry-Level / New Grad Data Analyst</b> roles.
             </p>
         </section>
 
         <section id="projects" class="section">
-            <span class="label">Portfolio</span>
-            <h2 class="heading">Featured Work</h2>
+            <span class="label">Work</span>
+            <h2 class="heading">Technical Portfolio</h2>
             <div class="grid">
                 <a href="https://github.com/vemavarapu23" class="card">
-                    <img src="image/snowflake-dashboard.jpg" alt="Project 1">
-                    <div class="card-body"><h3>Snowflake Architecture</h3></div>
+                    <img src="image/snowflake-dashboard.jpg" alt="Snowflake">
+                    <div class="card-body"><h3>Snowflake Architecture</h3><p>SQL Optimization</p></div>
+                </a>
+                <a href="https://github.com/vemavarapu23/AI_Impact_on_job_market" class="card">
+                    <img src="image/ai-job-market.jpg" alt="AI Market">
+                    <div class="card-body"><h3>AI Job Market Analytics</h3><p>Python Analysis</p></div>
+                </a>
+                <a href="https://github.com/vemavarapu23/MachineLearning_Loan_Approval_Prediction" class="card">
+                    <img src="image/ml-confusion-matrix.jpg" alt="ML Project">
+                    <div class="card-body"><h3>ML Loan Approval</h3><p>Predictive Modeling</p></div>
                 </a>
                 <a href="https://github.com/vemavarapu23/Walmart-Sales--Analysis" class="card">
-                    <img src="image/walmart-dashboard.jpg" alt="Project 2">
-                    <div class="card-body"><h3>Walmart Sales BI</h3></div>
+                    <img src="image/walmart-dashboard.jpg" alt="Walmart BI">
+                    <div class="card-body"><h3>Walmart Sales BI</h3><p>Tableau Visualization</p></div>
                 </a>
-                </div>
+            </div>
         </section>
 
         <section id="experience" class="section">
             <span class="label">Career</span>
-            <h2 class="heading">Professional Impact</h2>
+            <h2 class="heading">Professional History</h2>
             <div class="timeline">
                 <div class="item">
                     <h4>Tech Desk Assistant</h4>
                     <span class="sub">University of St. Thomas | 2024 - Present</span>
                     <ul>
-                        <li>Managing technical infrastructure and university student data.</li>
+                        <li>Managing campus-wide technical data and user infrastructure.</li>
                     </ul>
                 </div>
                 <div class="item">
                     <h4>Team Lead (Recruitment Operations)</h4>
                     <span class="sub">Avance Consulting | Feb 2021 - Aug 2024</span>
                     <ul>
-                        <li>Led a team of 8, analyzing monthly hiring data for 500+ candidates.</li>
-                        <li>Designed Excel dashboards to track candidate pipelines and performance.</li>
-                        <li>Reduced candidate placement time by 30% through process improvement.</li>
+                        <li>Led 8 recruiters, analyzing hiring data for 500+ candidates monthly to identify trends.</li>
+                        <li>Designed Excel dashboards to track candidate pipelines and source performance.</li>
+                        <li>Transformed raw data into insights, resulting in 30% faster candidate placements.</li>
                     </ul>
                 </div>
             </div>
         </section>
 
         <section id="education" class="section">
-            <span class="label">Foundation</span>
+            <span class="label">Academic Core</span>
             <h2 class="heading">Education</h2>
             <div class="timeline">
                 <div class="item">
@@ -157,7 +154,7 @@
                 </div>
                 <div class="item">
                     <h4>Bachelor of Technology</h4>
-                    <span class="sub">JNTU Hyderabad</span>
+                    <span class="sub">JNTU Hyderabad, India</span>
                 </div>
             </div>
         </section>
@@ -166,12 +163,22 @@
             <span class="label">Recognition</span>
             <h2 class="heading">Achievements</h2>
             <div class="grid">
-                <img src="image/IMG_4080.jpeg" style="width:100%; border: 1px solid #eee;">
-                <img src="image/IMG_4082.jpeg" style="width:100%; border: 1px solid #eee;">
+                <img src="image/IMG_4080.jpeg" alt="Award 1">
+                <img src="image/IMG_4082.jpeg" alt="Award 2">
             </div>
         </section>
 
-        <section id="contact" class="section" style="border:none; padding-bottom: 150px;">
+        <section id="certifications" class="section">
+            <span class="label">Verification</span>
+            <h2 class="heading">Certifications</h2>
+            <ul style="list-style: none;">
+                <li style="padding: 15px; border: 1px solid #eee; margin-bottom: 10px;"><b>SQL for Data Science</b> - Advanced Analytics</li>
+                <li style="padding: 15px; border: 1px solid #eee; margin-bottom: 10px;"><b>Tableau Desktop Specialist</b> - Data Visualization</li>
+                <li style="padding: 15px; border: 1px solid #eee;"><b>Python for Data Analysis</b> - NumPy & Pandas</li>
+            </ul>
+        </section>
+
+        <section id="contact" class="section" style="border:none; padding-bottom: 100px;">
             <span class="label">Connect</span>
             <h2 class="heading">Let's Connect for Open Roles</h2>
             <div class="contact-box">
