@@ -10,6 +10,31 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<!-- HERO BANNER STYLES -->
+  <style>
+    .hero-banner{
+      background-image: url('image/IMG_2427.jpeg');
+      background-size: cover;
+      background-position: center;
+      border-radius: 12px;
+      padding: 4rem 3rem;
+      position: relative;
+    }
+
+    .hero-banner::before{
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+      border-radius: 12px;
+    }
+
+    .hero-banner *{
+      position: relative;
+      color: #fff;
+    }
+  </style>
+
 	</head>
 	<body class="is-preload">
 
@@ -21,7 +46,7 @@
 						<div class="inner">
 						
 <!-- HERO / HOME -->
-<section id="home">
+<section id="home" class="hero-banner">
   <header class="major">
     <h1>Hi, I’m Sruthi Vemavarapu</h1>
     <p><strong>Entry-Level Data Analyst | MS Data Science Student</strong></p>
@@ -157,4 +182,5 @@
     <li>GitHub: <a href="https://github.com/vemavarapu23" target="_blank">View GitHub</a></li>
   </ul>
 </section>
+
 
