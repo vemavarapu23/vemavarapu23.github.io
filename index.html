@@ -3,122 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sruthi Vemavarapu | Portfolio</title>
+    <title>Sruthi Vemavarapu | Data Science Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        :root {
-            --sidebar-width: 350px;
-            --black: #000000;
-            --gray: #757575;
-            --border: #eeeeee;
-        }
-
+        :root { --sidebar-w: 320px; --black: #000; --gray: #71717a; }
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        
-        body { 
-            font-family: 'Inter', sans-serif; 
-            background: #ffffff; 
-            color: var(--black); 
-            line-height: 1.5;
-        }
+        body { font-family: 'Inter', sans-serif; background: #fff; color: var(--black); line-height: 1.4; }
 
-        /* --- FIXED LEFT SIDEBAR --- */
+        /* --- FIXED SIDEBAR (100% Richa Look) --- */
         .sidebar {
-            width: var(--sidebar-width);
-            height: 100vh;
-            position: fixed;
-            left: 0; top: 0;
-            background: #ffffff;
-            border-right: 1px solid var(--border);
-            padding: 60px;
-            display: flex;
-            flex-direction: column;
-            z-index: 100;
+            width: var(--sidebar-w); height: 100vh; position: fixed;
+            left: 0; top: 0; background: #fff; border-right: 1px solid #eee;
+            padding: 60px 40px; display: flex; flex-direction: column; z-index: 1000;
         }
+        .profile-img { width: 100px; height: 100px; border-radius: 20px; object-fit: cover; margin-bottom: 25px; }
+        .sidebar h2 { font-size: 1.6rem; font-weight: 900; letter-spacing: -1px; margin-bottom: 40px; line-height: 1; }
+        .nav a { display: block; color: var(--gray); text-decoration: none; font-weight: 700; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; }
+        .nav a:hover { color: var(--black); }
 
-        .profile-img {
-            width: 120px; height: 120px;
-            border-radius: 20px;
-            object-fit: cover;
-            margin-bottom: 30px;
-            border: 1px solid var(--border);
-        }
+        /* --- MAIN CONTENT --- */
+        .main { margin-left: var(--sidebar-w); }
 
-        .sidebar h2 { font-size: 1.8rem; font-weight: 900; line-height: 1; letter-spacing: -1px; margin-bottom: 50px; }
-
-        .nav { display: flex; flex-direction: column; gap: 20px; }
-        .nav a { 
-            text-decoration: none; color: var(--gray); font-weight: 700; 
-            font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; 
-            transition: 0.3s;
-        }
-        .nav a:hover { color: var(--black); transform: translateX(5px); }
-
-        /* --- MAIN CONTENT AREA --- */
-        .main { margin-left: var(--sidebar-width); }
-
-        /* HERO - Ensuring Background Image is visible */
+        /* HERO with BG Image */
         .hero { 
-            height: 80vh; 
-            background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.2)), url('image/IMG_2427.jpeg'); 
-            background-size: cover; 
-            background-position: center;
-            display: flex; align-items: flex-end; padding: 60px;
+            height: 85vh; background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.2)), url('image/IMG_2427.jpeg'), #222; 
+            background-size: cover; background-position: center; display: flex; align-items: flex-end; padding: 60px;
         }
-        .hero h1 { font-size: 10vw; font-weight: 900; color: #ffffff; letter-spacing: -6px; line-height: 0.8; margin: 0; }
+        .hero h1 { font-size: 12vw; font-weight: 900; color: #fff; letter-spacing: -6px; line-height: 0.8; }
 
-        /* SECTIONS */
-        .section { padding: 100px 10%; border-bottom: 1px solid var(--border); }
+        /* SECTION STYLING */
+        .section { padding: 100px 10%; border-bottom: 1px solid #f4f4f5; }
         .label { font-size: 0.75rem; font-weight: 900; text-transform: uppercase; letter-spacing: 4px; color: var(--gray); margin-bottom: 40px; display: block; }
-        
-        .about-text { font-size: 2.2rem; font-weight: 400; line-height: 1.2; margin-bottom: 40px; color: var(--black); }
-        
-        /* SKILL PILLS */
-        .skill-tag { display: inline-block; border: 2px solid var(--black); padding: 8px 20px; border-radius: 50px; margin-right: 10px; font-weight: 900; font-size: 0.85rem; }
+        .about-text { font-size: 2.2rem; font-weight: 400; margin-bottom: 30px; }
+        .skill-tag { display: inline-block; border: 2px solid #000; padding: 6px 16px; border-radius: 40px; margin-right: 10px; font-weight: 900; font-size: 0.8rem; }
 
         /* PROJECT GRID (4 Projects) */
-        .project-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-        .project-card { text-decoration: none; color: inherit; display: block; }
-        .project-img { width: 100%; height: 400px; object-fit: cover; background: #f5f5f5; margin-bottom: 20px; transition: 0.3s; }
-        .project-card:hover .project-img { opacity: 0.7; }
-        .project-card h3 { font-size: 1.4rem; font-weight: 800; margin-bottom: 5px; }
-        .project-card p { font-size: 0.8rem; color: var(--gray); text-transform: uppercase; font-weight: 700; letter-spacing: 1px; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        .project { text-decoration: none; color: inherit; }
+        .project-img { width: 100%; height: 380px; object-fit: cover; background: #f4f4f5; margin-bottom: 15px; }
+        .project h3 { font-size: 1.3rem; font-weight: 800; }
+        .project p { font-size: 0.8rem; color: var(--gray); text-transform: uppercase; font-weight: 700; }
 
-        /* EXPERIENCE & EDUCATION ITEMS */
-        .brand-item { display: flex; align-items: center; margin-bottom: 40px; }
-        .brand-logo { width: 60px; height: 60px; object-fit: contain; margin-right: 25px; border-radius: 8px; }
+        /* LOGO ROWS (Exp & Edu) */
+        .brand-row { display: flex; align-items: center; margin-bottom: 40px; }
+        .logo { width: 60px; height: 60px; object-fit: contain; margin-right: 20px; }
         .brand-info h4 { font-size: 1.4rem; font-weight: 800; }
-        .brand-info p { color: var(--gray); font-size: 1rem; }
 
-        /* CERTIFICATIONS GALLERY */
-        .cert-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        .cert-grid img { width: 100%; border: 1px solid var(--border); }
+        /* ACHIEVEMENTS */
+        .ach-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        .ach-img { width: 100%; border: 1px solid #eee; border-radius: 5px; }
 
-        /* CONTACT SECTION */
-        .contact-link { display: block; font-size: 5vw; font-weight: 900; color: var(--black); text-decoration: none; line-height: 1.1; transition: 0.3s; }
-        .contact-link:hover { color: var(--gray); padding-left: 20px; }
+        /* CONTACT LINKS */
+        .big-link { display: block; font-size: 5vw; font-weight: 900; color: #000; text-decoration: none; line-height: 1.1; }
+        .big-link:hover { color: var(--gray); padding-left: 15px; }
 
-        /* MOBILE FIX */
         @media (max-width: 1024px) {
-            .sidebar { width: 100%; height: auto; position: relative; border-right: none; border-bottom: 1px solid var(--border); padding: 40px; }
+            .sidebar { width: 100%; height: auto; position: relative; border-right: none; }
             .main { margin-left: 0; }
-            .project-grid, .cert-grid { grid-template-columns: 1fr; }
-            .hero h1 { font-size: 18vw; }
+            .grid, .ach-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
     <aside class="sidebar">
-        <img src="image/IMG_0114.jpeg" class="profile-img" alt="Sruthi Profile">
+        <img src="image/IMG_0114.jpeg" class="profile-img" alt="Sruthi">
         <h2>SRUTHI<br>VEMAVARAPU</h2>
         <nav class="nav">
             <a href="#profile">Profile</a>
-            <a href="#work">Work</a>
+            <a href="#work">Selected Work</a>
             <a href="#experience">Experience</a>
             <a href="#education">Education</a>
-            <a href="#certifications">Certifications</a>
+            <a href="#achievements">Achievements</a>
             <a href="#contact">Contact</a>
         </nav>
     </aside>
@@ -130,3 +88,24 @@
 
         <section id="profile" class="section">
             <span class="label">Profile</span>
+            <p class="about-text">
+                I am a <b>Data Science Student at the University of St. Thomas</b> with 4 years of experience as a Team Lead. I specialize in identifying patterns and translating them into clear, actionable business insights.
+            </p>
+            <div>
+                <span class="skill-tag">SQL</span>
+                <span class="skill-tag">TABLEAU</span>
+                <span class="skill-tag">EXCEL</span>
+            </div>
+        </section>
+
+        <section id="work" class="section">
+            <span class="label">Selected Work</span>
+            <div class="grid">
+                <a href="https://github.com/vemavarapu23" class="project">
+                    <img src="image/snowflake-dashboard.jpg" class="project-img">
+                    <h3>Snowflake Pipeline</h3>
+                    <p>SQL / Data Warehouse</p>
+                </a>
+                <a href="https://github.com/vemavarapu23/AI_Impact_on_job_market" class="project">
+                    <img src="image/ai-job-market.jpg" class="project-img">
+                    <h3>AI Impact Analytics
