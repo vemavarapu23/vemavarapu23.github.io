@@ -3,183 +3,251 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sruthi Vemavarapu | Data Science Portfolio</title>
+    <title>Sruthi Vemavarapu | Portfolio</title>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
         :root {
-            --sidebar-bg: #111111;
-            --accent-blue: #007bff;
-            --text-light: #f8f9fa;
+            --sidebar-width: 300px;
+            --primary-blue: #007bff;
+            --sidebar-bg: #1a1a1a;
         }
 
         body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #333; margin: 0; }
 
-        /* FIXED SIDEBAR */
+        /* FIXED SIDEBAR (Richa Style) */
         #sidebar {
-            width: 320px;
+            width: var(--sidebar-width);
             height: 100vh;
             position: fixed;
+            left: 0;
+            top: 0;
             background: var(--sidebar-bg);
             color: white;
-            padding: 60px 35px;
+            padding: 50px 30px;
+            z-index: 1000;
             display: flex;
             flex-direction: column;
-            z-index: 1000;
+            text-align: center;
         }
 
         .profile-pic {
-            width: 170px;
-            height: 170px;
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
-            border: 4px solid #222;
+            border: 4px solid #333;
             object-fit: cover;
-            margin: 0 auto 25px;
+            margin: 0 auto 20px;
         }
 
-        .nav-menu { width: 100%; margin-top: 40px; }
+        .nav-menu { margin-top: 30px; }
         .nav-menu a {
-            color: #777;
+            color: #888;
             text-decoration: none;
             display: block;
-            padding: 15px 0;
-            font-size: 0.8rem;
+            padding: 12px 0;
             text-transform: uppercase;
+            font-size: 0.8rem;
             letter-spacing: 2px;
-            border-bottom: 1px solid #1a1a1a;
+            border-bottom: 1px solid #222;
             transition: 0.3s;
         }
-        .nav-menu a:hover { color: white; border-bottom: 1px solid var(--accent-blue); }
+        .nav-menu a:hover { color: white; padding-left: 10px; }
 
         /* MAIN CONTENT AREA */
-        #main { margin-left: 320px; }
+        #main { margin-left: var(--sidebar-width); }
 
-        /* HERO HEADER (IMAGE 2) */
+        /* HERO HEADER (Your IMG_2427.jpeg) */
         .hero {
-            height: 480px;
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('image/image2.jpg');
+            height: 450px;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('image/IMG_2427.jpeg');
             background-size: cover;
             background-position: center;
             display: flex;
             align-items: center;
-            padding: 0 80px;
+            padding: 0 60px;
             color: white;
         }
-        .hero h1 { font-size: 5rem; font-weight: 900; line-height: 0.9; }
+        .hero h1 { font-size: 4rem; font-weight: 900; letter-spacing: -1px; margin: 0; }
 
         /* SECTIONS */
-        .section { padding: 100px 80px; border-bottom: 1px solid #eee; }
+        .section-padding { padding: 80px 60px; border-bottom: 1px solid #eee; }
         .section-title {
-            font-size: 2rem;
-            font-weight: 900;
-            margin-bottom: 50px;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            border-left: 10px solid var(--accent-blue);
-            padding-left: 20px;
-        }
-
-        /* PROJECT TILES */
-        .project-card {
-            border: none;
-            background: #fff;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+            font-size: 1.8rem;
+            font-weight: 800;
             margin-bottom: 40px;
-            transition: 0.4s;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #111;
         }
-        .project-card:hover { transform: translateY(-10px); }
-        .project-card img { height: 260px; object-fit: cover; }
 
-        /* CERTIFICATION BOXES */
-        .cert-card {
-            background: #fdfdfd;
-            border: 1px solid #eee;
-            padding: 25px;
-            border-radius: 12px;
-            margin-bottom: 20px;
+        /* PROJECT CARDS */
+        .project-card {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            margin-bottom: 30px;
             transition: 0.3s;
         }
-        .cert-card:hover { border-color: var(--accent-blue); background: #fff; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .project-card:hover { transform: translateY(-10px); }
+        .project-card img { height: 240px; width: 100%; object-fit: cover; }
+        .project-body { padding: 25px; }
 
-        /* AWARD IMAGES (IMAGE 3 & 4) */
-        .award-img-box {
-            width: 100%;
-            height: 300px;
-            overflow: hidden;
+        /* AWARDS SECTION */
+        .award-container {
+            background: #f8f9fa;
             border-radius: 12px;
-            margin-bottom: 15px;
+            padding: 20px;
+            margin-bottom: 30px;
         }
-        .award-img-box img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
-        .award-img-box img:hover { transform: scale(1.05); }
+        .award-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
 
         @media (max-width: 992px) {
-            #sidebar { width: 100%; height: auto; position: relative; padding: 40px 20px; }
+            #sidebar { width: 100%; height: auto; position: relative; padding: 30px 20px; }
             #main { margin-left: 0; }
+            .hero { padding: 0 20px; }
+            .hero h1 { font-size: 2.5rem; }
         }
     </style>
 </head>
 <body>
 
     <div id="sidebar">
-        <img src="image/image1.jpg" alt="Sruthi Vemavarapu" class="profile-pic">
-        <h3 class="fw-bold text-center">SRUTHI V.</h3>
-        <p class="small text-center text-muted">Data Scientist | MS Candidate</p>
+        <img src="image/IMG_0114.jpeg" alt="Sruthi Vemavarapu" class="profile-pic">
+        <h3 class="fw-bold">SRUTHI V.</h3>
+        <p class="small text-muted">Data Scientist | MS Candidate</p>
         
         <nav class="nav-menu">
             <a href="#about">About</a>
             <a href="#experience">Experience</a>
             <a href="#projects">Portfolio</a>
-            <a href="#certifications">Certifications</a>
+            <a href="#awards">Awards</a>
             <a href="#contact">Contact</a>
         </nav>
 
         <div class="mt-auto text-center pt-4">
-            <a href="https://linkedin.com/in/sruthi-vemavarapu-0b614b198/" target="_blank" class="text-white mx-2"><i class="fab fa-linkedin fa-lg"></i></a>
-            <a href="https://github.com/vemavarapu23" target="_blank" class="text-white mx-2"><i class="fab fa-github fa-lg"></i></a>
+            <a href="https://linkedin.com/in/sruthi-vemavarapu-0b614b198/" target="_blank" class="text-white mx-3"><i class="fab fa-linkedin fa-lg"></i></a>
+            <a href="https://github.com/vemavarapu23" target="_blank" class="text-white mx-3"><i class="fab fa-github fa-lg"></i></a>
         </div>
     </div>
 
     <div id="main">
         
         <div class="hero">
-            <div>
-                <h1>SRUTHI</h1>
-                <h1>VEMAVARAPU</h1>
-            </div>
+            <h1>SRUTHI VEMAVARAPU</h1>
         </div>
 
-        <section id="about" class="section">
+        <section id="about" class="section-padding">
             <h2 class="section-title">About Me</h2>
-            <div class="row">
-                <div class="col-lg-11">
-                    <p class="lead fw-bold text-primary">Data Scientist passionate about AI-powered solutions.</p>
-                    <p>Hi, I'm Sruthi – a Data Scientist passionate about crafting innovative, AI-powered solutions that drive innovation, empower teams, and delight users. With over 4 years of experience spanning the recruitment and tech sectors, I thrive at the intersection of strategy, technology, and user experience.</p>
-                    <p>I believe in the power of aligning bold vision with data-driven insights – shaping scalable, intuitive products that deliver tangible business results. My goal is to create meaningful, human-centric solutions that meet user needs and shape the future of the tech industry.</p>
-                </div>
+            <div class="col-lg-11">
+                <p class="lead fw-bold mb-4">Bridging the gap between raw data and business strategy.</p>
+                <p>I am a Data Scientist currently pursuing my Master’s at the University of St. Thomas. I specialize in turning complex datasets into actionable business intelligence. With a background in recruitment leadership and data analytics, I bring a unique perspective on how human capital data drives industry success.</p>
+                <p>My technical expertise includes SQL, Python, and Tableau, with a core focus on Machine Learning and Statistical Modeling. I am dedicated to creating scalable, data-driven solutions that help organizations make informed workforce and operational decisions.</p>
             </div>
         </section>
 
-        <section id="experience" class="section">
-            <h2 class="section-title">Experience</h2>
+        <section id="experience" class="section-padding bg-light">
+            <h2 class="section-title">Professional Experience</h2>
             <div class="mb-5">
-                <h4 class="fw-bold m-0">US IT Recruiter & Team Lead</h4>
-                <p class="text-primary fw-bold">Avance Consulting | Hyderabad</p>
-                <ul class="mt-3">
-                    <li>Led data-driven recruitment strategies to optimize high-volume hiring for US enterprise clients.</li>
-                    <li>Developed internal SQL-based tracking systems to measure candidate throughput and team KPIs.</li>
-                    <li>Utilized Excel and Python for recruitment data analytics to predict hiring trends.</li>
+                <h4 class="fw-bold">US IT Recruiter & Team Lead</h4>
+                <p class="text-primary fw-bold">Avance Consulting</p>
+                <ul class="mt-4">
+                    <li class="mb-2">Led a team of 8 recruiters, overseeing recruitment operations and analyzing hiring data for 500+ candidates monthly to identify trends and optimize workflows.</li>
+                    <li class="mb-2">Designed and maintained Excel dashboards and reports to track candidate pipelines, source performance, and recruitment timelines.</li>
+                    <li class="mb-2">Cleaned, structured, and transformed recruitment data from multiple sources to support accurate analysis and reporting.</li>
+                    <li class="mb-2">Presented insights from recruitment metrics to management, enabling data-driven hiring and workforce decisions.</li>
+                    <li class="mb-2">Applied Excel formulas, pivot tables, and charts to visualize data effectively for team and leadership reviews.</li>
+                    <li class="mb-2">Monitored recruitment trends, identified bottlenecks, and implemented process improvements, resulting in 30% faster candidate placements and improved team efficiency.</li>
                 </ul>
             </div>
         </section>
 
-        <section id="projects" class="section bg-light">
-            <h2 class="section-title">Portfolio</h2>
+        <section id="projects" class="section-padding">
+            <h2 class="section-title">Data Projects</h2>
             <div class="row g-4">
                 <div class="col-md-6">
-                    <div class="project-card p-3 shadow-sm">
-                        <img src="image/ai-job-market.jpg" class="w-100 rounded">
-                        <h5 class="fw-bold mt-4">AI Impact Analysis</h5>
-                        <p class="small text-muted">Comprehensive study on job market automation trends (2024-2030).</p>
-                        <a href="https
+                    <div class="project-card">
+                        <img src="image/ai-job-market.jpg" alt="AI Impact">
+                        <div class="project-body">
+                            <h5 class="fw-bold">AI Impact on Job Market</h5>
+                            <p class="small text-muted">Python | SQL | Tableau</p>
+                            <a href="https://github.com/vemavarapu23/AI_Impact_on_job_market" class="btn btn-dark btn-sm mt-2">View Repository</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="project-card">
+                        <img src="image/ml-confusion-matrix.jpg" alt="ML Project">
+                        <div class="project-body">
+                            <h5 class="fw-bold">Loan Approval Prediction</h5>
+                            <p class="small text-muted">Machine Learning | Python</p>
+                            <a href="https://github.com/vemavarapu23/MachineLearning_Loan_Approval_Prediction" class="btn btn-dark btn-sm mt-2">View Repository</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="project-card">
+                        <img src="image/walmart-dashboard.jpg" alt="Walmart">
+                        <div class="project-body">
+                            <h5 class="fw-bold">Walmart Sales Analytics</h5>
+                            <p class="small text-muted">Excel | Dashboards</p>
+                            <a href="https://github.com/vemavarapu23/Walmart-Sales--Analysis" class="btn btn-dark btn-sm mt-2">View Repository</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="project-card">
+                        <img src="image/snowflake-dashboard.jpg" alt="Snowflake">
+                        <div class="project-body">
+                            <h5 class="fw-bold">Snowflake Data Analytics</h5>
+                            <p class="small text-muted">Cloud SQL | Data Warehousing</p>
+                            <button class="btn btn-outline-secondary btn-sm mt-2" disabled>Documentation Pending</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="awards" class="section-padding bg-light">
+            <h2 class="section-title">Achievements</h2>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="award-container text-center">
+                        <img src="image/IMG_4080.jpeg" alt="Wisestep Award">
+                        <h6 class="fw-bold mt-3">Intermediate Wisestep Certification</h6>
+                        <p class="small text-muted">Conducted at Avance Consulting</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="award-container text-center">
+                        <img src="image/IMG_4082.jpeg" alt="Client Award">
+                        <h6 class="fw-bold mt-3">Enlarging New Clients Award</h6>
+                        <p class="small text-muted">Recognized for Outstanding Business Growth</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section-padding">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-1"><strong>Email:</strong> sruthivemavarapus@outlook.com</p>
+                    <p class="mb-4"><strong>Location:</strong> Saint Paul, MN</p>
+                    <a href="https://www.linkedin.com/in/sruthi-vemavarapu-0b614b198/" target="_blank" class="btn btn-primary">Connect on LinkedIn</a>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+</body>
+</html>
