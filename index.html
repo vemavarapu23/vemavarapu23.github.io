@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sruthi Vemavarapu | Portfolio</title>
+    <title>Sruthi Vemavarapu | Data Analyst Portfolio</title>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -12,16 +12,16 @@
         :root {
             --sidebar-width: 300px;
             --primary-blue: #007bff;
-            --sidebar-bg: #1a1a1a;
+            --sidebar-bg: #111111;
         }
 
         body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #333; margin: 0; }
 
-        /* FIXED SIDEBAR (Richa Style) */
+        /* FIXED SIDEBAR - THIS WILL NOW MOVE WITH YOU */
         #sidebar {
             width: var(--sidebar-width);
             height: 100vh;
-            position: fixed;
+            position: fixed; /* Keeps it locked on the left */
             left: 0;
             top: 0;
             background: var(--sidebar-bg);
@@ -44,22 +44,22 @@
 
         .nav-menu { margin-top: 30px; }
         .nav-menu a {
-            color: #888;
+            color: #777;
             text-decoration: none;
             display: block;
             padding: 12px 0;
             text-transform: uppercase;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             letter-spacing: 2px;
             border-bottom: 1px solid #222;
             transition: 0.3s;
         }
-        .nav-menu a:hover { color: white; padding-left: 10px; }
+        .nav-menu a:hover { color: white; padding-left: 10px; border-bottom: 1px solid var(--primary-blue); }
 
         /* MAIN CONTENT AREA */
         #main { margin-left: var(--sidebar-width); }
 
-        /* HERO HEADER (Your IMG_2427.jpeg) */
+        /* HERO HEADER (IMG_2427) */
         .hero {
             height: 450px;
             background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('image/IMG_2427.jpeg');
@@ -73,7 +73,7 @@
         .hero h1 { font-size: 4rem; font-weight: 900; letter-spacing: -1px; margin: 0; }
 
         /* SECTIONS */
-        .section-padding { padding: 80px 60px; border-bottom: 1px solid #eee; }
+        .section-padding { padding: 90px 60px; border-bottom: 1px solid #eee; }
         .section-title {
             font-size: 1.8rem;
             font-weight: 800;
@@ -81,40 +81,39 @@
             text-transform: uppercase;
             letter-spacing: 2px;
             color: #111;
+            border-left: 8px solid var(--primary-blue);
+            padding-left: 20px;
         }
 
         /* PROJECT CARDS */
-        .project-card {
+        .custom-card {
             background: #fff;
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 4px 20px rgba(0,0,0,0.08);
             margin-bottom: 30px;
             transition: 0.3s;
+            border: none;
         }
-        .project-card:hover { transform: translateY(-10px); }
-        .project-card img { height: 240px; width: 100%; object-fit: cover; }
-        .project-body { padding: 25px; }
+        .custom-card:hover { transform: translateY(-10px); }
+        .custom-card img { height: 220px; width: 100%; object-fit: cover; }
+        .card-body-padding { padding: 25px; }
 
-        /* AWARDS SECTION */
-        .award-container {
+        /* CERTIFICATION BOXES */
+        .cert-box {
             background: #f8f9fa;
-            border-radius: 12px;
             padding: 20px;
-            margin-bottom: 30px;
-        }
-        .award-container img {
-            width: 100%;
-            height: auto;
             border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            border-left: 4px solid var(--primary-blue);
         }
+        .cert-box i { font-size: 1.5rem; margin-right: 15px; color: #0077b5; }
 
         @media (max-width: 992px) {
-            #sidebar { width: 100%; height: auto; position: relative; padding: 30px 20px; }
+            #sidebar { width: 100%; height: auto; position: relative; }
             #main { margin-left: 0; }
-            .hero { padding: 0 20px; }
-            .hero h1 { font-size: 2.5rem; }
         }
     </style>
 </head>
@@ -123,14 +122,15 @@
     <div id="sidebar">
         <img src="image/IMG_0114.jpeg" alt="Sruthi Vemavarapu" class="profile-pic">
         <h3 class="fw-bold">SRUTHI V.</h3>
-        <p class="small text-muted">Data Scientist | MS Candidate</p>
+        <p class="small text-muted">Data Analyst</p>
         
         <nav class="nav-menu">
-            <a href="#about">About</a>
+            <a href="#about">About Me</a>
             <a href="#experience">Experience</a>
             <a href="#projects">Portfolio</a>
             <a href="#awards">Awards</a>
-            <a href="#contact">Contact</a>
+            <a href="#certifications">Certifications</a>
+            <a href="#education">Education</a>
         </nav>
 
         <div class="mt-auto text-center pt-4">
@@ -148,68 +148,47 @@
         <section id="about" class="section-padding">
             <h2 class="section-title">About Me</h2>
             <div class="col-lg-11">
-                <p class="lead fw-bold mb-4">Bridging the gap between raw data and business strategy.</p>
-                <p>I am a Data Scientist currently pursuing my Master’s at the University of St. Thomas. I specialize in turning complex datasets into actionable business intelligence. With a background in recruitment leadership and data analytics, I bring a unique perspective on how human capital data drives industry success.</p>
-                <p>My technical expertise includes SQL, Python, and Tableau, with a core focus on Machine Learning and Statistical Modeling. I am dedicated to creating scalable, data-driven solutions that help organizations make informed workforce and operational decisions.</p>
+                <p class="lead fw-bold">I am a Data Analyst focused on the questions behind the data.</p>
+                <p>I turn complex information into clear, decision-ready insights. With 4 years of experience at <strong>Avance Consulting</strong>, I have worked extensively with structured data and reporting to support high-level decision making.</p>
+                <p>My background allowed me to analyze operational data—like pipelines and performance trends—to prioritize actions and improve team visibility. I combine this business context with technical skills in SQL, Tableau, and Excel to uncover trends that drive growth. I am currently building on this foundation through my <strong>Master’s in Data Science</strong>, focusing on analytical thinking and data workflows.</p>
+                <p>I am actively seeking <strong>Data Analyst</strong> or <strong>Business Analyst</strong> opportunities to deliver meaningful insights.</p>
             </div>
         </section>
 
         <section id="experience" class="section-padding bg-light">
-            <h2 class="section-title">Professional Experience</h2>
-            <div class="mb-5">
-                <h4 class="fw-bold">US IT Recruiter & Team Lead</h4>
-                <p class="text-primary fw-bold">Avance Consulting</p>
-                <ul class="mt-4">
-                    <li class="mb-2">Led a team of 8 recruiters, overseeing recruitment operations and analyzing hiring data for 500+ candidates monthly to identify trends and optimize workflows.</li>
-                    <li class="mb-2">Designed and maintained Excel dashboards and reports to track candidate pipelines, source performance, and recruitment timelines.</li>
-                    <li class="mb-2">Cleaned, structured, and transformed recruitment data from multiple sources to support accurate analysis and reporting.</li>
-                    <li class="mb-2">Presented insights from recruitment metrics to management, enabling data-driven hiring and workforce decisions.</li>
-                    <li class="mb-2">Applied Excel formulas, pivot tables, and charts to visualize data effectively for team and leadership reviews.</li>
-                    <li class="mb-2">Monitored recruitment trends, identified bottlenecks, and implemented process improvements, resulting in 30% faster candidate placements and improved team efficiency.</li>
-                </ul>
-            </div>
+            <h2 class="section-title">Experience</h2>
+            <h4 class="fw-bold">US IT Recruiter & Team Lead</h4>
+            <p class="text-primary fw-bold">Avance Consulting</p>
+            <ul class="mt-4">
+                <li>Led 8 recruiters, overseeing operations and analyzing hiring data for 500+ candidates monthly to optimize workflows.</li>
+                <li>Designed Excel dashboards to track candidate pipelines, source performance, and recruitment timelines.</li>
+                <li>Cleaned and transformed recruitment data from multiple sources to support accurate reporting.</li>
+                <li>Presented insights from metrics to management, enabling data-driven hiring decisions.</li>
+                <li>Applied Excel formulas and pivot tables to visualize data for leadership reviews.</li>
+                <li>Implemented process improvements resulting in 30% faster candidate placements.</li>
+            </ul>
         </section>
 
         <section id="projects" class="section-padding">
-            <h2 class="section-title">Data Projects</h2>
-            <div class="row g-4">
+            <h2 class="section-title">Portfolio</h2>
+            <div class="row">
                 <div class="col-md-6">
-                    <div class="project-card">
+                    <div class="custom-card card">
+                        <img src="image/snowflake-dashboard.jpg" alt="Snowflake Analytics">
+                        <div class="card-body-padding">
+                            <h5 class="fw-bold">Fox Finance Analytics (Snowflake)</h5>
+                            <p class="small text-muted">End-to-end SQL pipeline: Raw ingestion, Curation layer, and Aggregated views for financial reporting.</p>
+                            <a href="https://github.com/vemavarapu23" class="btn btn-dark btn-sm">View SQL Code</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="custom-card card">
                         <img src="image/ai-job-market.jpg" alt="AI Impact">
-                        <div class="project-body">
+                        <div class="card-body-padding">
                             <h5 class="fw-bold">AI Impact on Job Market</h5>
-                            <p class="small text-muted">Python | SQL | Tableau</p>
-                            <a href="https://github.com/vemavarapu23/AI_Impact_on_job_market" class="btn btn-dark btn-sm mt-2">View Repository</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="project-card">
-                        <img src="image/ml-confusion-matrix.jpg" alt="ML Project">
-                        <div class="project-body">
-                            <h5 class="fw-bold">Loan Approval Prediction</h5>
-                            <p class="small text-muted">Machine Learning | Python</p>
-                            <a href="https://github.com/vemavarapu23/MachineLearning_Loan_Approval_Prediction" class="btn btn-dark btn-sm mt-2">View Repository</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="project-card">
-                        <img src="image/walmart-dashboard.jpg" alt="Walmart">
-                        <div class="project-body">
-                            <h5 class="fw-bold">Walmart Sales Analytics</h5>
-                            <p class="small text-muted">Excel | Dashboards</p>
-                            <a href="https://github.com/vemavarapu23/Walmart-Sales--Analysis" class="btn btn-dark btn-sm mt-2">View Repository</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="project-card">
-                        <img src="image/snowflake-dashboard.jpg" alt="Snowflake">
-                        <div class="project-body">
-                            <h5 class="fw-bold">Snowflake Data Analytics</h5>
-                            <p class="small text-muted">Cloud SQL | Data Warehousing</p>
-                            <button class="btn btn-outline-secondary btn-sm mt-2" disabled>Documentation Pending</button>
+                            <p class="small text-muted">Analysis of automation risk and salary trends (2024-2030) using Python and Tableau.</p>
+                            <a href="https://github.com/vemavarapu23/AI_Impact_on_job_market" class="btn btn-dark btn-sm">View Project</a>
                         </div>
                     </div>
                 </div>
@@ -217,35 +196,50 @@
         </section>
 
         <section id="awards" class="section-padding bg-light">
-            <h2 class="section-title">Achievements</h2>
-            <div class="row g-4">
+            <h2 class="section-title">Awards</h2>
+            <div class="row">
                 <div class="col-md-6">
-                    <div class="award-container text-center">
-                        <img src="image/IMG_4080.jpeg" alt="Wisestep Award">
-                        <h6 class="fw-bold mt-3">Intermediate Wisestep Certification</h6>
-                        <p class="small text-muted">Conducted at Avance Consulting</p>
+                    <div class="custom-card card p-2 text-center">
+                        <img src="image/IMG_4080.jpeg" style="height:300px; object-fit:contain;">
+                        <h6 class="fw-bold mt-3">Wisestep Certification - Intermediate</h6>
+                        <p class="small text-muted">Avance Consulting</p>
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="award-container text-center">
-                        <img src="image/IMG_4082.jpeg" alt="Client Award">
+                    <div class="custom-card card p-2 text-center">
+                        <img src="image/IMG_4082.jpeg" style="height:300px; object-fit:contain;">
                         <h6 class="fw-bold mt-3">Enlarging New Clients Award</h6>
-                        <p class="small text-muted">Recognized for Outstanding Business Growth</p>
+                        <p class="small text-muted">Avance Consulting Excellence</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="contact" class="section-padding">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="row">
-                <div class="col-md-6">
-                    <p class="mb-1"><strong>Email:</strong> sruthivemavarapus@outlook.com</p>
-                    <p class="mb-4"><strong>Location:</strong> Saint Paul, MN</p>
-                    <a href="https://www.linkedin.com/in/sruthi-vemavarapu-0b614b198/" target="_blank" class="btn btn-primary">Connect on LinkedIn</a>
-                </div>
+        <section id="certifications" class="section-padding">
+            <h2 class="section-title">Certifications</h2>
+            <div class="cert-box"><i class="fab fa-linkedin"></i> <span>SQL for Data Science (LinkedIn)</span></div>
+            <div class="cert-box"><i class="fab fa-linkedin"></i> <span>Data Analytics Professional Path (LinkedIn)</span></div>
+            <div class="cert-box"><i class="fas fa-file-excel"></i> <span>Advanced Business Analytics (Excel)</span></div>
+        </section>
+
+        <section id="education" class="section-padding bg-light">
+            <h2 class="section-title">Education</h2>
+            <div class="mb-4">
+                <h5 class="fw-bold">Master of Science in Data Science</h5>
+                <p class="text-primary m-0">University of St. Thomas</p>
+                <p class="small text-muted">2024 - 2026 (Expected)</p>
+            </div>
+            <div>
+                <h5 class="fw-bold">Bachelor of Technology (B.Tech)</h5>
+                <p class="text-primary m-0">Kakinada Institute of Engineering & Technology</p>
             </div>
         </section>
+
+        <footer id="contact" class="section-padding">
+            <h2 class="section-title">Contact</h2>
+            <p><i class="fas fa-envelope me-2"></i> sruthivemavarapus@outlook.com</p>
+            <p><i class="fas fa-map-marker-alt me-2"></i> Saint Paul, MN</p>
+        </footer>
 
     </div>
 
