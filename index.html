@@ -2,94 +2,67 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Sruthi Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sruthi Vemavarapu | Data Analyst</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        /* If you see this, the CSS is loading */
-        body { 
-            margin: 0; 
-            padding: 0; 
-            background-color: #f4f4f4; /* Gray background so it's not white */
-            display: flex; 
-            font-family: sans-serif;
-        }
+        :root { --sidebar-w: 280px; --accent: #3498db; --border: #eee; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Poppins', sans-serif; background: #fff; color: #1a1a1a; display: flex; }
 
-        /* LEFT SIDEBAR */
+        /* SIDEBAR (Richa Structure) */
         .sidebar {
-            width: 280px;
-            height: 100vh;
-            background: #ffffff;
-            border-right: 5px solid red; /* RED BORDER TO TEST VISIBILITY */
-            position: fixed;
-            padding: 40px 20px;
-            z-index: 100;
+            width: var(--sidebar-w); height: 100vh; position: fixed;
+            left: 0; top: 0; background: #fff; border-right: 1px solid var(--border);
+            padding: 40px 25px; display: flex; flex-direction: column; z-index: 1000;
         }
+        .sidebar-profile img { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; margin-bottom: 15px; }
+        .sidebar-profile h2 { font-family: 'Montserrat', sans-serif; font-size: 1rem; font-weight: 900; }
+        .nav { margin-top: 30px; flex-grow: 1; }
+        .nav a { display: block; text-decoration: none; color: #666; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 12px 0; transition: 0.3s; }
+        .nav a:hover { color: #000; padding-left: 10px; }
 
-        /* RIGHT CONTENT */
-        .main {
-            margin-left: 280px;
-            padding: 50px;
-            width: 100%;
+        /* MAIN CONTENT */
+        .main { margin-left: var(--sidebar-w); width: calc(100% - var(--sidebar-w)); }
+
+        /* HERO SECTION */
+        .hero { 
+            height: 100vh; background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.2)), url('image/IMG_2427.jpeg') center/cover no-repeat;
+            display: flex; align-items: center; padding-left: 10%; background-color: #333;
         }
+        .hero h1 { font-family: 'Montserrat', sans-serif; font-size: 5rem; font-weight: 900; color: #fff; line-height: 0.9; }
 
-        .hero {
-            height: 400px;
-            background: #333; /* Dark box in case image fails */
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 40px;
-            margin-bottom: 50px;
-        }
+        /* SECTION STYLING */
+        .section { padding: 100px 10%; border-bottom: 1px solid var(--border); }
+        .tag { font-size: 0.6rem; color: #aaa; text-transform: uppercase; letter-spacing: 4px; font-weight: 700; margin-bottom: 10px; display: block; }
+        .heading { font-family: 'Montserrat', sans-serif; font-size: 2rem; font-weight: 900; margin-bottom: 40px; text-transform: uppercase; }
 
-        .section {
-            background: white;
-            padding: 30px;
-            margin-bottom: 20px;
-            border: 1px solid #ddd;
-        }
+        /* ABOUT / NARRATIVE */
+        .text-content { font-size: 1.1rem; line-height: 1.8; color: #444; }
 
-        h1, h2 { margin: 0 0 20px 0; color: #000; }
-        ul { line-height: 1.8; }
-    </style>
-</head>
-<body>
+        /* PROJECTS GRID (4 Projects) */
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        .card { border: 1px solid var(--border); text-decoration: none; color: inherit; background: #fff; transition: 0.3s; }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .card img { width: 100%; height: 220px; object-fit: cover; }
+        .card-body { padding: 20px; }
+        .card-body h3 { font-size: 0.9rem; font-weight: 700; }
 
-    <div class="sidebar">
-        <h2>Sruthi V.</h2>
-        <p>Data Analyst</p>
-        <hr>
-        <p>Introduction</p>
-        <p>Portfolio</p>
-        <p>Experience</p>
-        <p>Contact</p>
-    </div>
+        /* EXPERIENCE TIMELINE */
+        .timeline { border-left: 2px solid #f0f0f0; padding-left: 30px; }
+        .time-item { position: relative; margin-bottom: 40px; }
+        .time-item::before { content: ''; position: absolute; left: -39px; top: 5px; width: 14px; height: 14px; background: #000; border-radius: 50%; }
+        .time-item h4 { font-family: 'Montserrat', sans-serif; font-size: 1.1rem; }
+        .time-item .sub { color: var(--accent); font-weight: 700; font-size: 0.8rem; margin-bottom: 10px; display: block; }
+        .time-item li { font-size: 0.85rem; color: #555; margin-bottom: 6px; }
 
-    <div class="main">
-        <div class="hero">
-            <h1>Hi, I'm Sruthi.</h1>
-        </div>
+        /* ACHIEVEMENTS (2 Pictures) */
+        .ach-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .ach-grid img { width: 100%; border: 1px solid var(--border); }
 
-        <div class="section">
-            <h2>The Narrative</h2>
-            <p>I am a Data Science student at the University of St. Thomas. I transitioned from a Team Lead in recruitment to a Data Analyst because I love solving problems with SQL, Tableau, and Excel.</p>
-        </div>
-
-        <div class="section">
-            <h2>Experience: Avance Consulting</h2>
-            <ul>
-                <li>Led a team of 8, analyzing monthly hiring data for 500+ candidates.</li>
-                <li>Designed Excel dashboards to track candidate pipelines.</li>
-                <li>Reduced candidate placement time by 30% through data insights.</li>
-            </ul>
-        </div>
-
-        <div class="section">
-            <h2>Let's Connect for Open Roles</h2>
-            <p>Email: sruthivemavarapus@outlook.com</p>
-            <p>LinkedIn: linkedin.com/in/sruthi-vemavarapu-0b614b198/</p>
-        </div>
-    </div>
-
-</body>
-</html>
+        /* CONTACT CARDS */
+        .contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15
