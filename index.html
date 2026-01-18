@@ -2,198 +2,78 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sruthi Vemavarapu | Data Analyst</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+    <title>Sruthi Vemavarapu | Portfolio</title>
     <style>
-        :root { --sidebar-w: 280px; --accent: #3498db; --border: #eee; }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Poppins', sans-serif; background: #fff; color: #1a1a1a; display: flex; }
-
-        /* SIDEBAR (Richa Structure) */
-        .sidebar {
-            width: var(--sidebar-w); height: 100vh; position: fixed;
-            left: 0; top: 0; background: #fff; border-right: 1px solid var(--border);
-            padding: 40px 25px; display: flex; flex-direction: column; z-index: 1000;
+        /* This ensures the page is NEVER blank */
+        body { 
+            margin: 0; padding: 0; 
+            background-color: #f0f0f0; /* Gray background to prove it's loading */
+            font-family: sans-serif; 
+            color: #333;
         }
-        .sidebar-profile img { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; margin-bottom: 15px; }
-        .sidebar-profile h2 { font-family: 'Montserrat', sans-serif; font-size: 1rem; font-weight: 900; }
-        .nav { margin-top: 30px; flex-grow: 1; }
-        .nav a { display: block; text-decoration: none; color: #666; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 12px 0; transition: 0.3s; }
-        .nav a:hover { color: #000; padding-left: 10px; }
-
-        /* MAIN CONTENT */
-        .main { margin-left: var(--sidebar-w); width: calc(100% - var(--sidebar-w)); }
-
-        /* HERO SECTION */
+        .container { 
+            max-width: 900px; margin: 0 auto; 
+            background: white; padding: 40px; 
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
         .hero { 
-            height: 100vh; background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.2)), url('image/IMG_2427.jpeg') center/cover no-repeat;
-            display: flex; align-items: center; padding-left: 10%; background-color: #333;
+            background: #222; color: white; padding: 60px 20px; text-align: center;
+            background-image: url('image/IMG_2427.jpeg'); background-size: cover;
         }
-        .hero h1 { font-family: 'Montserrat', sans-serif; font-size: 5rem; font-weight: 900; color: #fff; line-height: 0.9; }
-
-        /* SECTION STYLING */
-        .section { padding: 100px 10%; border-bottom: 1px solid var(--border); }
-        .tag { font-size: 0.6rem; color: #aaa; text-transform: uppercase; letter-spacing: 4px; font-weight: 700; margin-bottom: 10px; display: block; }
-        .heading { font-family: 'Montserrat', sans-serif; font-size: 2rem; font-weight: 900; margin-bottom: 40px; text-transform: uppercase; }
-
-        /* ABOUT / NARRATIVE */
-        .text-content { font-size: 1.1rem; line-height: 1.8; color: #444; }
-
-        /* PROJECTS GRID (4 Projects) */
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
-        .card { border: 1px solid var(--border); text-decoration: none; color: inherit; background: #fff; transition: 0.3s; }
-        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-        .card img { width: 100%; height: 220px; object-fit: cover; }
-        .card-body { padding: 20px; }
-        .card-body h3 { font-size: 0.9rem; font-weight: 700; }
-
-        /* EXPERIENCE TIMELINE */
-        .timeline { border-left: 2px solid #f0f0f0; padding-left: 30px; }
-        .time-item { position: relative; margin-bottom: 40px; }
-        .time-item::before { content: ''; position: absolute; left: -39px; top: 5px; width: 14px; height: 14px; background: #000; border-radius: 50%; }
-        .time-item h4 { font-family: 'Montserrat', sans-serif; font-size: 1.1rem; }
-        .time-item .sub { color: var(--accent); font-weight: 700; font-size: 0.8rem; margin-bottom: 10px; display: block; }
-        .time-item li { font-size: 0.85rem; color: #555; margin-bottom: 6px; }
-
-        /* ACHIEVEMENTS (2 Pictures) */
-        .ach-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        .ach-grid img { width: 100%; border: 1px solid var(--border); }
-
-        /* CONTACT CARDS */
-        .contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
-        .contact-card { background: #fafafa; border: 1px solid var(--border); padding: 25px; text-align: center; text-decoration: none; color: #000; border-radius: 4px; }
-        .contact-card:hover { background: #000; color: #fff; }
-        .contact-card i { font-size: 1.4rem; margin-bottom: 10px; display: block; }
-
-        @media (max-width: 1024px) {
-            body { flex-direction: column; }
-            .sidebar { width: 100%; height: auto; position: relative; border-right: none; }
-            .main { margin-left: 0; width: 100%; }
-            .grid, .contact-grid, .ach-grid { grid-template-columns: 1fr; }
-        }
+        .section { margin-bottom: 40px; border-bottom: 1px solid #eee; padding-bottom: 20px; }
+        h1 { font-size: 3rem; margin: 0; }
+        .project-grid, .ach-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        img { max-width: 100%; height: auto; border: 1px solid #ddd; }
+        .contact-card { background: #f9f9f9; padding: 20px; border: 1px solid #ddd; text-align: center; }
     </style>
 </head>
 <body>
 
-    <aside class="sidebar">
-        <div class="sidebar-profile">
-            <img src="image/IMG_0114.jpeg" alt="Sruthi">
-            <h2>SRUTHI V.</h2>
-        </div>
-        <nav class="nav">
-            <a href="#about">The Narrative</a>
-            <a href="#projects">Work</a>
-            <a href="#experience">Impact</a>
-            <a href="#education">Education</a>
-            <a href="#achievements">Achievements</a>
-            <a href="#contact">Connect</a>
-        </nav>
-    </aside>
+    <div class="hero">
+        <h1>Hi, I'm Sruthi.</h1>
+        <p>Data Science Student | University of St. Thomas</p>
+    </div>
 
-    <main class="main">
-        <section class="hero">
-            <h1>Hi,<br>I'm Sruthi.</h1>
+    <div class="container">
+        <section class="section">
+            <h2>The Narrative</h2>
+            <p>Transitioned from a <b>Recruitment Team Lead</b> (4 years) to a <b>Data Analyst</b>. I am passionate about using SQL, Tableau, and Excel to solve complex business problems. Currently seeking Entry-Level/New Grad roles.</p>
         </section>
 
-        <section id="about" class="section">
-            <span class="tag">About Me</span>
-            <h2 class="heading">Recruiter turned Team Lead & Data Analyst</h2>
-            <div class="text-content">
-                <p>I am a Data Science student at the <b>University of St. Thomas</b>. My professional journey began in recruitment, where I spent 4 years growing into a <b>Team Lead</b> at Avance Consulting. This experience taught me that data is the heartbeat of every business decision.</p>
-                <br>
-                <p>I am passionate about using <b>SQL, Tableau, and Excel</b> to bridge the gap between messy datasets and strategic growth. I am currently seeking <b>Entry-Level / New Grad Data Analyst</b> roles where I can drive efficiency through analytics.</p>
-            </div>
-        </section>
-
-        <section id="projects" class="section">
-            <span class="tag">Portfolio</span>
-            <h2 class="heading">Featured Projects</h2>
-            <div class="grid">
-                <a href="https://github.com/vemavarapu23" class="card">
-                    <img src="image/snowflake-dashboard.jpg">
-                    <div class="card-body"><h3>Snowflake Architecture</h3><p>SQL & Cloud Data</p></div>
-                </a>
-                <a href="https://github.com/vemavarapu23/AI_Impact_on_job_market" class="card">
-                    <img src="image/ai-job-market.jpg">
-                    <div class="card-body"><h3>AI Market Trends</h3><p>Python Analytics</p></div>
-                </a>
-                <a href="https://github.com/vemavarapu23/MachineLearning_Loan_Approval_Prediction" class="card">
-                    <img src="image/ml-confusion-matrix.jpg">
-                    <div class="card-body"><h3>Loan Prediction ML</h3><p>Predictive Modeling</p></div>
-                </a>
-                <a href="https://github.com/vemavarapu23/Walmart-Sales--Analysis" class="card">
-                    <img src="image/walmart-dashboard.jpg">
-                    <div class="card-body"><h3>Walmart Sales BI</h3><p>Tableau Visualization</p></div>
-                </a>
-            </div>
-        </section>
-
-        <section id="experience" class="section">
-            <span class="tag">Impact</span>
-            <h2 class="heading">Professional History</h2>
-            <div class="timeline">
-                <div class="time-item">
-                    <h4>Team Lead (Recruitment Operations)</h4>
-                    <span class="sub">Avance Consulting | 2020 - 2024</span>
-                    <ul>
-                        <li>Led 8 recruiters, analyzing hiring data for 500+ candidates monthly to optimize workflows.</li>
-                        <li>Designed Excel dashboards to track source performance and candidate pipelines.</li>
-                        <li>Transformed raw recruitment data into structured reports for data-driven hiring decisions.</li>
-                        <li>Improved team efficiency by 30% through bottleneck identification and process cleaning.</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section id="education" class="section">
-            <span class="tag">Foundation</span>
-            <h2 class="heading">Education</h2>
-            <div class="timeline">
-                <div class="time-item">
-                    <h4>MS in Data Science</h4>
-                    <span class="sub">University of St. Thomas, MN | 2024 - 2026</span>
-                </div>
-                <div class="time-item">
-                    <h4>Bachelor of Technology</h4>
-                    <span class="sub">JNTU Hyderabad, India</span>
-                </div>
-            </div>
-        </section>
-
-        <section id="achievements" class="section">
-            <span class="tag">Recognition</span>
-            <h2 class="heading">Achievements</h2>
-            <div class="ach-grid">
-                <img src="image/IMG_4080.jpeg" alt="Award 1">
-                <img src="image/IMG_4082.jpeg" alt="Award 2">
-            </div>
-        </section>
-
-        <section id="certifications" class="section">
-            <span class="tag">Verification</span>
-            <h2 class="heading">Certifications</h2>
-            <ul style="list-style: none;">
-                <li style="padding: 15px; border: 1px solid #eee; margin-bottom: 10px;"><b>SQL for Data Science</b> - Advanced Queries</li>
-                <li style="padding: 15px; border: 1px solid #eee; margin-bottom: 10px;"><b>Tableau Desktop Specialist</b> - Data Visualization</li>
-                <li style="padding: 15px; border: 1px solid #eee;"><b>Python for Data Analysis</b> - Pandas & NumPy</li>
+        <section class="section">
+            <h2>Experience: Avance Consulting</h2>
+            <ul>
+                <li>Managed a team of 8 recruiters.</li>
+                <li>Analyzed hiring data for 500+ candidates monthly.</li>
+                <li>Built Excel dashboards to track performance.</li>
+                <li>Reduced placement time by 30%.</li>
             </ul>
         </section>
 
-        <section id="contact" class="section" style="border:none; padding-bottom: 150px;">
-            <span class="tag">Contact</span>
-            <h2 class="heading">Let's Connect for Open Roles</h2>
-            <div class="contact-grid">
-                <a href="mailto:sruthivemavarapus@outlook.com" class="contact-card"><i class="fas fa-envelope"></i><p>Email</p></a>
-                <a href="https://linkedin.com/in/sruthi-vemavarapu-0b614b198/" class="contact-card"><i class="fab fa-linkedin"></i><p>LinkedIn</p></a>
-                <a href="https://github.com/vemavarapu23" class="contact-card"><i class="fab fa-github"></i><p>GitHub</p></a>
+        <section class="section">
+            <h2>Technical Projects</h2>
+            <div class="project-grid">
+                <div><img src="image/snowflake-dashboard.jpg"><p>Snowflake Architecture</p></div>
+                <div><img src="image/walmart-dashboard.jpg"><p>Walmart Sales BI</p></div>
             </div>
         </section>
-    </main>
+
+        <section class="section">
+            <h2>Achievements</h2>
+            <div class="ach-grid">
+                <img src="image/IMG_4080.jpeg">
+                <img src="image/IMG_4082.jpeg">
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Connect</h2>
+            <div class="contact-card">
+                <p>Email: sruthivemavarapus@outlook.com</p>
+                <p>LinkedIn: sruthi-vemavarapu-0b614b198</p>
+            </div>
+        </section>
+    </div>
 
 </body>
 </html>
