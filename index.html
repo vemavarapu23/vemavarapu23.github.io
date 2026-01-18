@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sruthi Vemavarapu | Data Analyst Portfolio</title>
+    <title>Sruthi Vemavarapu | Portfolio</title>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -15,13 +15,13 @@
             --sidebar-bg: #111111;
         }
 
-        body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #333; margin: 0; }
+        body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #333; margin: 0; overflow-x: hidden; }
 
-        /* FIXED SIDEBAR - THIS WILL NOW MOVE WITH YOU */
+        /* FIXED SIDEBAR - LOCKED ON LEFT */
         #sidebar {
             width: var(--sidebar-width);
             height: 100vh;
-            position: fixed; /* Keeps it locked on the left */
+            position: fixed;
             left: 0;
             top: 0;
             background: var(--sidebar-bg);
@@ -44,7 +44,7 @@
 
         .nav-menu { margin-top: 30px; }
         .nav-menu a {
-            color: #777;
+            color: #888;
             text-decoration: none;
             display: block;
             padding: 12px 0;
@@ -56,12 +56,11 @@
         }
         .nav-menu a:hover { color: white; padding-left: 10px; border-bottom: 1px solid var(--primary-blue); }
 
-        /* MAIN CONTENT AREA */
-        #main { margin-left: var(--sidebar-width); }
+        /* MAIN CONTENT */
+        #main { margin-left: var(--sidebar-width); width: calc(100% - var(--sidebar-width)); }
 
-        /* HERO HEADER (IMG_2427) */
         .hero {
-            height: 450px;
+            height: 400px;
             background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('image/IMG_2427.jpeg');
             background-size: cover;
             background-position: center;
@@ -70,50 +69,46 @@
             padding: 0 60px;
             color: white;
         }
-        .hero h1 { font-size: 4rem; font-weight: 900; letter-spacing: -1px; margin: 0; }
+        .hero h1 { font-size: 3.5rem; font-weight: 900; letter-spacing: -1px; margin: 0; }
 
-        /* SECTIONS */
-        .section-padding { padding: 90px 60px; border-bottom: 1px solid #eee; }
+        .section-padding { padding: 80px 60px; border-bottom: 1px solid #eee; }
         .section-title {
             font-size: 1.8rem;
             font-weight: 800;
             margin-bottom: 40px;
             text-transform: uppercase;
             letter-spacing: 2px;
-            color: #111;
             border-left: 8px solid var(--primary-blue);
             padding-left: 20px;
         }
 
-        /* PROJECT CARDS */
-        .custom-card {
+        /* PROJECT TILES */
+        .project-card {
             background: #fff;
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 4px 20px rgba(0,0,0,0.08);
             margin-bottom: 30px;
             transition: 0.3s;
-            border: none;
+            height: 100%;
         }
-        .custom-card:hover { transform: translateY(-10px); }
-        .custom-card img { height: 220px; width: 100%; object-fit: cover; }
-        .card-body-padding { padding: 25px; }
+        .project-card:hover { transform: translateY(-10px); }
+        .project-card img { height: 200px; width: 100%; object-fit: cover; }
+        .project-body { padding: 20px; }
 
-        /* CERTIFICATION BOXES */
         .cert-box {
             background: #f8f9fa;
-            padding: 20px;
+            padding: 15px;
             border-radius: 8px;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             display: flex;
             align-items: center;
-            border-left: 4px solid var(--primary-blue);
         }
-        .cert-box i { font-size: 1.5rem; margin-right: 15px; color: #0077b5; }
+        .cert-box i { color: var(--primary-blue); margin-right: 15px; }
 
         @media (max-width: 992px) {
             #sidebar { width: 100%; height: auto; position: relative; }
-            #main { margin-left: 0; }
+            #main { margin-left: 0; width: 100%; }
         }
     </style>
 </head>
@@ -125,7 +120,7 @@
         <p class="small text-muted">Data Analyst</p>
         
         <nav class="nav-menu">
-            <a href="#about">About Me</a>
+            <a href="#about">About</a>
             <a href="#experience">Experience</a>
             <a href="#projects">Portfolio</a>
             <a href="#awards">Awards</a>
@@ -133,9 +128,9 @@
             <a href="#education">Education</a>
         </nav>
 
-        <div class="mt-auto text-center pt-4">
-            <a href="https://linkedin.com/in/sruthi-vemavarapu-0b614b198/" target="_blank" class="text-white mx-3"><i class="fab fa-linkedin fa-lg"></i></a>
-            <a href="https://github.com/vemavarapu23" target="_blank" class="text-white mx-3"><i class="fab fa-github fa-lg"></i></a>
+        <div class="mt-auto pb-4">
+            <a href="https://linkedin.com/in/sruthi-vemavarapu-0b614b198/" target="_blank" class="text-white mx-2"><i class="fab fa-linkedin fa-lg"></i></a>
+            <a href="https://github.com/vemavarapu23" target="_blank" class="text-white mx-2"><i class="fab fa-github fa-lg"></i></a>
         </div>
     </div>
 
@@ -148,10 +143,9 @@
         <section id="about" class="section-padding">
             <h2 class="section-title">About Me</h2>
             <div class="col-lg-11">
-                <p class="lead fw-bold">I am a Data Analyst focused on the questions behind the data.</p>
-                <p>I turn complex information into clear, decision-ready insights. With 4 years of experience at <strong>Avance Consulting</strong>, I have worked extensively with structured data and reporting to support high-level decision making.</p>
-                <p>My background allowed me to analyze operational data—like pipelines and performance trends—to prioritize actions and improve team visibility. I combine this business context with technical skills in SQL, Tableau, and Excel to uncover trends that drive growth. I am currently building on this foundation through my <strong>Master’s in Data Science</strong>, focusing on analytical thinking and data workflows.</p>
-                <p>I am actively seeking <strong>Data Analyst</strong> or <strong>Business Analyst</strong> opportunities to deliver meaningful insights.</p>
+                <p>I am a Data Analyst with a strong foundation in business and data analytics, focused on asking the right questions behind the data and turning information into clear, decision-ready insights.</p>
+                <p>I bring 4 years of professional experience in data-driven business environments. In my previous role at <strong>Avance Consulting</strong>, I regularly analyzed operational data such as pipelines and performance trends to improve visibility and support outcomes across teams.</p>
+                <p>I am actively seeking Entry-level Data Analyst or Business Analyst opportunities where I can apply my reporting skills and business context to deliver meaningful insights.</p>
             </div>
         </section>
 
@@ -159,36 +153,56 @@
             <h2 class="section-title">Experience</h2>
             <h4 class="fw-bold">US IT Recruiter & Team Lead</h4>
             <p class="text-primary fw-bold">Avance Consulting</p>
-            <ul class="mt-4">
-                <li>Led 8 recruiters, overseeing operations and analyzing hiring data for 500+ candidates monthly to optimize workflows.</li>
-                <li>Designed Excel dashboards to track candidate pipelines, source performance, and recruitment timelines.</li>
-                <li>Cleaned and transformed recruitment data from multiple sources to support accurate reporting.</li>
-                <li>Presented insights from metrics to management, enabling data-driven hiring decisions.</li>
-                <li>Applied Excel formulas and pivot tables to visualize data for leadership reviews.</li>
-                <li>Implemented process improvements resulting in 30% faster candidate placements.</li>
+            <ul class="mt-3">
+                <li>Led a team of 8 recruiters, overseeing operations and analyzing hiring data for 500+ candidates monthly to optimize workflows.</li>
+                <li>Designed and maintained Excel dashboards to track candidate pipelines and source performance.</li>
+                <li>Cleaned, structured, and transformed recruitment data from multiple sources for accurate reporting.</li>
+                <li>Presented insights from recruitment metrics to management, enabling data-driven hiring decisions.</li>
+                <li>Applied Excel formulas, pivot tables, and charts to visualize data effectively.</li>
+                <li>Monitored trends and identified bottlenecks, resulting in 30% faster candidate placements.</li>
             </ul>
         </section>
 
         <section id="projects" class="section-padding">
             <h2 class="section-title">Portfolio</h2>
-            <div class="row">
+            <div class="row g-4">
                 <div class="col-md-6">
-                    <div class="custom-card card">
-                        <img src="image/snowflake-dashboard.jpg" alt="Snowflake Analytics">
-                        <div class="card-body-padding">
+                    <div class="project-card">
+                        <img src="image/snowflake-dashboard.jpg" alt="Snowflake">
+                        <div class="project-body">
                             <h5 class="fw-bold">Fox Finance Analytics (Snowflake)</h5>
-                            <p class="small text-muted">End-to-end SQL pipeline: Raw ingestion, Curation layer, and Aggregated views for financial reporting.</p>
-                            <a href="https://github.com/vemavarapu23" class="btn btn-dark btn-sm">View SQL Code</a>
+                            <p class="small text-muted">End-to-end SQL pipeline involving Curation Layer, Tasks, and Stored Procedures for financial data.</p>
+                            <a href="https://github.com/vemavarapu23" class="btn btn-dark btn-sm">View Project</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="custom-card card">
+                    <div class="project-card">
                         <img src="image/ai-job-market.jpg" alt="AI Impact">
-                        <div class="card-body-padding">
+                        <div class="project-body">
                             <h5 class="fw-bold">AI Impact on Job Market</h5>
-                            <p class="small text-muted">Analysis of automation risk and salary trends (2024-2030) using Python and Tableau.</p>
+                            <p class="small text-muted">A statistical analysis using Python and Tableau to visualize automation risks in the labor market.</p>
                             <a href="https://github.com/vemavarapu23/AI_Impact_on_job_market" class="btn btn-dark btn-sm">View Project</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="project-card">
+                        <img src="image/ml-confusion-matrix.jpg" alt="Loan ML">
+                        <div class="project-body">
+                            <h5 class="fw-bold">Loan Approval Prediction</h5>
+                            <p class="small text-muted">Machine Learning classification model built with Python to predict credit eligibility.</p>
+                            <a href="https://github.com/vemavarapu23/MachineLearning_Loan_Approval_Prediction" class="btn btn-dark btn-sm">View Project</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="project-card">
+                        <img src="image/walmart-dashboard.jpg" alt="Walmart Analytics">
+                        <div class="project-body">
+                            <h5 class="fw-bold">Walmart Sales Analytics</h5>
+                            <p class="small text-muted">Excel-based dashboarding project analyzing sales trends and regional performance.</p>
+                            <a href="https://github.com/vemavarapu23/Walmart-Sales--Analysis" class="btn btn-dark btn-sm">View Project</a>
                         </div>
                     </div>
                 </div>
@@ -199,17 +213,17 @@
             <h2 class="section-title">Awards</h2>
             <div class="row">
                 <div class="col-md-6">
-                    <div class="custom-card card p-2 text-center">
+                    <div class="project-card p-2 text-center">
                         <img src="image/IMG_4080.jpeg" style="height:300px; object-fit:contain;">
-                        <h6 class="fw-bold mt-3">Wisestep Certification - Intermediate</h6>
+                        <h6 class="fw-bold mt-3">Wisestep Certification (Intermediate)</h6>
                         <p class="small text-muted">Avance Consulting</p>
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="custom-card card p-2 text-center">
+                    <div class="project-card p-2 text-center">
                         <img src="image/IMG_4082.jpeg" style="height:300px; object-fit:contain;">
                         <h6 class="fw-bold mt-3">Enlarging New Clients Award</h6>
-                        <p class="small text-muted">Avance Consulting Excellence</p>
+                        <p class="small text-muted">Avance Consulting</p>
                     </div>
                 </div>
             </div>
@@ -217,28 +231,32 @@
 
         <section id="certifications" class="section-padding">
             <h2 class="section-title">Certifications</h2>
-            <div class="cert-box"><i class="fab fa-linkedin"></i> <span>SQL for Data Science (LinkedIn)</span></div>
-            <div class="cert-box"><i class="fab fa-linkedin"></i> <span>Data Analytics Professional Path (LinkedIn)</span></div>
-            <div class="cert-box"><i class="fas fa-file-excel"></i> <span>Advanced Business Analytics (Excel)</span></div>
+            <div class="cert-box"><i class="fab fa-linkedin"></i> <span>SQL for Data Science (LinkedIn Learning)</span></div>
+            <div class="cert-box"><i class="fab fa-linkedin"></i> <span>Data Analytics Professional Path (LinkedIn Learning)</span></div>
+            <div class="cert-box"><i class="fas fa-file-excel"></i> <span>Advanced Excel for Business Analytics</span></div>
         </section>
 
         <section id="education" class="section-padding bg-light">
             <h2 class="section-title">Education</h2>
             <div class="mb-4">
                 <h5 class="fw-bold">Master of Science in Data Science</h5>
-                <p class="text-primary m-0">University of St. Thomas</p>
-                <p class="small text-muted">2024 - 2026 (Expected)</p>
+                <p class="text-primary m-0">University of St. Thomas, Saint Paul, MN</p>
+                <p class="small text-muted">2024 — 2026</p>
             </div>
             <div>
                 <h5 class="fw-bold">Bachelor of Technology (B.Tech)</h5>
-                <p class="text-primary m-0">Kakinada Institute of Engineering & Technology</p>
+                <p class="text-primary m-0">JNTU Hyderabad</p>
+                <p class="small text-muted">Kakinada Institute of Engineering & Technology</p>
             </div>
         </section>
 
-        <footer id="contact" class="section-padding">
-            <h2 class="section-title">Contact</h2>
-            <p><i class="fas fa-envelope me-2"></i> sruthivemavarapus@outlook.com</p>
-            <p><i class="fas fa-map-marker-alt me-2"></i> Saint Paul, MN</p>
+        <footer class="section-padding text-center">
+            <h2 class="section-title">Contact Me</h2>
+            <p>Email: <strong>sruthivemavarapus@outlook.com</strong></p>
+            <div class="mt-3">
+                <a href="https://linkedin.com/in/sruthi-vemavarapu-0b614b198/" class="btn btn-outline-primary mx-1">LinkedIn</a>
+                <a href="https://github.com/vemavarapu23" class="btn btn-outline-dark mx-1">GitHub</a>
+            </div>
         </footer>
 
     </div>
