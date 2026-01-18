@@ -3,124 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sruthi Vemavarapu | Data Science Portfolio</title>
+    <title>Sruthi Vemavarapu | Data Analyst Portfolio</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        :root { 
-            --sidebar-width: 280px; 
-            --accent: #000000; 
-            --text-gray: #666666;
-            --border-light: #eeeeee;
-        }
-
-        /* Essential Reset to prevent white-outs */
+        :root { --sidebar-width: 280px; --accent: #000000; --text-gray: #666; --border: #eeeeee; }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; }
-        body { 
-            font-family: 'Poppins', sans-serif; 
-            background-color: #ffffff; 
-            color: #1a1a1a; 
-            display: flex; /* Ensures sidebar and main sit side-by-side */
-        }
+        body { font-family: 'Poppins', sans-serif; background: #fff; color: #1a1a1a; display: flex; }
 
-        /* --- THE FIXED SIDEBAR (Richa Style) --- */
+        /* --- SIDEBAR --- */
         .sidebar {
-            width: var(--sidebar-width);
-            height: 100vh;
-            position: fixed;
-            left: 0; top: 0;
-            background: #ffffff;
-            border-right: 1px solid var(--border-light);
-            padding: 60px 30px;
-            display: flex;
-            flex-direction: column;
-            z-index: 1000;
+            width: var(--sidebar-width); height: 100vh; position: fixed;
+            left: 0; top: 0; background: #fff; border-right: 1px solid var(--border);
+            padding: 50px 30px; display: flex; flex-direction: column; z-index: 1000;
         }
-
-        .sidebar-top { text-align: center; margin-bottom: 50px; }
-        .sidebar-top img { 
-            width: 120px; height: 120px; 
-            border-radius: 50%; object-fit: cover; 
-            border: 3px solid #f9f9f9; margin-bottom: 15px; 
-        }
-        .sidebar-top h2 { font-family: 'Montserrat', sans-serif; font-size: 1.1rem; font-weight: 900; line-height: 1.2; }
-        .sidebar-top p { font-size: 0.6rem; color: var(--text-gray); text-transform: uppercase; letter-spacing: 2px; margin-top: 5px; font-weight: 700; }
-
-        .nav-menu { flex-grow: 1; }
-        .nav-menu a { 
-            display: block; text-decoration: none; color: var(--text-gray); 
-            font-size: 0.75rem; font-weight: 600; text-transform: uppercase; 
-            letter-spacing: 2px; padding: 12px 0; transition: 0.3s;
-        }
+        .sidebar-top { text-align: center; margin-bottom: 40px; }
+        .sidebar-top img { width: 110px; height: 110px; border-radius: 50%; object-fit: cover; margin-bottom: 15px; border: 2px solid #eee; }
+        .sidebar-top h2 { font-family: 'Montserrat', sans-serif; font-size: 1.1rem; font-weight: 900; }
+        .nav-menu { flex-grow: 1; margin-top: 20px; }
+        .nav-menu a { display: block; text-decoration: none; color: var(--text-gray); font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; padding: 12px 0; transition: 0.3s; }
         .nav-menu a:hover { color: #000; padding-left: 10px; }
 
-        /* --- MAIN CONTENT SCROLL AREA --- */
-        .main { 
-            margin-left: var(--sidebar-width); 
-            width: calc(100% - var(--sidebar-width)); 
-        }
+        /* --- MAIN --- */
+        .main { margin-left: var(--sidebar-width); width: calc(100% - var(--sidebar-width)); }
 
-        /* HERO - Ensuring text is visible over image */
         .hero { 
             height: 100vh; 
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('image/IMG_2427.jpeg') center/cover no-repeat;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.2)), url('image/IMG_2427.jpeg') center/cover no-repeat;
             display: flex; align-items: center; padding-left: 10%;
         }
-        .hero h1 { 
-            font-family: 'Montserrat', sans-serif; font-size: 5rem; 
-            font-weight: 900; color: #ffffff; line-height: 0.9; 
-        }
+        .hero h1 { font-family: 'Montserrat', sans-serif; font-size: 5.5rem; font-weight: 900; color: #fff; line-height: 0.9; }
 
-        /* SECTION HEADERS */
-        .section { padding: 100px 10%; border-bottom: 1px solid var(--border-light); }
-        .label { font-size: 0.65rem; color: #aaaaaa; text-transform: uppercase; letter-spacing: 5px; font-weight: 700; margin-bottom: 15px; display: block; }
-        .heading { font-family: 'Montserrat', sans-serif; font-size: 2.2rem; font-weight: 900; margin-bottom: 50px; text-transform: uppercase; }
+        .section { padding: 100px 10%; border-bottom: 1px solid var(--border); }
+        .label { font-size: 0.65rem; color: #aaa; text-transform: uppercase; letter-spacing: 5px; font-weight: 700; margin-bottom: 15px; display: block; }
+        .heading { font-family: 'Montserrat', sans-serif; font-size: 2rem; font-weight: 900; margin-bottom: 40px; text-transform: uppercase; }
 
-        /* PROJECTS GRID (4 Projects) */
+        /* PROJECTS */
         .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-        .card { text-decoration: none; color: inherit; display: block; border: 1px solid var(--border-light); transition: 0.3s; }
+        .card { text-decoration: none; color: inherit; border: 1px solid var(--border); transition: 0.3s; background: #fff; }
         .card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
-        .card img { width: 100%; height: 300px; object-fit: cover; border-bottom: 1px solid var(--border-light); }
-        .card-info { padding: 25px; }
-        .card-info h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 5px; }
-        .card-info p { font-size: 0.75rem; color: var(--text-gray); text-transform: uppercase; font-weight: 600; }
+        .card img { width: 100%; height: 280px; object-fit: cover; border-bottom: 1px solid var(--border); }
+        .card-info { padding: 20px; }
+        .card-info h3 { font-size: 1rem; font-weight: 700; margin-bottom: 5px; }
 
-        /* TIMELINE (Experience & Education) */
+        /* TIMELINE */
         .timeline { border-left: 2px solid #f5f5f5; padding-left: 40px; position: relative; }
-        .item { position: relative; margin-bottom: 60px; }
-        .item::before { 
-            content: ''; position: absolute; left: -49px; top: 5px; 
-            width: 16px; height: 16px; background: #000; border-radius: 50%; 
-        }
-        .item h4 { font-family: 'Montserrat', sans-serif; font-size: 1.3rem; margin-bottom: 8px; }
-        .item .sub { color: #3498db; font-weight: 700; font-size: 0.9rem; margin-bottom: 15px; display: block; }
-        .item p { color: #555; line-height: 1.6; }
+        .item { position: relative; margin-bottom: 50px; }
+        .item::before { content: ''; position: absolute; left: -49px; top: 5px; width: 16px; height: 16px; background: #000; border-radius: 50%; }
+        .item h4 { font-family: 'Montserrat', sans-serif; font-size: 1.2rem; font-weight: 800; }
+        .item .sub { color: #555; font-weight: 700; font-size: 0.85rem; display: block; margin-bottom: 10px; }
 
-        /* CERTIFICATIONS */
-        .cert-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        .cert-grid img { width: 100%; border: 1px solid var(--border-light); }
+        /* CERT/ACHIEVEMENT GRID */
+        .img-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .img-grid img { width: 100%; border: 1px solid var(--border); border-radius: 4px; }
 
-        /* CONTACT CARDS (Exact match to Richa's 0:28 mark) */
-        .contact-box { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 20px; }
-        .contact-card { 
-            background: #fafafa; border: 1px solid var(--border-light); 
-            padding: 30px 20px; text-align: center; text-decoration: none; 
-            color: #000; border-radius: 5px; transition: 0.3s; 
-        }
+        /* CONTACT CARDS */
+        .contact-box { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+        .contact-card { background: #fcfcfc; border: 1px solid var(--border); padding: 30px 15px; text-align: center; text-decoration: none; color: #000; border-radius: 5px; transition: 0.3s; }
         .contact-card:hover { background: #000; color: #fff; }
-        .contact-card i { font-size: 1.8rem; margin-bottom: 15px; display: block; }
-        .contact-card span { font-size: 0.6rem; text-transform: uppercase; color: #999; display: block; margin-bottom: 5px; }
-        .contact-card p { font-weight: 700; font-size: 0.85rem; }
+        .contact-card i { font-size: 1.5rem; margin-bottom: 10px; display: block; }
+        .contact-card p { font-weight: 700; font-size: 0.8rem; }
 
-        /* Mobile Fix */
         @media (max-width: 1024px) {
             body { flex-direction: column; }
             .sidebar { width: 100%; height: auto; position: relative; border-right: none; }
             .main { margin-left: 0; width: 100%; }
-            .grid, .contact-box, .cert-grid { grid-template-columns: 1fr; }
+            .grid, .contact-box, .img-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -128,76 +79,80 @@
 
     <aside class="sidebar">
         <div class="sidebar-top">
-            <img src="image/IMG_0114.jpeg" alt="Sruthi Profile">
-            <h2>SRUTHI VEMAVARAPU</h2>
-            <p>Data Science Specialist</p>
+            <img src="image/IMG_0114.jpeg" alt="Sruthi">
+            <h2>SRUTHI V.</h2>
+            <p style="font-size: 0.55rem; color: #999; letter-spacing: 1px;">Aspiring Data Analyst</p>
         </div>
         <nav class="nav-menu">
-            <a href="#about">The Narrative</a>
-            <a href="#projects">Work Portfolio</a>
+            <a href="#about">The Transition</a>
+            <a href="#projects">Portfolio</a>
             <a href="#experience">Professional Impact</a>
             <a href="#education">Education</a>
-            <a href="#achievements">Recognitions</a>
-            <a href="#contact">Get in Touch</a>
+            <a href="#achievements">Achievements</a>
+            <a href="#certifications">Certifications</a>
+            <a href="#contact">Connect</a>
         </nav>
     </aside>
 
     <main class="main">
         <section class="hero">
-            <h1>DATA<br>TRANSFORMED.</h1>
+            <h1>Hi,<br>I'm Sruthi.</h1>
         </section>
 
         <section id="about" class="section">
-            <span class="label">Introduction</span>
-            <h2 class="heading">Turning Data into Strategy</h2>
-            <p style="font-size: 1.2rem; line-height: 1.8; color: #444;">
-                I am a Data Science student at the <b>University of St. Thomas</b>, bringing 4 years of leadership experience as a Team Lead. My focus is on leveraging SQL, Tableau, and Machine Learning to bridge the gap between complex datasets and high-level business growth.
+            <span class="label">My Journey</span>
+            <h2 class="heading">From Team Lead to Data Analyst</h2>
+            <p style="font-size: 1.1rem; line-height: 1.8; color: #444; margin-bottom: 25px;">
+                I am a Data Science student at the <b>University of St. Thomas</b>, but my story started in the world of recruitment. Over 4 years, I rose to become a <b>Team Lead</b>, where I discovered my passion for people-driven data. I realized that behind every successful hire was a pattern waiting to be analyzed.
+            </p>
+            <p style="font-size: 1.1rem; line-height: 1.8; color: #444; margin-bottom: 25px;">
+                This sparked a transition into <b>Data Analytics</b>. I am deeply passionate about translating raw numbers into stories that help businesses grow. Currently, I am actively seeking <b>Entry-Level / New Grad Data Analyst roles</b> where I can apply my expertise in <b>SQL, Tableau, and Excel</b> to drive impactful decisions.
             </p>
         </section>
 
         <section id="projects" class="section">
-            <span class="label">Portfolio</span>
-            <h2 class="heading">Featured Work</h2>
+            <span class="label">Work</span>
+            <h2 class="heading">Technical Projects</h2>
             <div class="grid">
                 <a href="https://github.com/vemavarapu23" class="card">
                     <img src="image/snowflake-dashboard.jpg">
-                    <div class="card-info"><h3>Snowflake Architecture</h3><p>Cloud Data Engineering</p></div>
+                    <div class="card-info"><h3>Snowflake Data Engineering</h3><p>SQL Optimization</p></div>
                 </a>
                 <a href="https://github.com/vemavarapu23/AI_Impact_on_job_market" class="card">
                     <img src="image/ai-job-market.jpg">
-                    <div class="card-info"><h3>AI Impact Analytics</h3><p>Python / Visualization</p></div>
+                    <div class="card-info"><h3>AI Job Market Analytics</h3><p>Python / Seaborn</p></div>
                 </a>
                 <a href="https://github.com/vemavarapu23/MachineLearning_Loan_Approval_Prediction" class="card">
                     <img src="image/ml-confusion-matrix.jpg">
-                    <div class="card-info"><h3>Loan Approval ML</h3><p>Predictive Modeling</p></div>
+                    <div class="card-info"><h3>ML Loan Forecasting</h3><p>Predictive Modeling</p></div>
                 </a>
                 <a href="https://github.com/vemavarapu23/Walmart-Sales--Analysis" class="card">
                     <img src="image/walmart-dashboard.jpg">
-                    <div class="card-info"><h3>Walmart Sales Intelligence</h3><p>Business Intelligence</p></div>
+                    <div class="card-info"><h3>Walmart Business Intelligence</h3><p>Tableau Visualization</p></div>
                 </a>
             </div>
         </section>
 
         <section id="experience" class="section">
-            <span class="label">Experience</span>
-            <h2 class="heading">Career Impact</h2>
+            <span class="label">Career</span>
+            <h2 class="heading">Professional Impact</h2>
             <div class="timeline">
                 <div class="item">
                     <h4>Tech Desk Assistant</h4>
                     <span class="sub">University of St. Thomas | 2024 - Present</span>
-                    <p>Managing enterprise-level technical infrastructure and student data systems.</p>
+                    <p>Facilitating technical solutions and managing student data systems within a campus environment.</p>
                 </div>
                 <div class="item">
-                    <h4>Team Lead</h4>
+                    <h4>Team Lead (Operations)</h4>
                     <span class="sub">Avance Consulting | 2020 - 2024</span>
-                    <p>Led cross-functional teams to optimize operational metrics and delivery through data-driven performance tracking.</p>
+                    <p>Transitioned from a Recruiter to a leadership role, managing end-to-end operational pipelines through performance analytics.</p>
                 </div>
             </div>
         </section>
 
         <section id="education" class="section">
             <span class="label">Foundation</span>
-            <h2 class="heading">Academic Path</h2>
+            <h2 class="heading">Academic Core</h2>
             <div class="timeline">
                 <div class="item">
                     <h4>MS in Data Science</h4>
@@ -211,36 +166,41 @@
         </section>
 
         <section id="achievements" class="section">
-            <span class="label">Achievements</span>
+            <span class="label">Recognition</span>
+            <h2 class="heading">Milestones</h2>
+            <div class="img-grid">
+                <img src="image/IMG_4080.jpeg" alt="Achievement 1">
+                <p style="color: #666; font-size: 0.9rem; align-self: center;">Consistently recognized for leadership excellence and operational efficiency during my 4-year tenure as a Team Lead.</p>
+            </div>
+        </section>
+
+        <section id="certifications" class="section">
+            <span class="label">Verification</span>
             <h2 class="heading">Certifications</h2>
-            <div class="cert-grid">
-                <img src="image/IMG_4080.jpeg" alt="Cert 1">
-                <img src="image/IMG_4082.jpeg" alt="Cert 2">
+            <div class="img-grid">
+                <img src="image/IMG_4082.jpeg" alt="Certification">
+                <p style="color: #666; font-size: 0.9rem; align-self: center;">Advanced technical validation in SQL, Data Visualization, and Analytics principles.</p>
             </div>
         </section>
 
         <section id="contact" class="section" style="border:none; padding-bottom: 150px;">
-            <span class="label">Contact</span>
-            <h2 class="heading">Start a Collaboration</h2>
-            <p style="margin-bottom: 30px; font-weight: 700;">Open to relocating across the USA.</p>
+            <span class="label">Get In Touch</span>
+            <h2 class="heading">Let's Connect for Open Roles</h2>
+            <p style="margin-bottom: 30px; font-weight: 700;">Actively seeking New Grad/Entry-Level roles and open to relocation.</p>
             <div class="contact-box">
                 <a href="mailto:sruthivemavarapus@outlook.com" class="contact-card">
                     <i class="fas fa-envelope"></i>
-                    <span>Email</span>
-                    <p>sruthivemavarapus@outlook.com</p>
+                    <p>Email Me</p>
                 </a>
                 <a href="https://linkedin.com/in/sruthi-vemavarapu-0b614b198/" target="_blank" class="contact-card">
                     <i class="fab fa-linkedin"></i>
-                    <span>LinkedIn</span>
-                    <p>Sruthi Vemavarapu</p>
+                    <p>LinkedIn</p>
                 </a>
                 <a href="https://github.com/vemavarapu23" target="_blank" class="contact-card">
                     <i class="fab fa-github"></i>
-                    <span>GitHub</span>
-                    <p>vemavarapu23</p>
+                    <p>GitHub</p>
                 </a>
             </div>
-            <p style="margin-top: 50px; color: #ccc; font-size: 0.7rem;">Currently: Saint Paul, MN</p>
         </section>
     </main>
 
