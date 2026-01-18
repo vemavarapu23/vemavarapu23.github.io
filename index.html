@@ -5,34 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sruthi Vemavarapu | Data Analyst Portfolio</title>
     
+    <link rel="icon" type="image/x-icon" href="image/IMG_0114.jpeg">
+    
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root { --sidebar-w: 280px; --accent: #000; --border: #eeeeee; }
-        
         * { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; }
         body { font-family: 'Poppins', sans-serif; background: #fff; color: #1a1a1a; display: flex; overflow-x: hidden; }
 
         /* --- FIXED SIDEBAR --- */
         #sidebar {
-            width: var(--sidebar-w);
-            height: 100vh;
-            position: fixed;
-            left: 0; top: 0;
-            background: #fff;
-            border-right: 1px solid var(--border);
-            padding: 50px 30px;
-            display: flex;
-            flex-direction: column;
-            z-index: 1000;
+            width: var(--sidebar-w); height: 100vh; position: fixed;
+            left: 0; top: 0; background: #fff; border-right: 1px solid var(--border);
+            padding: 50px 30px; display: flex; flex-direction: column; z-index: 1000;
         }
         .sidebar-profile img { width: 110px; height: 110px; border-radius: 50%; object-fit: cover; margin-bottom: 20px; border: 2px solid #eee; }
         .sidebar-name { font-family: 'Montserrat', sans-serif; font-size: 1.1rem; font-weight: 900; letter-spacing: 1px; }
         .sidebar-tag { font-size: 0.6rem; color: #999; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 30px; }
-        
-        .nav-menu { flex-grow: 1; }
         .nav-link { display: block; text-decoration: none; color: #666; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; padding: 12px 0; transition: 0.3s; }
         .nav-link:hover { color: #000; padding-left: 10px; border-left: 2px solid #000; }
 
@@ -43,9 +35,7 @@
         .hero { 
             height: 100vh; 
             background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.2)), url('image/IMG_2427.jpeg'); 
-            background-size: cover; 
-            background-position: center;
-            background-attachment: fixed;
+            background-size: cover; background-position: center; background-attachment: fixed;
             display: flex; align-items: center; padding-left: 8%;
         }
         .hero h1 { font-family: 'Montserrat', sans-serif; font-size: clamp(3rem, 10vw, 6rem); font-weight: 900; color: #fff; line-height: 0.85; }
@@ -93,7 +83,7 @@
 
     <aside id="sidebar">
         <div class="sidebar-profile">
-            <img src="image/IMG_0114.jpeg" alt="Sruthi Vemavarapu">
+            <img src="image/IMG_0114.jpeg" alt="Sruthi">
             <h2 class="sidebar-name">SRUTHI V.</h2>
             <p class="sidebar-tag">Aspiring Data Analyst</p>
         </div>
@@ -147,53 +137,3 @@
                 </a>
             </div>
         </section>
-
-        <section id="experience" class="section">
-            <span class="label">Experience</span>
-            <h2 class="heading">Career History</h2>
-            <div class="timeline">
-                <div class="item">
-                    <h4>Tech Desk Assistant</h4>
-                    <span class="sub">University of St. Thomas | 2024 - Present</span>
-                    <ul><li>Managing campus-wide technical troubleshooting and user data infrastructure.</li></ul>
-                </div>
-                <div class="item">
-                    <h4>Team Lead (Recruitment Operations)</h4>
-                    <span class="sub">Avance Consulting | Feb 2021 - Aug 2024</span>
-                    <ul>
-                        <li>Led a team of 8 recruiters, analyzing hiring data for 500+ candidates monthly to identify trends.</li>
-                        <li>Designed Excel-based dashboards to track candidate pipelines and source performance.</li>
-                        <li>Reduced candidate placement time by 30% through identifying process bottlenecks and cleaning workflows.</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section id="education" class="section">
-            <span class="label">Academic Core</span>
-            <h2 class="heading">Education</h2>
-            <div class="timeline">
-                <div class="item"><h4>MS in Data Science</h4><span class="sub">University of St. Thomas, MN | 2024 - 2026</span></div>
-                <div class="item"><h4>Bachelor of Technology</h4><span class="sub">Jawaharlal Nehru Technological University, Hyderabad</span></div>
-            </div>
-        </section>
-
-        <section id="achievements" class="section">
-            <span class="label">Recognition</span>
-            <h2 class="heading">Achievements</h2>
-            <div class="ach-grid">
-                <img src="image/IMG_4080.jpeg">
-                <img src="image/IMG_4082.jpeg">
-            </div>
-        </section>
-
-        <section id="certifications" class="section">
-            <span class="label">Verification</span>
-            <h2 class="heading">Technical Credentials</h2>
-            
-            <a href="https://www.linkedin.com/learning/certificates/2f76e2d9c8820f9ad965de474451b8eff0a479d3b12a6453a635ad330c4aa0d1" target="_blank" class="cert-card">
-                <h5>Excel Statistics Essential Training: 1</h5>
-                <p>LinkedIn Learning • Click to verify</p>
-            </a>
-
-            <a href="
