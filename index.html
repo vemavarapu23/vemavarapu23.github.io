@@ -1,769 +1,1320 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sruthi Vemavarapu | Data Analyst & BI Analyst</title>
+
+  <title>Sruthi Vemavarapu | Data Analyst • BI Analyst • Reporting Analyst</title>
 
   <link rel="icon" type="image/x-icon" href="image/IMG_0114.jpeg" />
+
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
   <style>
-    :root{
-      --sidebar-w:280px;
-      --black:#000;
-      --dark:#111;
-      --text:#1a1a1a;
-      --muted:#666;
-      --soft:#f7f7f7;
-      --border:#eee;
-      --blue:#2563eb;
-      --green:#16a34a;
+    :root {
+      --sidebar-w: 290px;
+      --bg: #f4f7fb;
+      --white: #ffffff;
+      --ink: #0f172a;
+      --text: #1e293b;
+      --muted: #64748b;
+      --line: rgba(15, 23, 42, 0.10);
+      --blue: #2563eb;
+      --cyan: #06b6d4;
+      --green: #16a34a;
+      --purple: #7c3aed;
+      --gold: #f59e0b;
+      --dark: #0b1020;
+      --shadow: 0 24px 70px rgba(15, 23, 42, 0.14);
+      --soft-shadow: 0 14px 38px rgba(15, 23, 42, 0.08);
+      --radius: 26px;
+      --ease: cubic-bezier(.2, .8, .2, 1);
     }
 
-    *{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth}
-    body{
-      font-family:'Poppins',sans-serif;
-      color:var(--text);
-      background:#fff;
-      display:flex;
-      overflow-x:hidden;
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
-    #sidebar{
-      width:var(--sidebar-w);
-      height:100vh;
-      position:fixed;
-      left:0;
-      top:0;
-      background:#fff;
-      border-right:1px solid var(--border);
-      padding:50px 30px;
-      display:flex;
-      flex-direction:column;
-      z-index:1000;
+    html {
+      scroll-behavior: smooth;
     }
 
-    .sidebar-profile img{
-      width:110px;
-      height:110px;
-      border-radius:50%;
-      object-fit:cover;
-      margin-bottom:20px;
-      border:2px solid #eee;
-      transition:.4s;
-    }
-
-    .sidebar-profile img:hover{transform:scale(1.05)}
-
-    .sidebar-name{
-      font-family:'Montserrat',sans-serif;
-      font-size:1.1rem;
-      font-weight:900;
-      letter-spacing:1px;
-    }
-
-    .sidebar-tag{
-      font-size:.62rem;
-      color:#999;
-      text-transform:uppercase;
-      letter-spacing:2px;
-      margin-bottom:30px;
-      line-height:1.7;
-    }
-
-    .nav-link{
-      display:block;
-      text-decoration:none;
-      color:#666;
-      font-size:.75rem;
-      font-weight:600;
-      text-transform:uppercase;
-      letter-spacing:2px;
-      padding:12px 0;
-      transition:.3s;
-    }
-
-    .nav-link:hover{
-      color:#000;
-      padding-left:10px;
-      border-left:2px solid #000;
-    }
-
-    .sidebar-social{
-      margin-top:auto;
-      display:flex;
-      gap:14px;
-    }
-
-    .sidebar-social a{
-      color:#111;
-      font-size:1.1rem;
-      transition:.3s;
-    }
-
-    .sidebar-social a:hover{
-      transform:translateY(-3px);
-      color:var(--blue);
-    }
-
-    #main-content{
-      margin-left:var(--sidebar-w);
-      width:calc(100% - var(--sidebar-w));
-    }
-
-    .hero{
-      min-height:100vh;
+    body {
+      font-family: 'Poppins', sans-serif;
       background:
-        linear-gradient(120deg,rgba(0,0,0,.78),rgba(0,0,0,.32)),
-        url('image/IMG_2427.jpeg');
-      background-size:cover;
-      background-position:center;
-      background-attachment:fixed;
-      display:flex;
-      align-items:center;
-      padding:80px 8%;
-      position:relative;
-      overflow:hidden;
+        radial-gradient(circle at 12% 4%, rgba(37, 99, 235, 0.08), transparent 26%),
+        radial-gradient(circle at 86% 20%, rgba(6, 182, 212, 0.08), transparent 24%),
+        radial-gradient(circle at 75% 80%, rgba(22, 163, 74, 0.07), transparent 26%),
+        var(--bg);
+      color: var(--text);
+      display: flex;
+      overflow-x: hidden;
     }
 
-    .hero::after{
-      content:'';
-      position:absolute;
-      right:-120px;
-      bottom:-120px;
-      width:420px;
-      height:420px;
-      border-radius:50%;
-      border:1px solid rgba(255,255,255,.18);
+    .progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      width: 0%;
+      z-index: 9999;
+      background: linear-gradient(90deg, var(--blue), var(--cyan), var(--green));
+      box-shadow: 0 0 20px rgba(37, 99, 235, 0.5);
     }
 
-    .hero-content{
-      max-width:900px;
-      position:relative;
-      z-index:2;
-    }
-
-    .hero-label{
-      color:#fff;
-      font-size:.75rem;
-      text-transform:uppercase;
-      letter-spacing:4px;
-      font-weight:700;
-      margin-bottom:22px;
-      display:inline-block;
-      border:1px solid rgba(255,255,255,.35);
-      padding:10px 16px;
-      backdrop-filter:blur(4px);
-    }
-
-    .hero h1{
-      font-family:'Montserrat',sans-serif;
-      font-size:clamp(3.2rem,9vw,6.6rem);
-      font-weight:900;
-      color:#fff;
-      line-height:.9;
-      margin-bottom:25px;
-    }
-
-    .hero h1 span{color:#dbeafe}
-
-    .hero-subtitle{
-      color:#f2f2f2;
-      font-size:1.15rem;
-      line-height:1.9;
-      max-width:780px;
-      margin-bottom:30px;
-    }
-
-    .hero-actions{
-      display:flex;
-      gap:15px;
-      flex-wrap:wrap;
-      margin-bottom:35px;
-    }
-
-    .resume-btn,.hero-btn{
-      display:inline-block;
-      width:fit-content;
-      padding:14px 24px;
-      border:2px solid #fff;
-      color:#fff;
-      text-decoration:none;
-      font-family:'Montserrat',sans-serif;
-      font-weight:800;
-      font-size:.78rem;
-      text-transform:uppercase;
-      letter-spacing:2px;
-      transition:.4s;
-      background:rgba(0,0,0,.15);
-      backdrop-filter:blur(2px);
-    }
-
-    .resume-btn:hover,.hero-btn:hover{
-      background:#fff;
-      color:#000;
-      transform:translateY(-4px);
-    }
-
-    .hero-btn.dark{
-      background:#fff;
-      color:#000;
-    }
-
-    .hero-btn.dark:hover{
-      background:transparent;
-      color:#fff;
-    }
-
-    .hero-metrics{
-      display:grid;
-      grid-template-columns:repeat(4,minmax(120px,1fr));
-      gap:14px;
-      max-width:850px;
-    }
-
-    .hero-metric{
-      background:rgba(255,255,255,.10);
-      border:1px solid rgba(255,255,255,.20);
-      padding:18px;
-      backdrop-filter:blur(5px);
-      color:#fff;
-      transition:.4s;
-    }
-
-    .hero-metric:hover{
-      transform:translateY(-5px);
-      background:rgba(255,255,255,.16);
-    }
-
-    .hero-metric strong{
-      font-family:'Montserrat',sans-serif;
-      display:block;
-      font-size:1.5rem;
-      font-weight:900;
-      margin-bottom:4px;
-    }
-
-    .hero-metric span{
-      font-size:.72rem;
-      text-transform:uppercase;
-      letter-spacing:1.5px;
-      color:#e5e5e5;
-    }
-
-    .section{
-      padding:100px 10%;
-      border-bottom:1px solid var(--border);
-    }
-
-    .section.alt{background:#fafafa}
-
-    .label{
-      font-size:.65rem;
-      color:#999;
-      text-transform:uppercase;
-      letter-spacing:5px;
-      font-weight:800;
-      margin-bottom:15px;
-      display:block;
-    }
-
-    .heading{
-      font-family:'Montserrat',sans-serif;
-      font-size:clamp(2rem,4vw,2.7rem);
-      font-weight:900;
-      margin-bottom:25px;
-      text-transform:uppercase;
-    }
-
-    .section-intro{
-      color:#555;
-      font-size:1rem;
-      line-height:1.9;
-      max-width:920px;
-      margin-bottom:45px;
-    }
-
-    .highlight-grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:22px;
-      margin-top:40px;
-    }
-
-    .highlight-card,.cert-card,.testimonial-card{
-      border:1px solid var(--border);
-      padding:30px;
-      background:#fff;
-      transition:.4s;
-    }
-
-    .highlight-card:hover,.cert-card:hover,.testimonial-card:hover{
-      transform:translateY(-6px);
-      box-shadow:0 16px 35px rgba(0,0,0,.07);
-    }
-
-    .highlight-card i,.cert-card i{
-      font-size:1.8rem;
-      margin-bottom:18px;
-    }
-
-    .highlight-card h3,.learning-content h3{
-      font-family:'Montserrat',sans-serif;
-      font-size:1.15rem;
-      margin-bottom:12px;
-    }
-
-    .highlight-card p,.cert-card p,.testimonial-card p,.learning-content p{
-      color:#555;
-      line-height:1.8;
-      font-size:.92rem;
-    }
-
-    .skills-cloud{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      margin-top:35px;
-    }
-
-    .skill-pill{
-      border:1px solid #111;
-      color:#111;
-      padding:9px 13px;
-      font-size:.75rem;
-      font-weight:700;
-      letter-spacing:1px;
-      text-transform:uppercase;
-      background:#fff;
-      transition:.3s;
-    }
-
-    .skill-pill:hover{
-      background:#111;
-      color:#fff;
-      transform:translateY(-3px);
-    }
-
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(310px,1fr));
-      gap:40px;
-    }
-
-    .card{
-      border:1px solid var(--border);
-      text-decoration:none;
-      color:inherit;
-      background:#fff;
-      transition:.4s;
-      display:block;
-      overflow:hidden;
-    }
-
-    .card:hover{
-      transform:translateY(-8px);
-      box-shadow:0 18px 40px rgba(0,0,0,.10);
-    }
-
-    .card img{
-      width:100%;
-      height:260px;
-      object-fit:cover;
-      display:block;
-      transition:.5s;
-    }
-
-    .card:hover img{transform:scale(1.05)}
-
-    .card-body{padding:28px}
-
-    .card-body h3{
-      font-family:'Montserrat',sans-serif;
-      font-weight:900;
-      margin-bottom:8px;
-      font-size:1.25rem;
-    }
-
-    .card-body p{
-      color:#555;
-      line-height:1.6;
-      font-size:.92rem;
-    }
-
-    .project-desc{
-      font-size:.86rem;
-      line-height:1.75;
-      color:#555;
-      margin-top:14px;
-    }
-
-    .project-tags{
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px;
-      margin-top:18px;
-    }
-
-    .project-tags span{
-      background:#f2f2f2;
-      color:#333;
-      font-size:.68rem;
-      font-weight:700;
-      padding:7px 10px;
-      text-transform:uppercase;
-      letter-spacing:1px;
-    }
-
-    .project-links{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-top:20px;
-    }
-
-    .project-links a{
-      text-decoration:none;
-      border:1px solid #000;
-      color:#000;
-      padding:9px 13px;
-      font-size:.72rem;
-      font-weight:800;
-      text-transform:uppercase;
-      letter-spacing:1px;
-      transition:.3s;
-    }
-
-    .project-links a:hover{
-      background:#000;
-      color:#fff;
-    }
-
-    .featured-project{
-      grid-column:1/-1;
-      display:grid;
-      grid-template-columns:1.05fr 1.2fr;
-    }
-
-    .carelio-visual{
-      min-height:420px;
+    #sidebar {
+      width: var(--sidebar-w);
+      height: 100vh;
+      position: fixed;
+      left: 0;
+      top: 0;
+      z-index: 1000;
+      padding: 42px 28px;
+      display: flex;
+      flex-direction: column;
+      color: #fff;
+      overflow: hidden;
       background:
-        linear-gradient(135deg,rgba(0,0,0,.88),rgba(35,35,35,.76)),
-        radial-gradient(circle at top right,rgba(37,99,235,.55),transparent 35%),
-        radial-gradient(circle at bottom left,rgba(22,163,74,.45),transparent 35%);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      color:#fff;
-      position:relative;
-      overflow:hidden;
-      padding:40px;
+        radial-gradient(circle at top left, rgba(6, 182, 212, 0.26), transparent 36%),
+        radial-gradient(circle at bottom right, rgba(37, 99, 235, 0.22), transparent 40%),
+        linear-gradient(160deg, #07111f, #0b1020 58%, #111827);
+      border-right: 1px solid rgba(255, 255, 255, 0.10);
     }
 
-    .carelio-visual::before{
-      content:'';
-      position:absolute;
-      width:260px;
-      height:260px;
-      border-radius:50%;
-      border:1px solid rgba(255,255,255,.18);
-      top:-70px;
-      right:-70px;
+    #sidebar::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+      background-size: 44px 44px;
+      opacity: 0.45;
+      animation: gridMove 18s linear infinite;
     }
 
-    .carelio-box{
-      width:100%;
-      border:1px solid rgba(255,255,255,.32);
-      background:rgba(255,255,255,.08);
-      padding:34px;
-      backdrop-filter:blur(5px);
-      position:relative;
-      z-index:2;
+    .sidebar-profile,
+    .nav-menu,
+    .sidebar-social {
+      position: relative;
+      z-index: 2;
     }
 
-    .carelio-box h4{
-      font-family:'Montserrat',sans-serif;
-      font-size:2.5rem;
-      font-weight:900;
-      margin-bottom:10px;
-      letter-spacing:1px;
+    .sidebar-profile img {
+      width: 112px;
+      height: 112px;
+      border-radius: 30px;
+      object-fit: cover;
+      margin-bottom: 20px;
+      border: 3px solid rgba(255, 255, 255, 0.22);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.32);
+      transition: 0.45s var(--ease);
     }
 
-    .carelio-box p{
-      color:#f3f3f3;
-      font-size:.82rem;
-      text-transform:uppercase;
-      letter-spacing:2px;
-      line-height:1.8;
+    .sidebar-profile img:hover {
+      transform: translateY(-7px) rotate(-2deg) scale(1.04);
+      border-color: rgba(6, 182, 212, 0.70);
     }
 
-    .carelio-metrics{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:12px;
-      margin-top:24px;
+    .sidebar-name {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      letter-spacing: 1px;
+      font-size: 1.2rem;
+      margin-bottom: 7px;
     }
 
-    .metric{
-      border:1px solid rgba(255,255,255,.25);
-      padding:14px 10px;
-      text-align:center;
+    .sidebar-tag {
+      color: #cbd5e1;
+      font-size: 0.66rem;
+      line-height: 1.7;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 31px;
     }
 
-    .metric strong{
-      font-family:'Montserrat',sans-serif;
-      display:block;
-      font-size:1.35rem;
+    .nav-menu {
+      display: grid;
+      gap: 2px;
     }
 
-    .metric span{
-      font-size:.58rem;
-      color:#ddd;
-      text-transform:uppercase;
-      letter-spacing:1px;
+    .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 0;
+      text-decoration: none;
+      color: #cbd5e1;
+      font-size: 0.73rem;
+      font-weight: 800;
+      letter-spacing: 1.7px;
+      text-transform: uppercase;
+      transition: 0.35s var(--ease);
     }
 
-    .impact-strip{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:18px;
-      margin-top:35px;
+    .nav-link::before {
+      content: '';
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--cyan), var(--green));
+      transition: 0.35s var(--ease);
     }
 
-    .impact-card{
-      background:#111;
-      color:#fff;
-      padding:28px;
-      transition:.4s;
+    .nav-link:hover,
+    .nav-link.active {
+      color: #fff;
+      transform: translateX(7px);
     }
 
-    .impact-card:hover{transform:translateY(-6px)}
-
-    .impact-card strong{
-      font-family:'Montserrat',sans-serif;
-      font-size:1.8rem;
-      display:block;
-      margin-bottom:8px;
+    .nav-link:hover::before,
+    .nav-link.active::before {
+      width: 22px;
     }
 
-    .impact-card span{
-      font-size:.78rem;
-      color:#ddd;
-      line-height:1.6;
-      text-transform:uppercase;
-      letter-spacing:1px;
+    .sidebar-social {
+      margin-top: auto;
+      display: flex;
+      gap: 12px;
     }
 
-    .timeline{
-      border-left:2px solid #f0f0f0;
-      padding-left:40px;
-      position:relative;
+    .sidebar-social a {
+      width: 40px;
+      height: 40px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      text-decoration: none;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.13);
+      transition: 0.35s var(--ease);
     }
 
-    .item{
-      position:relative;
-      margin-bottom:60px;
+    .sidebar-social a:hover {
+      background: linear-gradient(135deg, var(--cyan), var(--green));
+      color: var(--dark);
+      transform: translateY(-6px);
     }
 
-    .item::before{
-      content:'';
-      position:absolute;
-      left:-49px;
-      top:5px;
-      width:16px;
-      height:16px;
-      background:#000;
-      border-radius:50%;
+    #main-content {
+      margin-left: var(--sidebar-w);
+      width: calc(100% - var(--sidebar-w));
     }
 
-    .item h4{
-      font-family:'Montserrat',sans-serif;
-      font-size:1.35rem;
-      font-weight:900;
+    .hero {
+      min-height: 100vh;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      padding: 80px 8%;
+      background:
+        linear-gradient(120deg, rgba(7, 17, 31, 0.88), rgba(7, 17, 31, 0.45)),
+        url('image/IMG_2427.jpeg') center / cover no-repeat fixed;
     }
 
-    .item .sub{
-      color:var(--blue);
-      font-weight:700;
-      font-size:.86rem;
-      display:block;
-      margin:5px 0 15px 0;
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.065) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.065) 1px, transparent 1px);
+      background-size: 56px 56px;
+      mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.85), transparent 86%);
+      animation: gridMove 18s linear infinite;
     }
 
-    .item ul{
-      list-style:disc;
-      padding-left:20px;
-      color:#444;
-      margin-top:10px;
+    .hero::after {
+      content: '';
+      position: absolute;
+      width: 480px;
+      height: 480px;
+      right: -170px;
+      bottom: -170px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      box-shadow: inset 0 0 80px rgba(255, 255, 255, 0.06);
+      animation: floatOrb 8s ease-in-out infinite;
     }
 
-    .item li{
-      margin-bottom:12px;
-      font-size:.95rem;
-      line-height:1.7;
+    .hero-content {
+      max-width: 940px;
+      position: relative;
+      z-index: 2;
     }
 
-    .cert-grid,.testimonial-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-      gap:24px;
+    .hero-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 11px 16px;
+      border-radius: 999px;
+      margin-bottom: 22px;
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      background: rgba(255, 255, 255, 0.10);
+      backdrop-filter: blur(10px);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      animation: rise 0.8s var(--ease) both;
     }
 
-    .cert-card{
-      display:block;
-      text-decoration:none;
-      color:#111;
+    .hero-label::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 20px var(--green);
+      animation: pulse 1.6s infinite;
     }
 
-    .cert-card h5{
-      font-family:'Montserrat',sans-serif;
-      font-weight:800;
-      font-size:1.08rem;
-      margin-bottom:8px;
+    .hero h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(3.2rem, 8vw, 6.8rem);
+      line-height: 0.88;
+      letter-spacing: -3px;
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 20px;
+      animation: rise 0.85s var(--ease) 0.08s both;
     }
 
-    .quote-icon{
-      font-size:1.9rem;
-      color:#ddd;
-      margin-bottom:15px;
+    .hero h1 span {
+      color: transparent;
+      background: linear-gradient(90deg, #ffffff, #dbeafe, #a7f3d0, #ffffff);
+      background-size: 300%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      animation: shimmer 5s ease-in-out infinite;
     }
 
-    .testimonial-card p{
-      color:#444;
-      margin-bottom:20px;
+    .typing-role {
+      min-height: 32px;
+      color: #a7f3d0;
+      font-size: 0.94rem;
+      font-weight: 900;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      animation: rise 0.85s var(--ease) 0.16s both;
     }
 
-    .testimonial-card h4{
-      font-family:'Montserrat',sans-serif;
-      font-size:1rem;
-      margin-bottom:5px;
+    .hero-subtitle {
+      max-width: 800px;
+      color: #e2e8f0;
+      font-size: 1.13rem;
+      line-height: 1.9;
+      margin-bottom: 30px;
+      animation: rise 0.85s var(--ease) 0.24s both;
     }
 
-    .testimonial-card span{
-      font-size:.78rem;
-      color:#777;
-      line-height:1.6;
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 34px;
+      animation: rise 0.85s var(--ease) 0.32s both;
     }
 
-    .learning-card{
-      border:1px solid var(--border);
-      background:#fff;
-      padding:36px;
-      display:grid;
-      grid-template-columns:.8fr 1.4fr;
-      gap:30px;
-      align-items:center;
+    .hero-btn,
+    .resume-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 14px 22px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.76rem;
+      font-weight: 900;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      transition: 0.35s var(--ease);
+      position: relative;
+      overflow: hidden;
     }
 
-    .learning-badge{
-      background:#111;
-      color:#fff;
-      padding:35px;
-      text-align:center;
+    .resume-btn {
+      color: var(--dark);
+      background: linear-gradient(135deg, var(--cyan), var(--green));
+      border: 1px solid transparent;
+      box-shadow: 0 18px 42px rgba(6, 182, 212, 0.24);
     }
 
-    .learning-badge i{
-      font-size:2.4rem;
-      margin-bottom:18px;
+    .hero-btn {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.10);
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      backdrop-filter: blur(10px);
     }
 
-    .learning-badge h3{
-      font-family:'Montserrat',sans-serif;
-      font-size:1.5rem;
-      line-height:1.2;
-      margin-bottom:8px;
+    .hero-btn::after,
+    .resume-btn::after,
+    .project-links a::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+      transform: translateX(-120%);
+      transition: 0.55s ease;
     }
 
-    .ach-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:22px;
+    .hero-btn:hover::after,
+    .resume-btn:hover::after,
+    .project-links a:hover::after {
+      transform: translateX(120%);
     }
 
-    .ach-grid img{
-      width:100%;
-      border:1px solid var(--border);
-      transition:.4s;
+    .hero-btn:hover,
+    .resume-btn:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 22px 50px rgba(0, 0, 0, 0.28);
     }
 
-    .ach-grid img:hover{
-      transform:scale(1.02);
-      box-shadow:0 16px 35px rgba(0,0,0,.08);
+    .hero-metrics {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(130px, 1fr));
+      gap: 14px;
+      max-width: 900px;
+      animation: rise 0.85s var(--ease) 0.40s both;
     }
 
-    .contact-box{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:15px;
+    .hero-metric {
+      padding: 18px;
+      border-radius: 20px;
+      color: #fff;
+      background: rgba(255, 255, 255, 0.10);
+      border: 1px solid rgba(255, 255, 255, 0.20);
+      backdrop-filter: blur(10px);
+      transition: 0.35s var(--ease);
     }
 
-    .contact-card{
-      background:#fafafa;
-      border:1px solid var(--border);
-      padding:35px 15px;
-      text-align:center;
-      text-decoration:none;
-      color:#000;
-      border-radius:4px;
-      transition:.3s;
+    .hero-metric:hover {
+      transform: translateY(-8px);
+      background: rgba(255, 255, 255, 0.16);
     }
 
-    .contact-card i{
-      font-size:1.6rem;
-      margin-bottom:12px;
+    .hero-metric strong {
+      display: block;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.55rem;
+      margin-bottom: 5px;
     }
 
-    .contact-card:hover{
-      background:#000;
-      color:#fff;
-      transform:translateY(-6px);
+    .hero-metric span {
+      color: #dbeafe;
+      font-size: 0.70rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.3px;
     }
 
-    @media(max-width:1100px){
-      .featured-project,.learning-card{grid-template-columns:1fr}
-      .hero-metrics,.impact-strip{grid-template-columns:repeat(2,1fr)}
-      .highlight-grid{grid-template-columns:1fr}
+    .section {
+      position: relative;
+      padding: 100px 9%;
+      border-bottom: 1px solid var(--line);
     }
 
-    @media(max-width:1024px){
-      body{flex-direction:column}
-      #sidebar{
-        width:100%;
-        height:auto;
-        position:relative;
-        border-right:none;
+    .section.alt {
+      background:
+        radial-gradient(circle at 15% 20%, rgba(37, 99, 235, 0.05), transparent 28%),
+        radial-gradient(circle at 85% 45%, rgba(22, 163, 74, 0.05), transparent 28%),
+        #ffffff;
+    }
+
+    .section-label {
+      display: block;
+      color: var(--blue);
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .heading {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -1px;
+      color: var(--ink);
+      margin-bottom: 24px;
+    }
+
+    .heading::after {
+      content: '';
+      display: block;
+      width: 84px;
+      height: 5px;
+      margin-top: 16px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--blue), var(--cyan), var(--green));
+    }
+
+    .section-intro {
+      max-width: 980px;
+      color: #475569;
+      font-size: 1rem;
+      line-height: 1.9;
+      margin-bottom: 42px;
+    }
+
+    .highlight-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 35px;
+    }
+
+    .highlight-card,
+    .cert-card,
+    .testimonial-card,
+    .hobby-card {
+      position: relative;
+      overflow: hidden;
+      padding: 30px;
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.86);
+      border: 1px solid var(--line);
+      box-shadow: var(--soft-shadow);
+      transition: 0.4s var(--ease);
+    }
+
+    .highlight-card::before,
+    .cert-card::before,
+    .testimonial-card::before,
+    .hobby-card::before {
+      content: '';
+      position: absolute;
+      top: -75px;
+      right: -75px;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(37, 99, 235, 0.13), transparent 70%);
+      transition: 0.4s var(--ease);
+    }
+
+    .highlight-card:hover,
+    .cert-card:hover,
+    .testimonial-card:hover,
+    .hobby-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow);
+      border-color: rgba(37, 99, 235, 0.26);
+    }
+
+    .highlight-card:hover::before,
+    .cert-card:hover::before,
+    .testimonial-card:hover::before,
+    .hobby-card:hover::before {
+      transform: scale(1.5);
+    }
+
+    .highlight-card i,
+    .cert-card i {
+      color: var(--blue);
+      font-size: 1.9rem;
+      margin-bottom: 18px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .highlight-card h3,
+    .cert-card h5,
+    .hobby-card h3 {
+      position: relative;
+      z-index: 2;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.12rem;
+      font-weight: 900;
+      color: var(--ink);
+      margin-bottom: 11px;
+    }
+
+    .highlight-card p,
+    .cert-card p,
+    .testimonial-card p,
+    .hobby-card p {
+      position: relative;
+      z-index: 2;
+      color: #475569;
+      line-height: 1.75;
+      font-size: 0.92rem;
+    }
+
+    .skills-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 32px;
+    }
+
+    .skill-pill {
+      border: 1px solid rgba(15, 23, 42, 0.12);
+      background: #fff;
+      color: var(--ink);
+      padding: 9px 13px;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
+      transition: 0.3s var(--ease);
+    }
+
+    .skill-pill:hover {
+      background: var(--ink);
+      color: #fff;
+      transform: translateY(-4px);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 34px;
+    }
+
+    .card {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      border-radius: 26px;
+      overflow: hidden;
+      background: #fff;
+      border: 1px solid var(--line);
+      box-shadow: var(--soft-shadow);
+      transition: 0.45s var(--ease);
+      position: relative;
+    }
+
+    .card:hover {
+      transform: translateY(-12px);
+      box-shadow: var(--shadow);
+      border-color: rgba(37, 99, 235, 0.26);
+    }
+
+    .card-image-wrap {
+      position: relative;
+      overflow: hidden;
+      height: 265px;
+      background: var(--dark);
+    }
+
+    .card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: 0.65s var(--ease);
+    }
+
+    .card:hover img {
+      transform: scale(1.08);
+      filter: saturate(1.12) contrast(1.05);
+    }
+
+    .image-badge {
+      position: absolute;
+      top: 18px;
+      left: 18px;
+      z-index: 2;
+      padding: 8px 12px;
+      border-radius: 999px;
+      color: #fff;
+      background: rgba(11, 16, 32, 0.72);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      backdrop-filter: blur(10px);
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .card-body {
+      padding: 26px;
+      position: relative;
+    }
+
+    .card-body h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.28rem;
+      font-weight: 900;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+
+    .card-body p {
+      color: #475569;
+      line-height: 1.65;
+      font-size: 0.92rem;
+    }
+
+    .project-desc {
+      margin-top: 13px;
+      font-size: 0.86rem !important;
+      line-height: 1.8 !important;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .project-tags span,
+    .hobby-tags span {
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: #eef6ff;
+      color: #1d4ed8;
+      font-size: 0.66rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .project-links a {
+      position: relative;
+      overflow: hidden;
+      text-decoration: none;
+      padding: 10px 13px;
+      border-radius: 999px;
+      color: #fff;
+      background: var(--ink);
+      font-size: 0.70rem;
+      font-weight: 900;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: 0.3s var(--ease);
+    }
+
+    .project-links a:hover {
+      background: linear-gradient(135deg, var(--blue), var(--cyan));
+      transform: translateY(-3px);
+    }
+
+    .featured-card {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: 1.05fr 1fr;
+    }
+
+    .featured-card .card-image-wrap {
+      height: 100%;
+      min-height: 430px;
+    }
+
+    .featured-card .card-body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 38px;
+    }
+
+    .business-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin: 30px 0 42px;
+    }
+
+    .business-card {
+      padding: 28px;
+      border-radius: 24px;
+      color: #fff;
+      background:
+        linear-gradient(145deg, rgba(11, 16, 32, 0.98), rgba(17, 24, 39, 0.95));
+      box-shadow: var(--soft-shadow);
+      transition: 0.4s var(--ease);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .business-card::after {
+      content: '';
+      position: absolute;
+      right: -45px;
+      top: -45px;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: rgba(6, 182, 212, 0.15);
+      transition: 0.4s var(--ease);
+    }
+
+    .business-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow);
+    }
+
+    .business-card:hover::after {
+      transform: scale(1.8);
+    }
+
+    .business-card strong {
+      display: block;
+      position: relative;
+      z-index: 2;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.8rem;
+      margin-bottom: 8px;
+    }
+
+    .business-card span {
+      display: block;
+      position: relative;
+      z-index: 2;
+      color: #cbd5e1;
+      font-size: 0.76rem;
+      font-weight: 800;
+      line-height: 1.6;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 42px;
+      border-left: 2px solid #e2e8f0;
+    }
+
+    .item {
+      position: relative;
+      margin-bottom: 55px;
+      padding: 28px;
+      border-radius: 24px;
+      background: #fff;
+      border: 1px solid var(--line);
+      box-shadow: var(--soft-shadow);
+    }
+
+    .item::before {
+      content: '';
+      position: absolute;
+      left: -52px;
+      top: 32px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--blue), var(--cyan));
+      box-shadow: 0 0 0 7px rgba(37, 99, 235, 0.10);
+    }
+
+    .item h4 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 900;
+      color: var(--ink);
+    }
+
+    .item .sub {
+      display: block;
+      margin: 6px 0 16px;
+      color: var(--blue);
+      font-size: 0.84rem;
+      font-weight: 800;
+    }
+
+    .item ul {
+      padding-left: 20px;
+      color: #475569;
+      line-height: 1.7;
+    }
+
+    .item li {
+      margin-bottom: 11px;
+      font-size: 0.94rem;
+    }
+
+    .cert-grid,
+    .testimonial-grid,
+    .hobby-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 22px;
+    }
+
+    .cert-card {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .testimonial-card .quote-icon {
+      position: relative;
+      z-index: 2;
+      color: #cbd5e1;
+      font-size: 2rem;
+      margin-bottom: 14px;
+    }
+
+    .testimonial-card h4 {
+      position: relative;
+      z-index: 2;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1rem;
+      font-weight: 900;
+      margin-top: 18px;
+      color: var(--ink);
+    }
+
+    .testimonial-card span {
+      display: block;
+      position: relative;
+      z-index: 2;
+      margin-top: 4px;
+      color: #64748b;
+      font-size: 0.78rem;
+      line-height: 1.6;
+    }
+
+    .learning-card {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      overflow: hidden;
+      border-radius: 28px;
+      background: #fff;
+      border: 1px solid var(--line);
+      box-shadow: var(--soft-shadow);
+      transition: 0.4s var(--ease);
+    }
+
+    .learning-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow);
+    }
+
+    .learning-visual {
+      min-height: 340px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .learning-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: brightness(0.72);
+      transition: 0.65s var(--ease);
+    }
+
+    .learning-card:hover .learning-visual img {
+      transform: scale(1.06);
+    }
+
+    .learning-overlay {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 30px;
+      color: #fff;
+      background: linear-gradient(rgba(11, 16, 32, 0.20), rgba(11, 16, 32, 0.48));
+    }
+
+    .learning-overlay h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2rem;
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+
+    .learning-overlay p {
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      color: #dbeafe;
+    }
+
+    .learning-content {
+      padding: 36px;
+    }
+
+    .learning-content h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.45rem;
+      font-weight: 900;
+      color: var(--ink);
+      margin-bottom: 14px;
+    }
+
+    .learning-content p {
+      color: #475569;
+      line-height: 1.85;
+      margin-bottom: 15px;
+      font-size: 0.95rem;
+    }
+
+    .book-list {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .book-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 13px;
+      padding: 14px;
+      border-radius: 18px;
+      background: #f8fafc;
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      transition: 0.3s var(--ease);
+    }
+
+    .book-item:hover {
+      transform: translateX(6px);
+      background: #eef6ff;
+    }
+
+    .book-item i {
+      color: var(--blue);
+      margin-top: 4px;
+    }
+
+    .book-item strong {
+      display: block;
+      color: var(--ink);
+      font-size: 0.92rem;
+      margin-bottom: 3px;
+    }
+
+    .book-item span {
+      color: #64748b;
+      font-size: 0.82rem;
+      line-height: 1.5;
+    }
+
+    .painting-card {
+      border-radius: 28px;
+      overflow: hidden;
+      background: #fff;
+      border: 1px solid var(--line);
+      box-shadow: var(--soft-shadow);
+      transition: 0.4s var(--ease);
+      position: relative;
+      min-height: 520px;
+    }
+
+    .painting-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow);
+    }
+
+    .painting-card img {
+      width: 100%;
+      height: 520px;
+      object-fit: cover;
+      display: block;
+      transition: 0.65s var(--ease);
+    }
+
+    .painting-card:hover img {
+      transform: scale(1.06);
+    }
+
+    .painting-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: flex-end;
+      padding: 30px;
+      background: linear-gradient(transparent 20%, rgba(11, 16, 32, 0.82));
+      color: #fff;
+    }
+
+    .painting-overlay h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.7rem;
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+
+    .painting-overlay p {
+      color: #dbeafe;
+      line-height: 1.75;
+      font-size: 0.95rem;
+    }
+
+    .hobby-tags {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 18px;
+    }
+
+    .ach-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+
+    .ach-grid img {
+      width: 100%;
+      border-radius: 24px;
+      border: 1px solid var(--line);
+      box-shadow: var(--soft-shadow);
+      transition: 0.45s var(--ease);
+      background: #fff;
+    }
+
+    .ach-grid img:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: var(--shadow);
+    }
+
+    .contact-panel {
+      position: relative;
+      overflow: hidden;
+      padding: 42px;
+      border-radius: 30px;
+      color: #fff;
+      background:
+        radial-gradient(circle at top right, rgba(6, 182, 212, 0.26), transparent 35%),
+        radial-gradient(circle at bottom left, rgba(22, 163, 74, 0.22), transparent 35%),
+        linear-gradient(145deg, #0b1020, #111827);
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .contact-panel::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+      background-size: 42px 42px;
+      opacity: 0.75;
+    }
+
+    .contact-copy,
+    .contact-box {
+      position: relative;
+      z-index: 2;
+    }
+
+    .contact-copy h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      font-weight: 900;
+      line-height: 1.05;
+      margin-bottom: 15px;
+    }
+
+    .contact-copy p {
+      color: #cbd5e1;
+      line-height: 1.8;
+    }
+
+    .contact-box {
+      display: grid;
+      gap: 12px;
+    }
+
+    .contact-card {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 17px;
+      border-radius: 18px;
+      color: #fff;
+      text-decoration: none;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      transition: 0.35s var(--ease);
+      font-weight: 800;
+    }
+
+    .contact-card i {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      color: var(--dark);
+      background: linear-gradient(135deg, var(--cyan), var(--green));
+    }
+
+    .contact-card:hover {
+      transform: translateX(7px);
+      background: rgba(255, 255, 255, 0.16);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: 0.8s var(--ease);
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(28px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes shimmer {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.6; transform: scale(0.9); }
+      50% { opacity: 1; transform: scale(1.2); }
+    }
+
+    @keyframes gridMove {
+      from { background-position: 0 0; }
+      to { background-position: 56px 56px; }
+    }
+
+    @keyframes floatOrb {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-22px); }
+    }
+
+    @media (max-width: 1100px) {
+      .featured-card,
+      .learning-card,
+      .contact-panel {
+        grid-template-columns: 1fr;
       }
-      .sidebar-social{margin-top:30px}
-      #main-content{
-        margin-left:0;
-        width:100%;
+
+      .featured-card .card-image-wrap {
+        min-height: 330px;
       }
-      .hero{background-attachment:scroll}
-      .grid,.contact-box,.ach-grid{grid-template-columns:1fr}
+
+      .hero-metrics,
+      .business-strip {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .highlight-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
-    @media(max-width:650px){
-      .section{padding:75px 7%}
-      .hero{padding:70px 7%}
-      .hero-metrics,.impact-strip,.carelio-metrics{grid-template-columns:1fr}
-      .hero-actions{flex-direction:column}
-      .resume-btn,.hero-btn{
-        width:100%;
-        text-align:center;
+    @media (max-width: 1024px) {
+      body {
+        display: block;
+      }
+
+      #sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+      }
+
+      #main-content {
+        width: 100%;
+        margin-left: 0;
+      }
+
+      .hero {
+        background-attachment: scroll;
+      }
+
+      .grid,
+      .ach-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .section {
+        padding: 75px 7%;
+      }
+
+      .hero {
+        padding: 70px 7%;
+      }
+
+      .hero h1 {
+        letter-spacing: -1px;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .hero-btn,
+      .resume-btn {
+        width: 100%;
+      }
+
+      .hero-metrics,
+      .business-strip {
+        grid-template-columns: 1fr;
+      }
+
+      .learning-content,
+      .featured-card .card-body,
+      .contact-panel {
+        padding: 26px;
+      }
+
+      .painting-card img {
+        height: 420px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
       }
     }
   </style>
 </head>
 
 <body>
+
+  <div class="progress-bar" id="progressBar"></div>
+
   <aside id="sidebar">
     <div class="sidebar-profile">
-      <img src="image/IMG_0114.jpeg" alt="Sruthi Vemavarapu">
+      <img src="image/IMG_0114.jpeg" alt="Sruthi Vemavarapu" />
       <h2 class="sidebar-name">SRUTHI V.</h2>
-      <p class="sidebar-tag">Data Analyst<br>BI Analyst<br>Reporting Analyst</p>
+      <p class="sidebar-tag">Data Analyst<br />BI Analyst<br />Reporting Analyst</p>
     </div>
 
     <nav class="nav-menu">
@@ -772,74 +1323,102 @@
       <a href="#experience" class="nav-link">Impact</a>
       <a href="#certifications" class="nav-link">Certifications</a>
       <a href="#testimonials" class="nav-link">Testimonials</a>
-      <a href="#learning" class="nav-link">Learning</a>
+      <a href="#learning" class="nav-link">FASTCon</a>
+      <a href="#hobbies" class="nav-link">Hobbies</a>
       <a href="#education" class="nav-link">Education</a>
+      <a href="#achievements" class="nav-link">Achievements</a>
       <a href="#contact" class="nav-link">Connect</a>
     </nav>
 
     <div class="sidebar-social">
-      <a href="mailto:sruthivemavarapus@outlook.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
-      <a href="https://linkedin.com/in/sruthi-vemavarapu-0b614b198/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-      <a href="https://github.com/vemavarapu23" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      <a href="mailto:sruthivemavarapus@outlook.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+      <a href="https://linkedin.com/in/sruthi-vemavarapu-0b614b198/" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+      <a href="https://github.com/vemavarapu23" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
     </div>
   </aside>
 
   <main id="main-content">
+
     <section class="hero">
       <div class="hero-content">
-        <span class="hero-label">Data Analytics • BI • Reporting • Decision Support</span>
-        <h1>Hi,<br>I'm <span>Sruthi.</span></h1>
+        <span class="hero-label">BI • Data Analytics • Business Reporting • Decision Support</span>
+
+        <h1>Hi,<br />I'm <span>Sruthi.</span></h1>
+
+        <div class="typing-role" id="typingRole">Data Analyst</div>
 
         <p class="hero-subtitle">
-          Data Analyst and BI Analyst focused on transforming messy operational and public datasets into decision-ready SQL reports, KPI dashboards, prioritization tools, and stakeholder-friendly insights.
+          I turn messy operational and public datasets into decision-ready SQL reports, KPI dashboards, BI visuals, prioritization tools, and stakeholder-friendly business insights.
         </p>
 
         <div class="hero-actions">
           <a href="Sruthi_Data_Resume.pdf" target="_blank" download class="resume-btn">
-            <i class="fas fa-file-download"></i> Download Resume
+            <i class="fa-solid fa-file-arrow-down"></i> Download Updated Resume
           </a>
-          <a href="#projects" class="hero-btn dark">View Projects</a>
-          <a href="https://carelio-mn.streamlit.app/" target="_blank" class="hero-btn">View Carelio</a>
+
+          <a href="#projects" class="hero-btn">
+            <i class="fa-solid fa-chart-simple"></i> View BI Projects
+          </a>
+
+          <a href="https://carelio-mn.streamlit.app/" target="_blank" class="hero-btn">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i> View Carelio
+          </a>
         </div>
 
         <div class="hero-metrics">
-          <div class="hero-metric"><strong>3+</strong><span>Years Analytics Experience</span></div>
-          <div class="hero-metric"><strong>600+</strong><span>Records Analyzed</span></div>
-          <div class="hero-metric"><strong>87</strong><span>MN Counties in Carelio</span></div>
-          <div class="hero-metric"><strong>BI</strong><span>Dashboards & Reports</span></div>
+          <div class="hero-metric">
+            <strong class="counter" data-target="3">0</strong>
+            <span>Years Analytics Experience</span>
+          </div>
+
+          <div class="hero-metric">
+            <strong class="counter" data-target="600">0</strong>
+            <span>Operational Records Analyzed</span>
+          </div>
+
+          <div class="hero-metric">
+            <strong class="counter" data-target="87">0</strong>
+            <span>Minnesota Counties in Carelio</span>
+          </div>
+
+          <div class="hero-metric">
+            <strong>BI</strong>
+            <span>Dashboards, KPIs & Reports</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="about" class="section">
-      <span class="label">My Narrative</span>
-      <h2 class="heading">Business-minded Data Analyst</h2>
+    <section id="about" class="section reveal">
+      <span class="section-label">My Narrative</span>
+
+      <h2 class="heading">Business-Minded Data Analyst</h2>
 
       <p class="section-intro">
-        I am a <b>Data Analyst / BI Analyst / Reporting Analyst</b> with 3+ years of experience in reporting, data cleaning, dashboard development, KPI tracking, and stakeholder analytics, supported by an <b>M.S. in Data Science from the University of St. Thomas</b>. My career began in recruitment operations, where I learned how data quality, process visibility, and clear reporting directly influence business outcomes. Today, I use <b>SQL, Python, Excel, Tableau, Power BI, Snowflake, Databricks, and Streamlit</b> to turn complex datasets into insights that help teams make faster and better decisions.
+        I am a <b>Data Analyst / BI Analyst / Reporting Analyst</b> with 3+ years of experience in reporting, data cleaning, dashboard development, KPI tracking, and stakeholder analytics, supported by an <b>M.S. in Data Science from the University of St. Thomas</b>. My background in recruitment operations taught me how data quality, reporting speed, and clear business communication improve decisions. I use <b>SQL, Python, Excel, Tableau, Power BI, Snowflake, Databricks, and Streamlit</b> to convert complex datasets into insights that business teams can use.
       </p>
 
       <div class="highlight-grid">
-        <div class="highlight-card">
-          <i class="fas fa-chart-line"></i>
+        <div class="highlight-card reveal">
+          <i class="fa-solid fa-chart-line"></i>
           <h3>BI & KPI Reporting</h3>
           <p>Build dashboards and reports that track performance, identify bottlenecks, and communicate trends to technical and non-technical stakeholders.</p>
         </div>
 
-        <div class="highlight-card">
-          <i class="fas fa-database"></i>
+        <div class="highlight-card reveal">
+          <i class="fa-solid fa-database"></i>
           <h3>Data Cleaning & Modeling</h3>
-          <p>Clean, validate, standardize, and structure datasets for accurate reporting, analytics, and business intelligence workflows.</p>
+          <p>Clean, validate, standardize, and structure datasets for reliable reporting, business intelligence, and analytics workflows.</p>
         </div>
 
-        <div class="highlight-card">
-          <i class="fas fa-users"></i>
-          <h3>Business Communication</h3>
-          <p>Translate messy business problems into clear analytics questions, measurable KPIs, and decision-ready recommendations.</p>
+        <div class="highlight-card reveal">
+          <i class="fa-solid fa-briefcase"></i>
+          <h3>Business Decision Support</h3>
+          <p>Translate business problems into clear KPIs, dashboard filters, priority scores, and actionable recommendations for faster decisions.</p>
         </div>
       </div>
 
-      <div class="skills-cloud">
+      <div class="skills-cloud reveal">
         <span class="skill-pill">SQL</span>
         <span class="skill-pill">Python</span>
         <span class="skill-pill">Pandas</span>
@@ -850,32 +1429,27 @@
         <span class="skill-pill">Databricks</span>
         <span class="skill-pill">Streamlit</span>
         <span class="skill-pill">KPI Dashboards</span>
-        <span class="skill-pill">Data Validation</span>
+        <span class="skill-pill">Business Intelligence</span>
         <span class="skill-pill">Stakeholder Reporting</span>
         <span class="skill-pill">Agile</span>
       </div>
     </section>
 
-    <section id="projects" class="section alt">
-      <span class="label">Portfolio</span>
-      <h2 class="heading">Analytics & BI Work</h2>
+    <section id="projects" class="section alt reveal">
+      <span class="section-label">Portfolio</span>
+
+      <h2 class="heading">Analytics & BI Projects</h2>
 
       <p class="section-intro">
-        Selected projects focused on business intelligence, public data analytics, reporting automation, predictive modeling, and stakeholder-focused dashboard design.
+        Project work focused on business intelligence, public data analytics, dashboard design, reporting automation, predictive modeling, and decision-support storytelling.
       </p>
 
       <div class="grid">
-        <div class="card featured-project">
-          <div class="carelio-visual">
-            <div class="carelio-box">
-              <h4>Carelio</h4>
-              <p>Minnesota public health & food support prioritization dashboard</p>
-              <div class="carelio-metrics">
-                <div class="metric"><strong>87</strong><span>Counties</span></div>
-                <div class="metric"><strong>KPI</strong><span>Cards</span></div>
-                <div class="metric"><strong>Score</strong><span>Priority Model</span></div>
-              </div>
-            </div>
+
+        <div class="card featured-card reveal">
+          <div class="card-image-wrap">
+            <span class="image-badge">Featured Dashboard</span>
+            <img src="image/carelio-dashboard.png" alt="Carelio dashboard screenshot" />
           </div>
 
           <div class="card-body">
@@ -883,14 +1457,14 @@
             <p>Python / SQL / Pandas / Streamlit / Power BI</p>
 
             <p class="project-desc">
-              Built an end-to-end analytics tool using public food access, health, insurance, school lunch, and income datasets for all 87 Minnesota counties. Designed a priority scoring model, county rankings, KPI cards, filters, and visual views to help nonprofit and public health stakeholders compare county-level needs quickly and support outreach planning.
+              Built an end-to-end analytics tool using public food access, health, insurance, school lunch, and income datasets for all 87 Minnesota counties. Designed a priority scoring model, county rankings, KPI cards, filters, and visual views to help nonprofit and public health stakeholders compare county-level need quickly and support outreach planning.
             </p>
 
             <div class="project-tags">
               <span>Public Data</span>
               <span>Priority Scoring</span>
-              <span>Streamlit Dashboard</span>
-              <span>Stakeholder Analytics</span>
+              <span>County Ranking</span>
+              <span>KPI Dashboard</span>
               <span>Decision Support</span>
             </div>
 
@@ -901,124 +1475,182 @@
           </div>
         </div>
 
-        <a href="https://github.com/vemavarapu23" class="card" target="_blank">
-          <img src="image/snowflake-dashboard.jpg" alt="Snowflake Architecture Project">
+        <a href="https://github.com/vemavarapu23" class="card reveal" target="_blank">
+          <div class="card-image-wrap">
+            <span class="image-badge">Snowflake SQL</span>
+            <img src="image/snowflake-dashboard.jpg" alt="Snowflake Architecture Project" />
+          </div>
+
           <div class="card-body">
             <h3>Snowflake Architecture</h3>
             <p>Snowflake SQL / Data Modeling</p>
-            <p class="project-desc">Modeled fiscal-period and business-day tables in Snowflake SQL, incorporating holidays and quarter-end logic to improve recurring finance reporting preparation.</p>
+
+            <p class="project-desc">
+              Modeled fiscal-period and business-day tables in Snowflake SQL, incorporating holidays and quarter-end logic to improve recurring finance reporting preparation.
+            </p>
+
             <div class="project-tags">
-              <span>Snowflake</span><span>SQL</span><span>Data Modeling</span><span>Finance Reporting</span>
+              <span>Snowflake</span>
+              <span>SQL</span>
+              <span>Finance Reporting</span>
             </div>
           </div>
         </a>
 
-        <a href="https://github.com/vemavarapu23/AI_Impact_on_job_market" class="card" target="_blank">
-          <img src="image/ai-job-market.jpg" alt="AI Job Market Analytics Project">
+        <a href="https://github.com/vemavarapu23/AI_Impact_on_job_market" class="card reveal" target="_blank">
+          <div class="card-image-wrap">
+            <span class="image-badge">Analytics</span>
+            <img src="image/ai-job-market.jpg" alt="AI Job Market Analytics Project" />
+          </div>
+
           <div class="card-body">
             <h3>AI Market Analytics</h3>
             <p>Python / SQL / Tableau</p>
-            <p class="project-desc">Cleaned and analyzed labor market records across industries to evaluate salary trends, automation risk, remote-work adoption, and job-growth projections.</p>
+
+            <p class="project-desc">
+              Cleaned and analyzed labor market records across industries to evaluate salary trends, automation risk, remote-work adoption, and job-growth projections.
+            </p>
+
             <div class="project-tags">
-              <span>EDA</span><span>Tableau</span><span>Labor Analytics</span><span>Trend Analysis</span>
+              <span>EDA</span>
+              <span>Tableau</span>
+              <span>Trend Analysis</span>
             </div>
           </div>
         </a>
 
-        <a href="https://github.com/vemavarapu23/MachineLearning_Loan_Approval_Prediction" class="card" target="_blank">
-          <img src="image/ml-confusion-matrix.jpg" alt="Loan Approval Prediction Project">
+        <a href="https://github.com/vemavarapu23/MachineLearning_Loan_Approval_Prediction" class="card reveal" target="_blank">
+          <div class="card-image-wrap">
+            <span class="image-badge">Machine Learning</span>
+            <img src="image/ml-confusion-matrix.jpg" alt="Loan Approval Prediction Project" />
+          </div>
+
           <div class="card-body">
             <h3>ML Loan Forecasting</h3>
             <p>Predictive Modeling</p>
-            <p class="project-desc">Built a machine learning model to predict loan approval outcomes and evaluate performance using classification metrics, validation, and model interpretation.</p>
+
+            <p class="project-desc">
+              Built a machine learning model to predict loan approval outcomes and evaluate performance using classification metrics, validation, and model interpretation.
+            </p>
+
             <div class="project-tags">
-              <span>Machine Learning</span><span>Classification</span><span>Model Evaluation</span>
+              <span>Classification</span>
+              <span>Model Evaluation</span>
+              <span>Prediction</span>
             </div>
           </div>
         </a>
 
-        <a href="https://github.com/vemavarapu23/Walmart-Sales--Analysis" class="card" target="_blank">
-          <img src="image/walmart-dashboard.jpg" alt="Walmart Sales BI Dashboard">
+        <a href="https://github.com/vemavarapu23/Walmart-Sales--Analysis" class="card reveal" target="_blank">
+          <div class="card-image-wrap">
+            <span class="image-badge">BI Dashboard</span>
+            <img src="image/walmart-dashboard.jpg" alt="Walmart Sales BI Dashboard" />
+          </div>
+
           <div class="card-body">
             <h3>Walmart Sales BI</h3>
             <p>Tableau Visualization</p>
-            <p class="project-desc">Designed a Tableau BI dashboard to analyze sales trends, compare performance, and communicate retail insights through clear business visuals.</p>
+
+            <p class="project-desc">
+              Designed a Tableau BI dashboard to analyze Walmart sales trends, compare business performance, and communicate retail insights through clear visual storytelling.
+            </p>
+
             <div class="project-tags">
-              <span>Tableau</span><span>Retail Analytics</span><span>BI Dashboard</span>
+              <span>Tableau</span>
+              <span>Retail Analytics</span>
+              <span>BI Dashboard</span>
             </div>
           </div>
         </a>
+
       </div>
     </section>
 
-    <section id="experience" class="section">
-      <span class="label">Experience</span>
-      <h2 class="heading">Business Impact</h2>
+    <section id="experience" class="section reveal">
+      <span class="section-label">Business Impact</span>
+
+      <h2 class="heading">Data, BI & Operations Impact</h2>
 
       <p class="section-intro">
-        Experience connecting operations, reporting, data quality, stakeholder communication, and leadership into measurable business outcomes.
+        Experience connecting business operations, reporting, data quality, stakeholder communication, and leadership into measurable analytics outcomes.
       </p>
 
-      <div class="impact-strip">
-        <div class="impact-card"><strong>600+</strong><span>Candidate and pipeline records analyzed</span></div>
-        <div class="impact-card"><strong>95%+</strong><span>Improved data accuracy through standardization</span></div>
-        <div class="impact-card"><strong>20%</strong><span>Reduced reconciliation and reporting rework</span></div>
-        <div class="impact-card"><strong>8</strong><span>Team members guided on reporting consistency</span></div>
+      <div class="business-strip">
+        <div class="business-card reveal">
+          <strong class="counter" data-target="600">0</strong>
+          <span>Candidate and pipeline records analyzed across Excel and ATS systems</span>
+        </div>
+
+        <div class="business-card reveal">
+          <strong>95%+</strong>
+          <span>Improved data accuracy through standardization and duplicate removal</span>
+        </div>
+
+        <div class="business-card reveal">
+          <strong>20%</strong>
+          <span>Reduced reconciliation and reporting rework through cleaner processes</span>
+        </div>
+
+        <div class="business-card reveal">
+          <strong class="counter" data-target="8">0</strong>
+          <span>Team members guided on reporting consistency and data-entry standards</span>
+        </div>
       </div>
 
-      <br><br>
-
       <div class="timeline">
-        <div class="item">
+        <div class="item reveal">
           <h4>Data & Recruitment Analyst / Team Lead</h4>
           <span class="sub">Avance Consulting | Feb 2021 - Aug 2024</span>
+
           <ul>
-            <li>Analyzed 600+ candidate and pipeline records across Excel and ATS platforms, standardizing fields and removing duplicates to improve data quality and reduce reconciliation rework.</li>
-            <li>Developed weekly and monthly Excel KPI dashboards tracking submissions, placement rates, recruiter productivity, and pipeline movement to help managers identify bottlenecks and follow-up priorities.</li>
-            <li>Translated client requirements and recruiting trends into clear reports for technical and non-technical stakeholders, supporting faster decisions on candidate quality, submissions, and team performance.</li>
-            <li>Guided reporting consistency for an 8-member recruiting team by documenting data-entry standards, reviewing weekly updates, and improving ATS data reliability.</li>
+            <li>Analyzed candidate and pipeline data to improve visibility into submissions, placement rates, recruiter productivity, and pipeline movement.</li>
+            <li>Developed weekly and monthly Excel KPI dashboards that helped managers identify bottlenecks and improve follow-up priorities.</li>
+            <li>Translated client requirements and recruiting trends into clear reports for technical and non-technical stakeholders.</li>
+            <li>Documented data-entry standards, reviewed weekly updates, and improved ATS data reliability for an 8-member recruiting team.</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <section id="certifications" class="section alt">
-      <span class="label">Verification</span>
+    <section id="certifications" class="section alt reveal">
+      <span class="section-label">Verification</span>
+
       <h2 class="heading">Certifications</h2>
 
       <p class="section-intro">
-        Certifications that support analytics, business intelligence, data-driven decision making, and Agile collaboration.
+        Certifications supporting analytics, business intelligence, data-driven decision making, SQL, and Agile collaboration.
       </p>
 
       <div class="cert-grid">
-        <a href="https://www.credly.com/badges/16d0c32c-10ef-4508-93dc-c6b1f391fadb/linked_in?t=tflp6o" target="_blank" class="cert-card">
-          <i class="fas fa-arrows-spin"></i>
+        <a href="https://www.credly.com/badges/16d0c32c-10ef-4508-93dc-c6b1f391fadb/linked_in?t=tflp6o" target="_blank" class="cert-card reveal">
+          <i class="fa-solid fa-arrows-spin"></i>
           <h5>Agile Explorer</h5>
           <p>Credly Digital Badge | Agile values, Agile practices, Kanban, collaboration, and iterative delivery.</p>
         </a>
 
-        <div class="cert-card">
-          <i class="fas fa-database"></i>
+        <div class="cert-card reveal">
+          <i class="fa-solid fa-database"></i>
           <h5>SQL Learning</h5>
           <p>LinkedIn Learning | SQL querying, relational data, and analytics foundations.</p>
         </div>
 
-        <div class="cert-card">
-          <i class="fas fa-chart-pie"></i>
+        <div class="cert-card reveal">
+          <i class="fa-solid fa-chart-pie"></i>
           <h5>Ask Questions to Make Data-Driven Decisions</h5>
           <p>Google | Coursera | Business questions, stakeholder needs, and decision-focused analytics.</p>
         </div>
 
-        <div class="cert-card">
-          <i class="fas fa-table"></i>
+        <div class="cert-card reveal">
+          <i class="fa-solid fa-table"></i>
           <h5>Foundations: Data, Data, Everywhere</h5>
           <p>Google | Coursera | Data analytics foundations, data lifecycle, and analytical thinking.</p>
         </div>
       </div>
     </section>
 
-    <section id="testimonials" class="section">
-      <span class="label">Recommendations</span>
+    <section id="testimonials" class="section reveal">
+      <span class="section-label">Recommendations</span>
+
       <h2 class="heading">Testimonials</h2>
 
       <p class="section-intro">
@@ -1026,22 +1658,22 @@
       </p>
 
       <div class="testimonial-grid">
-        <div class="testimonial-card">
-          <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+        <div class="testimonial-card reveal">
+          <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
           <p>“Sruthi has a very good understanding of data mining and analytics. She has transitioned from recruiting into a very strong technical professional. I have seen her skills firsthand in technical development and she shows strong leadership potential.”</p>
           <h4>Nathan Crawford</h4>
           <span>Instructor | Snowflake & Databricks / ML Operations</span>
         </div>
 
-        <div class="testimonial-card">
-          <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+        <div class="testimonial-card reveal">
+          <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
           <p>“Sruthi consistently demonstrates strong domain knowledge, strategic thinking, and the ability to deliver results under tight timelines. She leads with clarity and empathy while maintaining productivity and quality standards.”</p>
           <h4>Rahul Reddy Kalwala</h4>
           <span>Account Manager | Avance Consulting</span>
         </div>
 
-        <div class="testimonial-card">
-          <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
+        <div class="testimonial-card reveal">
+          <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
           <p>“As a technical recruiter, Sruthi was reliable in finding qualified talent quickly.”</p>
           <h4>Mike Macer</h4>
           <span>Former Colleague</span>
@@ -1049,72 +1681,307 @@
       </div>
     </section>
 
-    <section id="learning" class="section alt">
-      <span class="label">Professional Learning</span>
-      <h2 class="heading">Analytics Community & Industry Learning</h2>
+    <section id="learning" class="section alt reveal">
+      <span class="section-label">Professional Learning</span>
 
-      <div class="learning-card">
-        <div class="learning-badge">
-          <i class="fas fa-users-viewfinder"></i>
-          <h3>FASTCon 2026</h3>
-          <p>MinneAnalytics | Best Buy HQ</p>
+      <h2 class="heading">FASTCon & Analytics Community</h2>
+
+      <div class="learning-card reveal">
+        <div class="learning-visual">
+          <img src="image/IMG_2427.jpeg" alt="Professional learning visual" />
+
+          <div class="learning-overlay">
+            <div>
+              <h3>FASTCon 2026</h3>
+              <p>MinneAnalytics • Best Buy HQ</p>
+            </div>
+          </div>
         </div>
 
         <div class="learning-content">
           <h3>Learning from real-world AI, data, and supply chain innovation</h3>
-          <p>Attended FASTCon 2026, hosted by MinneAnalytics at Best Buy Headquarters in Minnesota, connecting with professionals across data, AI, supply chain, analytics, and business innovation.</p>
-          <p>A key highlight was learning how RGB camera-based computer vision is being applied in industrial environments for worker safety monitoring, action recognition, food yield estimation, and automated object counting. The event strengthened my interest in applying analytics and AI to improve safety, efficiency, productivity, and real-world decision making.</p>
+
+          <p>
+            Attended FASTCon 2026, hosted by MinneAnalytics at Best Buy Headquarters in Minnesota, connecting with professionals across data, AI, supply chain, analytics, and business innovation.
+          </p>
+
+          <p>
+            A key highlight was learning how RGB camera-based computer vision is applied in industrial environments for worker safety monitoring, action recognition, food yield estimation, and automated object counting.
+          </p>
+
           <div class="project-tags">
-            <span>Data Science</span><span>AI</span><span>Computer Vision</span><span>Supply Chain</span><span>Analytics Community</span>
+            <span>Data Science</span>
+            <span>AI</span>
+            <span>Computer Vision</span>
+            <span>Supply Chain</span>
+            <span>Analytics Community</span>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="education" class="section">
-      <span class="label">Academic Core</span>
+    <section id="hobbies" class="section reveal">
+      <span class="section-label">Beyond Analytics</span>
+
+      <h2 class="heading">Hobbies & Creative Side</h2>
+
+      <p class="section-intro">
+        Outside data analytics and BI work, I enjoy painting and reading. Painting helps me stay creative and detail-oriented, while reading helps me understand emotions, people, communication, and storytelling — skills that also support better stakeholder communication and data storytelling.
+      </p>
+
+      <div class="hobby-grid">
+        <div class="hobby-card reveal">
+          <h3><i class="fa-solid fa-book-open-reader" style="color: var(--blue); margin-right: 10px;"></i>Reading Interests</h3>
+
+          <p>
+            I enjoy emotional, reflective, and people-centered books. Some of the authors and books I like include Ajay K. Pandey and Ravi Mantri.
+          </p>
+
+          <div class="book-list">
+            <div class="book-item">
+              <i class="fa-solid fa-book"></i>
+              <div>
+                <strong>You Are the Best Wife</strong>
+                <span>Ajay K. Pandey</span>
+              </div>
+            </div>
+
+            <div class="book-item">
+              <i class="fa-solid fa-book"></i>
+              <div>
+                <strong>Her Last Wish</strong>
+                <span>Ajay K. Pandey</span>
+              </div>
+            </div>
+
+            <div class="book-item">
+              <i class="fa-solid fa-book"></i>
+              <div>
+                <strong>You Are the Best Friend</strong>
+                <span>Ajay K. Pandey</span>
+              </div>
+            </div>
+
+            <div class="book-item">
+              <i class="fa-solid fa-book"></i>
+              <div>
+                <strong>Amma Diarylo Konni Pageelu</strong>
+                <span>Ravi Mantri</span>
+              </div>
+            </div>
+
+            <div class="book-item">
+              <i class="fa-solid fa-book"></i>
+              <div>
+                <strong>Dheera Sameere Ganga Teere</strong>
+                <span>Ravi Mantri</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hobby-tags">
+            <span>Reading</span>
+            <span>Storytelling</span>
+            <span>Reflection</span>
+            <span>Communication</span>
+          </div>
+        </div>
+
+        <div class="painting-card reveal">
+          <img src="image/my-painting.jpg" alt="Painting by Sruthi" />
+
+          <div class="painting-overlay">
+            <div>
+              <h3>Painting by Sruthi</h3>
+              <p>
+                Painting helps me observe details, balance colors, and think visually — the same mindset I bring to dashboard design and BI storytelling.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="education" class="section reveal">
+      <span class="section-label">Academic Core</span>
+
       <h2 class="heading">Education</h2>
 
       <div class="timeline">
-        <div class="item">
+        <div class="item reveal">
           <h4>M.S. in Data Science</h4>
           <span class="sub">University of St. Thomas, St. Paul, MN | Aug 2024 - May 2026</span>
+
           <ul>
             <li>Relevant coursework: Data Analytics & Visualization, SQL, Data Warehousing, Data Lakes, Machine Learning, and AI.</li>
           </ul>
         </div>
 
-        <div class="item">
+        <div class="item reveal">
           <h4>Bachelor of Technology</h4>
           <span class="sub">JNTU, Hyderabad</span>
         </div>
       </div>
     </section>
 
-    <section id="achievements" class="section alt">
-      <span class="label">Recognition</span>
+    <section id="achievements" class="section alt reveal">
+      <span class="section-label">Recognition</span>
+
       <h2 class="heading">Achievements</h2>
 
-      <div class="ach-grid">
-        <img src="image/IMG_4080.jpeg" alt="Achievement certificate 1">
-        <img src="image/IMG_4082.jpeg" alt="Achievement certificate 2">
-      </div>
-    </section>
-
-    <section id="contact" class="section" style="border:none;padding-bottom:150px;">
-      <span class="label">Connect</span>
-      <h2 class="heading">Get In Touch</h2>
-
       <p class="section-intro">
-        Open to Data Analyst, BI Analyst, Reporting Analyst, and analytics-focused roles where I can combine technical analysis, business communication, and dashboard-driven decision support.
+        Recognition and visual proof from your original portfolio, now displayed with more polished spacing, rounded presentation, and hover effects.
       </p>
 
-      <div class="contact-box">
-        <a href="mailto:sruthivemavarapus@outlook.com" class="contact-card"><i class="fas fa-envelope"></i><p>Email</p></a>
-        <a href="https://linkedin.com/in/sruthi-vemavarapu-0b614b198/" target="_blank" class="contact-card"><i class="fab fa-linkedin"></i><p>LinkedIn</p></a>
-        <a href="https://github.com/vemavarapu23" target="_blank" class="contact-card"><i class="fab fa-github"></i><p>GitHub</p></a>
+      <div class="ach-grid reveal">
+        <img src="image/IMG_4080.jpeg" alt="Achievement certificate 1" />
+        <img src="image/IMG_4082.jpeg" alt="Achievement certificate 2" />
       </div>
     </section>
+
+    <section id="contact" class="section reveal" style="border-bottom:none; padding-bottom:150px;">
+      <div class="contact-panel">
+        <div class="contact-copy">
+          <span class="section-label" style="color:#a7f3d0;">Connect</span>
+
+          <h2>Let’s build decision-ready analytics.</h2>
+
+          <p>
+            Open to Data Analyst, BI Analyst, Reporting Analyst, and analytics-focused roles where I can combine technical analysis, business communication, and dashboard-driven decision support.
+          </p>
+        </div>
+
+        <div class="contact-box">
+          <a href="mailto:sruthivemavarapus@outlook.com" class="contact-card">
+            <i class="fa-solid fa-envelope"></i>
+            <span>Email</span>
+          </a>
+
+          <a href="https://linkedin.com/in/sruthi-vemavarapu-0b614b198/" target="_blank" class="contact-card">
+            <i class="fa-brands fa-linkedin-in"></i>
+            <span>LinkedIn</span>
+          </a>
+
+          <a href="https://github.com/vemavarapu23" target="_blank" class="contact-card">
+            <i class="fa-brands fa-github"></i>
+            <span>GitHub</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
   </main>
+
+  <script>
+    const progressBar = document.getElementById('progressBar');
+    const typingRole = document.getElementById('typingRole');
+
+    const roles = [
+      'Data Analyst',
+      'BI Analyst',
+      'Reporting Analyst',
+      'SQL • Python • Power BI',
+      'Business Intelligence & Decision Support'
+    ];
+
+    let roleIndex = 0;
+    let charIndex = 0;
+    let deleting = false;
+
+    function typeEffect() {
+      const current = roles[roleIndex];
+
+      if (!deleting) {
+        typingRole.textContent = current.slice(0, charIndex + 1);
+        charIndex++;
+
+        if (charIndex === current.length) {
+          deleting = true;
+          setTimeout(typeEffect, 1200);
+          return;
+        }
+      } else {
+        typingRole.textContent = current.slice(0, charIndex - 1);
+        charIndex--;
+
+        if (charIndex === 0) {
+          deleting = false;
+          roleIndex = (roleIndex + 1) % roles.length;
+        }
+      }
+
+      setTimeout(typeEffect, deleting ? 45 : 75);
+    }
+
+    typeEffect();
+
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      progressBar.style.width = progress + '%';
+    });
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('show'), index * 60);
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+
+        const counter = entry.target;
+        const target = Number(counter.dataset.target);
+        const duration = 1200;
+        const start = performance.now();
+
+        function animate(now) {
+          const progress = Math.min((now - start) / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          counter.textContent = Math.floor(eased * target);
+
+          if (progress < 1) {
+            requestAnimationFrame(animate);
+          } else {
+            if (target === 3) counter.textContent = '3+';
+            else if (target === 600) counter.textContent = '600+';
+            else counter.textContent = target;
+          }
+        }
+
+        requestAnimationFrame(animate);
+        counterObserver.unobserve(counter);
+      });
+    }, { threshold: 0.6 });
+
+    document.querySelectorAll('.counter').forEach(counter => counterObserver.observe(counter));
+
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    const navObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === '#' + entry.target.id) {
+            link.classList.add('active');
+          }
+        });
+      });
+    }, { rootMargin: '-35% 0px -55% 0px' });
+
+    sections.forEach(section => navObserver.observe(section));
+  </script>
+
 </body>
+
 </html>
