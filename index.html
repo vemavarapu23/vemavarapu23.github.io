@@ -8,9 +8,7 @@
   <title>Sruthi Vemavarapu | Data Analyst • BI Analyst • Reporting Analyst</title>
 
   <link rel="icon" type="image/x-icon" href="image/IMG_0114.jpeg" />
-
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
   <style>
@@ -25,7 +23,6 @@
       --blue: #2563eb;
       --cyan: #06b6d4;
       --green: #16a34a;
-      --purple: #7c3aed;
       --gold: #f59e0b;
       --dark: #0b1020;
       --shadow: 0 24px 70px rgba(15, 23, 42, 0.14);
@@ -471,11 +468,13 @@
       margin-bottom: 42px;
     }
 
-    .highlight-grid {
+    .highlight-grid,
+    .cert-grid,
+    .testimonial-grid,
+    .hobby-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 22px;
-      margin-top: 35px;
     }
 
     .highlight-card,
@@ -669,7 +668,8 @@
       line-height: 1.8 !important;
     }
 
-    .project-tags {
+    .project-tags,
+    .hobby-tags {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
@@ -846,14 +846,6 @@
     .item li {
       margin-bottom: 11px;
       font-size: 0.94rem;
-    }
-
-    .cert-grid,
-    .testimonial-grid,
-    .hobby-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 22px;
     }
 
     .cert-card {
@@ -1063,15 +1055,6 @@
       font-size: 0.95rem;
     }
 
-    .hobby-tags {
-      position: relative;
-      z-index: 2;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 9px;
-      margin-top: 18px;
-    }
-
     .ach-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -1224,10 +1207,6 @@
       .business-strip {
         grid-template-columns: repeat(2, 1fr);
       }
-
-      .highlight-grid {
-        grid-template-columns: 1fr;
-      }
     }
 
     @media (max-width: 1024px) {
@@ -1293,16 +1272,6 @@
         height: 420px;
       }
     }
-
-    @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
-        animation: none !important;
-        transition: none !important;
-        scroll-behavior: auto !important;
-      }
-    }
   </style>
 </head>
 
@@ -1352,7 +1321,7 @@
         </p>
 
         <div class="hero-actions">
-          <a href="Sruthi_Data_Resume.pdf" target="_blank" download class="resume-btn">
+          <a href="./Sruthi_Vemavarapu_Data_Analyst.pdf" download="Sruthi_Vemavarapu_Data_Analyst.pdf" class="resume-btn">
             <i class="fa-solid fa-file-arrow-down"></i> Download Updated Resume
           </a>
 
@@ -1366,32 +1335,16 @@
         </div>
 
         <div class="hero-metrics">
-          <div class="hero-metric">
-            <strong class="counter" data-target="3">0</strong>
-            <span>Years Analytics Experience</span>
-          </div>
-
-          <div class="hero-metric">
-            <strong class="counter" data-target="600">0</strong>
-            <span>Operational Records Analyzed</span>
-          </div>
-
-          <div class="hero-metric">
-            <strong class="counter" data-target="87">0</strong>
-            <span>Minnesota Counties in Carelio</span>
-          </div>
-
-          <div class="hero-metric">
-            <strong>BI</strong>
-            <span>Dashboards, KPIs & Reports</span>
-          </div>
+          <div class="hero-metric"><strong class="counter" data-target="3">0</strong><span>Years Analytics Experience</span></div>
+          <div class="hero-metric"><strong class="counter" data-target="600">0</strong><span>Operational Records Analyzed</span></div>
+          <div class="hero-metric"><strong class="counter" data-target="87">0</strong><span>Minnesota Counties in Carelio</span></div>
+          <div class="hero-metric"><strong>BI</strong><span>Dashboards, KPIs & Reports</span></div>
         </div>
       </div>
     </section>
 
     <section id="about" class="section reveal">
       <span class="section-label">My Narrative</span>
-
       <h2 class="heading">Business-Minded Data Analyst</h2>
 
       <p class="section-intro">
@@ -1437,7 +1390,6 @@
 
     <section id="projects" class="section alt reveal">
       <span class="section-label">Portfolio</span>
-
       <h2 class="heading">Analytics & BI Projects</h2>
 
       <p class="section-intro">
@@ -1445,7 +1397,6 @@
       </p>
 
       <div class="grid">
-
         <div class="card featured-card reveal">
           <div class="card-image-wrap">
             <span class="image-badge">Featured Dashboard</span>
@@ -1480,20 +1431,11 @@
             <span class="image-badge">Snowflake SQL</span>
             <img src="image/snowflake-dashboard.jpg" alt="Snowflake Architecture Project" />
           </div>
-
           <div class="card-body">
             <h3>Snowflake Architecture</h3>
             <p>Snowflake SQL / Data Modeling</p>
-
-            <p class="project-desc">
-              Modeled fiscal-period and business-day tables in Snowflake SQL, incorporating holidays and quarter-end logic to improve recurring finance reporting preparation.
-            </p>
-
-            <div class="project-tags">
-              <span>Snowflake</span>
-              <span>SQL</span>
-              <span>Finance Reporting</span>
-            </div>
+            <p class="project-desc">Modeled fiscal-period and business-day tables in Snowflake SQL, incorporating holidays and quarter-end logic to improve recurring finance reporting preparation.</p>
+            <div class="project-tags"><span>Snowflake</span><span>SQL</span><span>Finance Reporting</span></div>
           </div>
         </a>
 
@@ -1502,20 +1444,11 @@
             <span class="image-badge">Analytics</span>
             <img src="image/ai-job-market.jpg" alt="AI Job Market Analytics Project" />
           </div>
-
           <div class="card-body">
             <h3>AI Market Analytics</h3>
             <p>Python / SQL / Tableau</p>
-
-            <p class="project-desc">
-              Cleaned and analyzed labor market records across industries to evaluate salary trends, automation risk, remote-work adoption, and job-growth projections.
-            </p>
-
-            <div class="project-tags">
-              <span>EDA</span>
-              <span>Tableau</span>
-              <span>Trend Analysis</span>
-            </div>
+            <p class="project-desc">Cleaned and analyzed labor market records across industries to evaluate salary trends, automation risk, remote-work adoption, and job-growth projections.</p>
+            <div class="project-tags"><span>EDA</span><span>Tableau</span><span>Trend Analysis</span></div>
           </div>
         </a>
 
@@ -1524,20 +1457,11 @@
             <span class="image-badge">Machine Learning</span>
             <img src="image/ml-confusion-matrix.jpg" alt="Loan Approval Prediction Project" />
           </div>
-
           <div class="card-body">
             <h3>ML Loan Forecasting</h3>
             <p>Predictive Modeling</p>
-
-            <p class="project-desc">
-              Built a machine learning model to predict loan approval outcomes and evaluate performance using classification metrics, validation, and model interpretation.
-            </p>
-
-            <div class="project-tags">
-              <span>Classification</span>
-              <span>Model Evaluation</span>
-              <span>Prediction</span>
-            </div>
+            <p class="project-desc">Built a machine learning model to predict loan approval outcomes and evaluate performance using classification metrics, validation, and model interpretation.</p>
+            <div class="project-tags"><span>Classification</span><span>Model Evaluation</span><span>Prediction</span></div>
           </div>
         </a>
 
@@ -1546,29 +1470,18 @@
             <span class="image-badge">BI Dashboard</span>
             <img src="image/walmart-dashboard.jpg" alt="Walmart Sales BI Dashboard" />
           </div>
-
           <div class="card-body">
             <h3>Walmart Sales BI</h3>
             <p>Tableau Visualization</p>
-
-            <p class="project-desc">
-              Designed a Tableau BI dashboard to analyze Walmart sales trends, compare business performance, and communicate retail insights through clear visual storytelling.
-            </p>
-
-            <div class="project-tags">
-              <span>Tableau</span>
-              <span>Retail Analytics</span>
-              <span>BI Dashboard</span>
-            </div>
+            <p class="project-desc">Designed a Tableau BI dashboard to analyze Walmart sales trends, compare business performance, and communicate retail insights through clear visual storytelling.</p>
+            <div class="project-tags"><span>Tableau</span><span>Retail Analytics</span><span>BI Dashboard</span></div>
           </div>
         </a>
-
       </div>
     </section>
 
     <section id="experience" class="section reveal">
       <span class="section-label">Business Impact</span>
-
       <h2 class="heading">Data, BI & Operations Impact</h2>
 
       <p class="section-intro">
@@ -1576,32 +1489,16 @@
       </p>
 
       <div class="business-strip">
-        <div class="business-card reveal">
-          <strong class="counter" data-target="600">0</strong>
-          <span>Candidate and pipeline records analyzed across Excel and ATS systems</span>
-        </div>
-
-        <div class="business-card reveal">
-          <strong>95%+</strong>
-          <span>Improved data accuracy through standardization and duplicate removal</span>
-        </div>
-
-        <div class="business-card reveal">
-          <strong>20%</strong>
-          <span>Reduced reconciliation and reporting rework through cleaner processes</span>
-        </div>
-
-        <div class="business-card reveal">
-          <strong class="counter" data-target="8">0</strong>
-          <span>Team members guided on reporting consistency and data-entry standards</span>
-        </div>
+        <div class="business-card reveal"><strong class="counter" data-target="600">0</strong><span>Candidate and pipeline records analyzed across Excel and ATS systems</span></div>
+        <div class="business-card reveal"><strong>95%+</strong><span>Improved data accuracy through standardization and duplicate removal</span></div>
+        <div class="business-card reveal"><strong>20%</strong><span>Reduced reconciliation and reporting rework through cleaner processes</span></div>
+        <div class="business-card reveal"><strong class="counter" data-target="8">0</strong><span>Team members guided on reporting consistency and data-entry standards</span></div>
       </div>
 
       <div class="timeline">
         <div class="item reveal">
           <h4>Data & Recruitment Analyst / Team Lead</h4>
           <span class="sub">Avance Consulting | Feb 2021 - Aug 2024</span>
-
           <ul>
             <li>Analyzed candidate and pipeline data to improve visibility into submissions, placement rates, recruiter productivity, and pipeline movement.</li>
             <li>Developed weekly and monthly Excel KPI dashboards that helped managers identify bottlenecks and improve follow-up priorities.</li>
@@ -1614,7 +1511,6 @@
 
     <section id="certifications" class="section alt reveal">
       <span class="section-label">Verification</span>
-
       <h2 class="heading">Certifications</h2>
 
       <p class="section-intro">
@@ -1650,7 +1546,6 @@
 
     <section id="testimonials" class="section reveal">
       <span class="section-label">Recommendations</span>
-
       <h2 class="heading">Testimonials</h2>
 
       <p class="section-intro">
@@ -1683,13 +1578,11 @@
 
     <section id="learning" class="section alt reveal">
       <span class="section-label">Professional Learning</span>
-
       <h2 class="heading">FASTCon & Analytics Community</h2>
 
       <div class="learning-card reveal">
         <div class="learning-visual">
-          <img src="image/IMG_2427.jpeg" alt="Professional learning visual" />
-
+          <img src="image/fastcon2026.jpg" alt="FASTCon 2026 session on RGB vision in food processing" />
           <div class="learning-overlay">
             <div>
               <h3>FASTCon 2026</h3>
@@ -1699,22 +1592,23 @@
         </div>
 
         <div class="learning-content">
-          <h3>Learning from real-world AI, data, and supply chain innovation</h3>
+          <h3>Learning from FASTCon 2026: Data, AI, Food, Ag & Supply Chain</h3>
 
           <p>
-            Attended FASTCon 2026, hosted by MinneAnalytics at Best Buy Headquarters in Minnesota, connecting with professionals across data, AI, supply chain, analytics, and business innovation.
+            I participated in FASTCon 2026, hosted by MinneAnalytics at Best Buy HQ in Richfield, Minnesota. The event brought together 600+ professionals across food, agriculture, sustainability, supply chain, data science, and AI.
           </p>
 
           <p>
-            A key highlight was learning how RGB camera-based computer vision is applied in industrial environments for worker safety monitoring, action recognition, food yield estimation, and automated object counting.
+            The conference featured 50+ speakers and highlighted how data science and AI are being applied in real business environments — including supply chain optimization, plant imaging, GenAI, computer vision, and operational analytics. This experience strengthened my interest in using BI, analytics, and AI-driven insights to solve practical business problems.
           </p>
 
           <div class="project-tags">
+            <span>FASTCon 2026</span>
+            <span>MinneAnalytics</span>
             <span>Data Science</span>
             <span>AI</span>
-            <span>Computer Vision</span>
             <span>Supply Chain</span>
-            <span>Analytics Community</span>
+            <span>Business Analytics</span>
           </div>
         </div>
       </div>
@@ -1722,7 +1616,6 @@
 
     <section id="hobbies" class="section reveal">
       <span class="section-label">Beyond Analytics</span>
-
       <h2 class="heading">Hobbies & Creative Side</h2>
 
       <p class="section-intro">
@@ -1738,45 +1631,11 @@
           </p>
 
           <div class="book-list">
-            <div class="book-item">
-              <i class="fa-solid fa-book"></i>
-              <div>
-                <strong>You Are the Best Wife</strong>
-                <span>Ajay K. Pandey</span>
-              </div>
-            </div>
-
-            <div class="book-item">
-              <i class="fa-solid fa-book"></i>
-              <div>
-                <strong>Her Last Wish</strong>
-                <span>Ajay K. Pandey</span>
-              </div>
-            </div>
-
-            <div class="book-item">
-              <i class="fa-solid fa-book"></i>
-              <div>
-                <strong>You Are the Best Friend</strong>
-                <span>Ajay K. Pandey</span>
-              </div>
-            </div>
-
-            <div class="book-item">
-              <i class="fa-solid fa-book"></i>
-              <div>
-                <strong>Amma Diarylo Konni Pageelu</strong>
-                <span>Ravi Mantri</span>
-              </div>
-            </div>
-
-            <div class="book-item">
-              <i class="fa-solid fa-book"></i>
-              <div>
-                <strong>Dheera Sameere Ganga Teere</strong>
-                <span>Ravi Mantri</span>
-              </div>
-            </div>
+            <div class="book-item"><i class="fa-solid fa-book"></i><div><strong>You Are the Best Wife</strong><span>Ajay K. Pandey</span></div></div>
+            <div class="book-item"><i class="fa-solid fa-book"></i><div><strong>Her Last Wish</strong><span>Ajay K. Pandey</span></div></div>
+            <div class="book-item"><i class="fa-solid fa-book"></i><div><strong>You Are the Best Friend</strong><span>Ajay K. Pandey</span></div></div>
+            <div class="book-item"><i class="fa-solid fa-book"></i><div><strong>Amma Diarylo Konni Pageelu</strong><span>Ravi Mantri</span></div></div>
+            <div class="book-item"><i class="fa-solid fa-book"></i><div><strong>Dheera Sameere Ganga Teere</strong><span>Ravi Mantri</span></div></div>
           </div>
 
           <div class="hobby-tags">
@@ -1789,13 +1648,10 @@
 
         <div class="painting-card reveal">
           <img src="image/my-painting.jpg" alt="Painting by Sruthi" />
-
           <div class="painting-overlay">
             <div>
               <h3>Painting by Sruthi</h3>
-              <p>
-                Painting helps me observe details, balance colors, and think visually — the same mindset I bring to dashboard design and BI storytelling.
-              </p>
+              <p>Painting helps me observe details, balance colors, and think visually — the same mindset I bring to dashboard design and BI storytelling.</p>
             </div>
           </div>
         </div>
@@ -1804,14 +1660,12 @@
 
     <section id="education" class="section reveal">
       <span class="section-label">Academic Core</span>
-
       <h2 class="heading">Education</h2>
 
       <div class="timeline">
         <div class="item reveal">
           <h4>M.S. in Data Science</h4>
           <span class="sub">University of St. Thomas, St. Paul, MN | Aug 2024 - May 2026</span>
-
           <ul>
             <li>Relevant coursework: Data Analytics & Visualization, SQL, Data Warehousing, Data Lakes, Machine Learning, and AI.</li>
           </ul>
@@ -1826,7 +1680,6 @@
 
     <section id="achievements" class="section alt reveal">
       <span class="section-label">Recognition</span>
-
       <h2 class="heading">Achievements</h2>
 
       <p class="section-intro">
@@ -1843,9 +1696,7 @@
       <div class="contact-panel">
         <div class="contact-copy">
           <span class="section-label" style="color:#a7f3d0;">Connect</span>
-
           <h2>Let’s build decision-ready analytics.</h2>
-
           <p>
             Open to Data Analyst, BI Analyst, Reporting Analyst, and analytics-focused roles where I can combine technical analysis, business communication, and dashboard-driven decision support.
           </p>
